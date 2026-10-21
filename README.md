@@ -1,6 +1,6 @@
 # Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3
 
-Code, data and logs accompanying the note *Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3, with an elementary formula for the Mazur–Tate pairing* (Rauf Alencar, October 2026). The note is in [`note/note_rev80.md`](note/note_rev80.md).
+Code, data and logs accompanying the note *Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3, with an elementary formula for the Mazur–Tate pairing* (Rauf Alencar, October 2026). The note (version 0.1) is in [`note/Alencar_MazurTate_rank2_3_v0.1.pdf`](note/Alencar_MazurTate_rank2_3_v0.1.pdf), with its source text in [`note/note_v0.1_rev111.md`](note/note_v0.1_rev111.md).
 
 **Status: unreviewed numerical note.** Nothing here proves or claims progress on the Birch and Swinnerton-Dyer conjecture. The results are numerical checks of existing conjectures; the open points are listed in §7 of the note.
 
