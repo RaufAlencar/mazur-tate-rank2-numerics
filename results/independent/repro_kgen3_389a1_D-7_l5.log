@@ -25,6 +25,6 @@ q=9319 dim=1 Tr ok:1 w=[0] p1=[2] p2=[0] qtw=[2]  #cands:2
 q=9391 dim=1 Tr ok:1 w=[2] p1=[0] p2=[1] qtw=[2]  #cands:2
 q=9781 dim=1 Tr ok:1 w=[2] p1=[2] p2=[1] qtw=[1]  #cands:2
 [389_[0,1,1,-2,0]_D-7_l5_p3] FINAL: prediction line [(0, 1), (0, 2)] | computed candidates (a,b,c) up to scalar: [[0, 1, 0], [0, 2, 0]] | primes 20, W trivial in 6 | 0s
-	Command being timed: "/home/rauf/bsdvenv/bin/python kgen3.py [0,1,1,-2,0] -7 5 3 120 300000 20"
+	Command being timed: "python kgen3.py [0,1,1,-2,0] -7 5 3 120 300000 20"
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.52
 	Maximum resident set size (kbytes): 41940
