@@ -2,3 +2,4 @@ code/research/data/
 __pycache__/
 *.pyc
 kfull_*.gp
+results/independent/*_rerun.json

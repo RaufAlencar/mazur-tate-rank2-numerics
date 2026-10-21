@@ -1,9 +1,12 @@
 # PASSO 2 do teste cego: roda a identidade com as previsões já gravadas em blind_predictions.json.
-import cypari2, json, sys, time
+import cypari2, json, sys, time, os
+HERE = os.path.dirname(os.path.abspath(__file__))
+RES = os.path.join(HERE, "..", "..", "results", "independent")
+os.chdir(HERE)
 pari = cypari2.Pari()
 pari.allocatemem(3 * 10**9)
 pari('read("mt_indep.gp")')
-pred = json.load(open("blind_predictions.json"))["curvas"]
+pred = json.load(open(os.path.join(RES, "blind_predictions.json")))["curvas"]
 MMAX = {2: int(sys.argv[1]) if len(sys.argv) > 1 else 200, 3: int(sys.argv[2]) if len(sys.argv) > 2 else 150}
 summary = {}
 for label, c in pred.items():
@@ -25,4 +28,4 @@ for label, c in pred.items():
     summary[label] = dict(r=r, u_previsto=u, nao_triviais_ok=ok, falhas=bad, triviais=triv, fora_de_Ir=notin,
                           detalhes_falhas=fails[:10], segundos=round(time.time() - t0))
     print(label, summary[label], flush=True)
-json.dump(summary, open("blind_results.json", "w"), indent=1)
+json.dump(summary, open(os.path.join(RES, "blind_results_rerun.json"), "w"), indent=1)

@@ -1,8 +1,11 @@
 # Controles negativos: o teste precisa FALHAR com constante errada, sem c_Tam, ou com theta de outra curva.
-import cypari2, json
+import cypari2, json, os
+HERE = os.path.dirname(os.path.abspath(__file__))
+RES = os.path.join(HERE, "..", "..", "results", "independent")
+os.chdir(HERE)
 pari = cypari2.Pari(); pari.allocatemem(3 * 10**9)
 pari('read("mt_indep.gp")')
-pred = json.load(open("blind_predictions.json"))["curvas"]
+pred = json.load(open(os.path.join(RES, "blind_predictions.json")))["curvas"]
 
 def run(label, u, ctam, theta_from=None, mmax=200):
     c = pred[label]

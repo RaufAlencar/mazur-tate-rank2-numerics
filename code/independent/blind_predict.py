@@ -1,7 +1,10 @@
 # PASSO 1 do teste cego: registra a constante u_E PREVISTA pela fórmula da nota (§4),
 #   u_E = (-2)^r * c_inf / #tors^2,
 # para curvas que a nota não testou. Usa só invariantes da curva; não calcula nenhum theta nem pareamento.
-import cypari2, datetime, json
+import cypari2, datetime, json, os
+HERE = os.path.dirname(os.path.abspath(__file__))
+RES = os.path.join(HERE, "..", "..", "results", "independent")
+os.chdir(HERE)
 pari = cypari2.Pari()
 pari.allocatemem(10**9)
 
@@ -28,5 +31,5 @@ for label, a in CURVES.items():
     out["curvas"][label] = {"ainvs": a, "r": r, "c_inf": cinf, "tors": tors, "c_Tam": ctam,
                             "base": str(gens), "u_E_previsto": u}
     print(label, out["curvas"][label])
-json.dump(out, open("blind_predictions.json", "w"), indent=1, ensure_ascii=False)
-print("gravado blind_predictions.json em", out["registrado_em"])
+json.dump(out, open(os.path.join(RES, "blind_predictions_rerun.json"), "w"), indent=1, ensure_ascii=False)
+print("gravado blind_predictions_rerun.json (o registro original de 11:46 fica intacto) em", out["registrado_em"])
