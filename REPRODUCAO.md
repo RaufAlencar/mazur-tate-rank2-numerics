@@ -79,3 +79,21 @@ Hipóteses registradas antes de rodar em `sign_predictions_rank1.json` (13:29): 
 | 79a1 | 2 | 1 | 65 | 65 | 3 |
 
 **H_A confirmada (533/533), H_B refutada.** A lei u_E = (−2)ʳc∞/#tors² vale em r = 1, 2, 3; o fator entre a convenção da nota e o −1 fixo de Ota é (−1)^{r+1}, não (−1)^{r(r−1)/2} (nota) nem (−1)^{r(r+1)/2} (revisor).
+
+## 6. Posto 0 e a origem do sinal (`sign_rank0.py`, `ms_sign.py`)
+Sugerido pelo revisor externo. Hipóteses registradas às 13:54 em `sign_predictions_rank0.json`: H_A (lei da nota) u·tors² = +c∞·Ш; H_B (relação de Hecke Σ[a/m]⁺ = (a_m − 2)[0]⁺ + BSD, supondo [0]⁺ = +L/ω₁) u·tors² = −c∞·Ш. Em posto 0 a identidade é M⁻¹·a₀ ≡ u (mod n), a₀ = Σ_a [a/m]⁺ (racional quando há torção; tratado com aritmética exata — uma primeira rodada com um atalho errado para a₀ racional foi descartada).
+
+| Curva | c∞ | c_Tam | tors | Ш | níveis | H_A (+) | H_B (−) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 11a1 | 1 | 5 | 5 | 1 | 29 | 29 | 0 |
+| 14a1 | 1 | 6 | 6 | 1 | 18 | 18 | 0 |
+| 15a1 | 2 | 8 | 8 | 1 | 30 | 30 | 0 |
+| 32a1 | 1 | 4 | 4 | 1 | 39 | 39 | 0 |
+| 67a1 | 1 | 1 | 1 | 1 | 39 | 39 | 0 |
+| 75a1 | 1 | 1 | 1 | 1 | 27 | 27 | 0 |
+| 571a1 | 1 | 1 | 1 | **4** | 37 | 37 | 0 |
+| 681b1 | 2 | 4 | 4 | **9** | 30 | 30 | 0 |
+
+**H_A: 249/249.** A lei u_E = (−2)ʳ·c∞·#Ш/#tors² vale agora em r = 0, 1, 2, 3, e em posto 0 o fator #Ш (4 e 9) aparece exatamente — algo que os postos ≥ 2 não podiam testar, pois lá #Ш = 1 em todas as curvas.
+
+**Por que H_B errou — e o que isso resolve.** `ms_sign.py`: o símbolo do PARI dá `mseval(…, [0, oo])` = **−L(E,1)/ω₁** (67a1: −1 contra L/ω₁ = 1; 571a1: −4 contra 4; 11a1: −1/5 contra 1/5). Logo o θ_m calculado com `mseval([a/m, oo])` (nos scripts da pesquisa e nos meus) é **−θ_m na convenção de Mazur–Tate** que a nota declara em §1 ([0]⁺ = +L/ω₁). Consequência: na convenção de Mazur–Tate a constante é −(−2)ʳ·c∞Ш/tors², isto é, sinal −(−1)ʳ; invertendo a orientação do mapa de Artin nas unidades locais (que, pela §4(b) da nota, multiplica o det por (−1)ʳ), o sinal fica **−1 para todo r**, que é exatamente o (−1)^{ν(m)} de Ota em nível primo. O "sinal em aberto" reduz-se então a uma convenção verificada (o sinal do símbolo do PARI) e a uma escolha binária de orientação do Artin, consistente em r = 0, 1, 2, 3. A segunda parte ainda precisa ser conferida no texto de Ota antes de virar afirmação.

@@ -1,0 +1,7 @@
+{
+ "registrado_em": "2026-10-21T13:54:35-03:00",
+ "pergunta": "constante em posto 0: M^(-1) * c_0(m) == u * (det vazio = 1) mod n, com c_0 = a_0 = soma dos simbolos [a/m]+",
+ "H_A_lei_da_nota": "u * tors^2 = (-2)^0 * c_inf * Sha = + c_inf * Sha",
+ "H_B_Hecke_mais_BSD": "soma [a/m]+ = (a_m - 2)[0]+ e M = c_Tam (m+1-a_m) == c_Tam (2-a_m) mod n  =>  u = -[0]+/c_Tam; com BSD [0]+ = L/omega1 = Sha c_Tam c_inf / tors^2  =>  u * tors^2 = - c_inf * Sha",
+ "curvas": ["11a1 (tors 5)","14a1 (tors 6)","15a1 (tors 8)","32a1 (tors 4, CM)","67a1 (tors 1)","75a1 (tors 1)","571a1 (tors 1, Sha 4)","681b1 (tors 4, Sha 9)"]
+}

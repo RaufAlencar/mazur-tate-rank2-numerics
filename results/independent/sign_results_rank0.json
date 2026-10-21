@@ -1,0 +1,90 @@
+{
+ "11a1": {
+  "c_inf": 1,
+  "c_Tam": 5,
+  "tors": 5,
+  "Sha": 1,
+  "niveis": 29,
+  "acertos": {
+   "H_A(+)": 29,
+   "H_B(-)": 0
+  }
+ },
+ "14a1": {
+  "c_inf": 1,
+  "c_Tam": 6,
+  "tors": 6,
+  "Sha": 1,
+  "niveis": 18,
+  "acertos": {
+   "H_A(+)": 18,
+   "H_B(-)": 0
+  }
+ },
+ "15a1": {
+  "c_inf": 2,
+  "c_Tam": 8,
+  "tors": 8,
+  "Sha": 1,
+  "niveis": 30,
+  "acertos": {
+   "H_A(+)": 30,
+   "H_B(-)": 0
+  }
+ },
+ "32a1": {
+  "c_inf": 1,
+  "c_Tam": 4,
+  "tors": 4,
+  "Sha": 1,
+  "niveis": 39,
+  "acertos": {
+   "H_A(+)": 39,
+   "H_B(-)": 0
+  }
+ },
+ "67a1": {
+  "c_inf": 1,
+  "c_Tam": 1,
+  "tors": 1,
+  "Sha": 1,
+  "niveis": 39,
+  "acertos": {
+   "H_A(+)": 39,
+   "H_B(-)": 0
+  }
+ },
+ "75a1": {
+  "c_inf": 1,
+  "c_Tam": 1,
+  "tors": 1,
+  "Sha": 1,
+  "niveis": 27,
+  "acertos": {
+   "H_A(+)": 27,
+   "H_B(-)": 0
+  }
+ },
+ "571a1": {
+  "c_inf": 1,
+  "c_Tam": 1,
+  "tors": 1,
+  "Sha": 4,
+  "niveis": 37,
+  "acertos": {
+   "H_A(+)": 37,
+   "H_B(-)": 0
+  }
+ },
+ "681b1": {
+  "c_inf": 2,
+  "c_Tam": 4,
+  "tors": 4,
+  "Sha": 9,
+  "niveis": 30,
+  "acertos": {
+   "H_A(+)": 30,
+   "H_B(-)": 0
+  }
+ }
+}
