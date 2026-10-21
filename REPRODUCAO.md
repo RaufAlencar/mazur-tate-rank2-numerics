@@ -97,3 +97,16 @@ Sugerido pelo revisor externo. Hipóteses registradas às 13:54 em `sign_predict
 **H_A: 249/249.** A lei u_E = (−2)ʳ·c∞·#Ш/#tors² vale agora em r = 0, 1, 2, 3, e em posto 0 o fator #Ш (4 e 9) aparece exatamente — algo que os postos ≥ 2 não podiam testar, pois lá #Ш = 1 em todas as curvas.
 
 **Por que H_B errou — e o que isso resolve.** `ms_sign.py`: o símbolo do PARI dá `mseval(…, [0, oo])` = **−L(E,1)/ω₁** (67a1: −1 contra L/ω₁ = 1; 571a1: −4 contra 4; 11a1: −1/5 contra 1/5). Logo o θ_m calculado com `mseval([a/m, oo])` (nos scripts da pesquisa e nos meus) é **−θ_m na convenção de Mazur–Tate** que a nota declara em §1 ([0]⁺ = +L/ω₁). Consequência: na convenção de Mazur–Tate a constante é −(−2)ʳ·c∞Ш/tors², isto é, sinal −(−1)ʳ; invertendo a orientação do mapa de Artin nas unidades locais (que, pela §4(b) da nota, multiplica o det por (−1)ʳ), o sinal fica **−1 para todo r**, que é exatamente o (−1)^{ν(m)} de Ota em nível primo. O "sinal em aberto" reduz-se então a uma convenção verificada (o sinal do símbolo do PARI) e a uma escolha binária de orientação do Artin, consistente em r = 0, 1, 2, 3. A segunda parte ainda precisa ser conferida no texto de Ota antes de virar afirmação.
+
+## 7. Implicação de Ota em p = 3, 5, 7, 11, 13 (`ota_implication.py`, `ota_implication.log`)
+Sugerido pelo revisor externo depois de constatarmos que Ota (2018) prova seus resultados só com 2 e 3 invertidos em R (Thm. 1.2, condição (i): p | 6N·|E(F_p)|·∏ c_ℓ ⇒ p invertível; também exige curva sem CM, ρ̄ sobrejetiva e E(F_ℓ)[p] cíclico; §3 e §5 fixam p ≥ 5). A nota (§4, "The vanishing levels") usava a implicação "termo líder ≢ 0 mod p ⇒ p ∤ J_m" em p = 3, fora dessas hipóteses.
+Teste: para primos m com p | n = (m−1)/2 e p | J_m (J_m = #E(F_m)/#⟨P_i mod m⟩, curvas com c_Tam = 1 e torção trivial), verificar c_r(m) ≡ 0 mod p. Curvas 389a1, 709a1, 433a1, 563a1, 643a1, 997b1, 571b1 (m ≤ 3000) e 5077a1 (m ≤ 1500).
+
+| p | níveis com p ∣ J_m | c_r ≡ 0 mod p | violações |
+| --- | --- | --- | --- |
+| 3 (fora do teorema) | 62 | 62 | 0 |
+| 5 | 5 | 5 | 0 |
+| 7 | 4 | 4 | 0 |
+| 11, 13 | 0 | — | — |
+
+Nenhuma violação. Ressalvas: em p ≥ 5 os casos que testam a implicação são poucos (9) por natureza; as demais hipóteses de Ota (ρ̄ sobrejetiva, E(F_m)[p] cíclico) não foram conferidas caso a caso. Observação: a verificação de θ_m ∈ Iʳ feita nas seções anteriores é sobre Z, inclusive nas partes 2 e 3, que o Thm. 1.2 de Ota não cobre.
