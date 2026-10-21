@@ -1,6 +1,6 @@
 # Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3
 
-Code, data and logs accompanying the note *Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3, with an elementary formula for the Mazur–Tate pairing* (Rauf Alencar, October 2026). The note (version 0.1) is in [`note/Alencar_MazurTate_rank2_3_v0.1.pdf`](note/Alencar_MazurTate_rank2_3_v0.1.pdf), with its source text in [`note/note_v0.1_rev111.md`](note/note_v0.1_rev111.md).
+Code, data and logs accompanying the note *Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3, with an elementary formula for the Mazur–Tate pairing* (Rauf Alencar, October 2026). The current version of the note is **v0.2**: [`note/Alencar_MazurTate_rank0-3_v0.2.pdf`](note/Alencar_MazurTate_rank0-3_v0.2.pdf) (source text [`note/note_v0.2_rev131.md`](note/note_v0.2_rev131.md)). Version 0.1, as sent to two experts on 21 October 2026, is kept unchanged in [`note/Alencar_MazurTate_rank2_3_v0.1.pdf`](note/Alencar_MazurTate_rank2_3_v0.1.pdf) (git tag `v0.1`). v0.2 corrects a wrong statement about the sign in v0.1, explains the sign (PARI's modular-symbol sign and the Artin-map orientation), restricts the use of Ota's theorem to p ≥ 5, and adds ranks 0 and 1; see [`REPRODUCAO.md`](REPRODUCAO.md) §5–§7.
 
 **Status: unreviewed numerical note.** Nothing here proves or claims progress on the Birch and Swinnerton-Dyer conjecture. The results are numerical checks of existing conjectures; the open points are listed in §7 of the note.
 
