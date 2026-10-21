@@ -110,3 +110,6 @@ Teste: para primos m com p | n = (m−1)/2 e p | J_m (J_m = #E(F_m)/#⟨P_i mod 
 | 11, 13 | 0 | — | — |
 
 Nenhuma violação. Ressalvas: em p ≥ 5 os casos que testam a implicação são poucos (9) por natureza; as demais hipóteses de Ota (ρ̄ sobrejetiva, E(F_m)[p] cíclico) não foram conferidas caso a caso. Observação: a verificação de θ_m ∈ Iʳ feita nas seções anteriores é sobre Z, inclusive nas partes 2 e 3, que o Thm. 1.2 de Ota não cobre.
+
+### 7b. Extensão até m ≤ 10000 (389a1 e 709a1; `ota_implication_10k.py`, `.log`)
+Sugerida pelo revisor externo. p = 5: 389a1 2 níveis com 5 | J_m (1 novo além de m ≤ 3000), 709a1 4 níveis (2 novos); todos com c_r ≡ 0 mod 5. p = 7, 11, 13: nenhum nível com p | J_m e p | n até 10000. Total em p ≥ 5, somando a §7: **12 níveis, 0 violações.** Os casos são raros por natureza (exigem p | (m−1)/2, p | #E(F_m) e falha de sobrejetividade de E(Q) → E(F_m)⊗Z_p), de modo que estender m rende pouco.

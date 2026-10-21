@@ -1,0 +1,48 @@
+{
+ "389a1": {
+  "r": 2,
+  "5": {
+   "p_divide_J": 2,
+   "c_zero_quando_p_divide_J": 2,
+   "violacoes": []
+  },
+  "7": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  },
+  "11": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  },
+  "13": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  }
+ },
+ "709a1": {
+  "r": 2,
+  "5": {
+   "p_divide_J": 4,
+   "c_zero_quando_p_divide_J": 4,
+   "violacoes": []
+  },
+  "7": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  },
+  "11": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  },
+  "13": {
+   "p_divide_J": 0,
+   "c_zero_quando_p_divide_J": 0,
+   "violacoes": []
+  }
+ }
+}
