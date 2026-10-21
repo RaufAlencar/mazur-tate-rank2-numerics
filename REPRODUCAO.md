@@ -106,10 +106,26 @@ Teste: para primos m com p | n = (m−1)/2 e p | J_m (J_m = #E(F_m)/#⟨P_i mod 
 | --- | --- | --- | --- |
 | 3 (fora do teorema) | 62 | 62 | 0 |
 | 5 | 5 | 5 | 0 |
-| 7 | 4 | 4 | 0 |
+| 7 | 3 | 3 | 0 |
 | 11, 13 | 0 | — | — |
 
-Nenhuma violação. Ressalvas: em p ≥ 5 os casos que testam a implicação são poucos (9) por natureza; as demais hipóteses de Ota (ρ̄ sobrejetiva, E(F_m)[p] cíclico) não foram conferidas caso a caso. Observação: a verificação de θ_m ∈ Iʳ feita nas seções anteriores é sobre Z, inclusive nas partes 2 e 3, que o Thm. 1.2 de Ota não cobre.
+Nenhuma violação. **Correção (21/10, 18h): a primeira versão desta tabela dizia 4 níveis em p = 7; o log (`ota_implication.log`) mostra 3 (563a1, 643a1, 997b1). Total em p ≥ 5 até m ≤ 3000: 8, não 9.** Ressalvas: em p ≥ 5 os casos que testam a implicação são poucos (8) por natureza; as demais hipóteses de Ota (ρ̄ sobrejetiva, E(F_m)[p] cíclico) não foram conferidas caso a caso. Observação: a verificação de θ_m ∈ Iʳ feita nas seções anteriores é sobre Z, inclusive nas partes 2 e 3, que o Thm. 1.2 de Ota não cobre.
 
 ### 7b. Extensão até m ≤ 10000 (389a1 e 709a1; `ota_implication_10k.py`, `.log`)
-Sugerida pelo revisor externo. p = 5: 389a1 2 níveis com 5 | J_m (1 novo além de m ≤ 3000), 709a1 4 níveis (2 novos); todos com c_r ≡ 0 mod 5. p = 7, 11, 13: nenhum nível com p | J_m e p | n até 10000. Total em p ≥ 5, somando a §7: **12 níveis, 0 violações.** Os casos são raros por natureza (exigem p | (m−1)/2, p | #E(F_m) e falha de sobrejetividade de E(Q) → E(F_m)⊗Z_p), de modo que estender m rende pouco.
+Sugerida pelo revisor externo. p = 5: 389a1 2 níveis com 5 | J_m (1 novo além de m ≤ 3000), 709a1 4 níveis (2 novos); todos com c_r ≡ 0 mod 5. p = 7, 11, 13: nenhum nível com p | J_m e p | n até 10000. Total em p ≥ 5, somando a §7: **11 níveis (8 em p = 5, 3 em p = 7), 0 violações** (a versão anterior desta linha dizia 12, herdando o erro da §7). Os casos são raros por natureza (exigem p | (m−1)/2, p | #E(F_m) e falha de sobrejetividade de E(Q) → E(F_m)⊗Z_p), de modo que estender m rende pouco.
+
+### 7c. Hipóteses de Ota nos 11 níveis com p ∈ {5, 7} (`ota_hypotheses.py`, `.log`)
+Conferidas as hipóteses do Thm. 1.2 de Ota que dá para checar: E sem CM; p ∤ 6N·#E(F_p)·∏c_ℓ (aqui ∏c_ℓ = 1); E(F_m)[p] cíclico; ρ̄_p sobrejetiva — as 8 curvas têm condutor primo (semiestáveis), e para E semiestável ρ̄_p é sobrejetiva ou redutível (Serre 1972, Prop. 21); `ellisomat` não encontra isogenia racional de grau 5 ou 7 em nenhuma delas, logo ρ̄_5 e ρ̄_7 são sobrejetivas.
+
+| curva | p | m | sem CM | p ∤ 6N | p ∤ #E(F_p) | sem isogenia de grau p | E(F_m)[p] cíclico |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 389a1 | 5 | 1831 | ✓ | ✓ | ✓ | ✓ | **✗** |
+| 389a1 | 5 | 6691 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 709a1 | 5 | 211, 881, 3571, 4231 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 563a1 | 7 | 2857 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 643a1 | 5 | 2111 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 643a1 | 7 | 1499 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 997b1 | 5 | 2111 | ✓ | ✓ | **✗** (5 ∣ #E(F_5)) | ✓ | ✓ |
+| 997b1 | 7 | 1051 | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+**9 dos 11 níveis satisfazem todas as hipóteses conferidas** (estão no alcance do teorema de Ota); 2 estão fora (389a1 m = 1831: E(F_m)[5] ≅ (Z/5)²; 997b1 em p = 5: 5 ∣ #E(F_5)). Nenhum dos 11 viola a implicação.

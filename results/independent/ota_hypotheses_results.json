@@ -1,0 +1,123 @@
+[
+ {
+  "curva": "389a1",
+  "p": 5,
+  "m": 1831,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": false
+ },
+ {
+  "curva": "389a1",
+  "p": 5,
+  "m": 6691,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "709a1",
+  "p": 5,
+  "m": 211,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "709a1",
+  "p": 5,
+  "m": 881,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "709a1",
+  "p": 5,
+  "m": 3571,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "709a1",
+  "p": 5,
+  "m": 4231,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "563a1",
+  "p": 7,
+  "m": 2857,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "643a1",
+  "p": 5,
+  "m": 2111,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "643a1",
+  "p": 7,
+  "m": 1499,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "997b1",
+  "p": 5,
+  "m": 2111,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": false,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ },
+ {
+  "curva": "997b1",
+  "p": 7,
+  "m": 1051,
+  "sem_CM": true,
+  "p_nao_divide_6N": true,
+  "p_nao_divide_EFp": true,
+  "condutor_primo": true,
+  "isogenia_grau_p": false,
+  "EFm_p_ciclico": true
+ }
+]

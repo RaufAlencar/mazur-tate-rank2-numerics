@@ -1,0 +1,13 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+{'curva': '389a1', 'p': 5, 'm': 1831, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': False}
+{'curva': '389a1', 'p': 5, 'm': 6691, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '709a1', 'p': 5, 'm': 211, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '709a1', 'p': 5, 'm': 881, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '709a1', 'p': 5, 'm': 3571, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '709a1', 'p': 5, 'm': 4231, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '563a1', 'p': 7, 'm': 2857, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '643a1', 'p': 5, 'm': 2111, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '643a1', 'p': 7, 'm': 1499, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '997b1', 'p': 5, 'm': 2111, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': False, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+{'curva': '997b1', 'p': 7, 'm': 1051, 'sem_CM': True, 'p_nao_divide_6N': True, 'p_nao_divide_EFp': True, 'condutor_primo': True, 'isogenia_grau_p': False, 'EFm_p_ciclico': True}
+níveis: 11 | todas as hipóteses conferidas valem: False
