@@ -1,0 +1,4 @@
+  ***   Warning: not enough memory, new PARI stack 7000002560
+PARI stack size set to 7000002560 bytes, maximum size set to 7000002560
+[389a1_l53] 108 points, maxA=49403, terms=68805, 11s
+  x-poly recognition err 2.7e-299, max log10 den 150.0, max imag 0.0e+00

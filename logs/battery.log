@@ -1,0 +1,65 @@
+=== D=-7 l=17 (predicted: kappa=0) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-7_l17] 18 points, maxA=8558, terms=27952, 0s
+  x-poly recognition err 1.3e-193, max log10 den 22.6
+  polredbest 1s; g coeff max log10 3.4
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-7_l17] FINAL candidates (a,b,c): [[0, 0, 0]]  primes used 20, W trivial in 20; local 0s total 2s
+=== D=-11 l=17 (predicted: kappa!=0 line P1-P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-11_l17] 18 points, maxA=10503, terms=27367, 0s
+  x-poly recognition err 5.1e-199, max log10 den 30.9
+  polredbest 1s; g coeff max log10 4.7
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-11_l17] FINAL candidates (a,b,c): [[1, 2, 0]]  primes used 20, W trivial in 2; local 0s total 1s
+=== D=-11 l=29 (predicted: kappa=0) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-11_l29] 30 points, maxA=18283, terms=36284, 1s
+  x-poly recognition err 6.2e-254, max log10 den 58.8
+  polredbest 13s; g coeff max log10 10.6
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-11_l29] FINAL candidates (a,b,c): [[0, 0, 0]]  primes used 20, W trivial in 20; local 0s total 15s
+=== D=-19 l=29 (predicted: kappa!=0 line P1-P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-19_l29] 30 points, maxA=23729, terms=35833, 1s
+  x-poly recognition err 1.0e-253, max log10 den 59.1
+  polredbest 16s; g coeff max log10 9.6
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-19_l29] FINAL candidates (a,b,c): [[1, 2, 0]]  primes used 20, W trivial in 5; local 0s total 18s
+=== D=-7 l=41 (predicted: kappa!=0 line P1-P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-7_l41] 42 points, maxA=21784, terms=47160, 2s
+  x-poly recognition err 2.2e-304, max log10 den 88.8
+  polredbest 154s; g coeff max log10 14.5
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-7_l41] FINAL candidates (a,b,c): [[2, 1, 0]]  primes used 20, W trivial in 8; local 0s total 160s
+=== D=-11 l=41 (predicted: kappa!=0 line P1-P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-11_l41] 42 points, maxA=27619, terms=47697, 2s
+  x-poly recognition err 8.0e-302, max log10 den 82.7
+  polredbest 111s; g coeff max log10 17.9
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-11_l41] FINAL candidates (a,b,c): [[2, 1, 0]]  primes used 20, W trivial in 3; local 0s total 117s
+=== D=-19 l=41 (predicted: kappa!=0 line P1-P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-19_l41] 42 points, maxA=33065, terms=43454, 2s
+  x-poly recognition err 0.0e+00, max log10 den 91.2
+  polredbest 106s; g coeff max log10 18.7
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-19_l41] FINAL candidates (a,b,c): [[2, 1, 0]]  primes used 20, W trivial in 7; local 0s total 112s
+=== D=-19 l=53 (predicted: kappa=0) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-19_l53] 54 points, maxA=48625, terms=58682, 4s
+  x-poly recognition err 0.0e+00, max log10 den 113.0
+  polredbest 563s; g coeff max log10 28.8
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-19_l53] FINAL candidates (a,b,c): [[0, 0, 0]]  primes used 20, W trivial in 20; local 0s total 584s
+=== D=-7 l=59 (predicted: kappa!=0 line P2) ===

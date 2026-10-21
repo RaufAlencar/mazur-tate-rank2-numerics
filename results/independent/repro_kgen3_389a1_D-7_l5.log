@@ -1,0 +1,30 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389_[0,1,1,-2,0]_D-7_l5_p3] PREDICTION: line [(0, 1), (0, 2)]   (ker=[(0, 1), (0, 2)], twist gen 3-divisible at l: 0)
+  6 points, maxA=2723, terms=18165, 0s
+  x-poly recognition err 4.5e-120, max log10 den 3.1
+  polredbest 0s
+  y mode sqrtD
+q=1471 dim=1 Tr ok:1 w=[1] p1=[1] p2=[2] qtw=[0]  #cands:18
+q=1789 dim=1 Tr ok:1 w=[2] p1=[2] p2=[1] qtw=[0]  #cands:18
+q=2221 dim=1 Tr ok:1 w=[0] p1=[2] p2=[0] qtw=[2]  #cands:6
+q=2251 dim=1 Tr ok:1 w=[2] p1=[0] p2=[1] qtw=[0]  #cands:4
+q=2731 dim=1 Tr ok:1 w=[0] p1=[2] p2=[0] qtw=[0]  #cands:2
+q=3529 dim=2 Tr ok:1 w=[2, 1] p1=[2, 1] p2=[1, 2] qtw=[0, 0]  #cands:2
+q=3691 dim=2 Tr ok:1 w=[2, 0] p1=[0, 0] p2=[1, 0] qtw=[1, 2]  #cands:2
+q=4519 dim=1 Tr ok:1 w=[0] p1=[2] p2=[0] qtw=[0]  #cands:2
+q=6199 dim=2 Tr ok:1 w=[1, 1] p1=[0, 0] p2=[2, 2] qtw=[0, 0]  #cands:2
+q=6421 dim=2 Tr ok:1 w=[2, 1] p1=[2, 1] p2=[1, 2] qtw=[0, 0]  #cands:2
+q=6469 dim=2 Tr ok:1 w=[2, 1] p1=[0, 0] p2=[1, 2] qtw=[0, 0]  #cands:2
+q=6679 dim=1 Tr ok:1 w=[1] p1=[0] p2=[2] qtw=[2]  #cands:2
+q=6829 dim=2 Tr ok:1 w=[0, 0] p1=[2, 2] p2=[0, 0] qtw=[2, 2]  #cands:2
+q=7561 dim=1 Tr ok:1 w=[0] p1=[0] p2=[0] qtw=[0]  #cands:2
+q=7669 dim=1 Tr ok:1 w=[1] p1=[1] p2=[2] qtw=[0]  #cands:2
+q=8269 dim=2 Tr ok:1 w=[0, 2] p1=[2, 1] p2=[0, 1] qtw=[1, 2]  #cands:2
+q=9151 dim=2 Tr ok:1 w=[0, 2] p1=[2, 0] p2=[0, 1] qtw=[2, 0]  #cands:2
+q=9319 dim=1 Tr ok:1 w=[0] p1=[2] p2=[0] qtw=[2]  #cands:2
+q=9391 dim=1 Tr ok:1 w=[2] p1=[0] p2=[1] qtw=[2]  #cands:2
+q=9781 dim=1 Tr ok:1 w=[2] p1=[2] p2=[1] qtw=[1]  #cands:2
+[389_[0,1,1,-2,0]_D-7_l5_p3] FINAL: prediction line [(0, 1), (0, 2)] | computed candidates (a,b,c) up to scalar: [[0, 1, 0], [0, 2, 0]] | primes 20, W trivial in 6 | 0s
+	Command being timed: "/home/rauf/bsdvenv/bin/python kgen3.py [0,1,1,-2,0] -7 5 3 120 300000 20"
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.52
+	Maximum resident set size (kbytes): 41940

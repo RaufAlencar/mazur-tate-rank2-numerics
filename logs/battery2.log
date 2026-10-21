@@ -1,0 +1,26 @@
+=== D=-7 l=59 (predicted: kappa!=0 line P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-7_l59] 60 points, maxA=30731, terms=57777, 5s
+  x-poly recognition err 0.0e+00, max log10 den 125.8
+  polredbest 1223s; g coeff max log10 28.5
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-7_l59] FINAL candidates (a,b,c): [[0, 1, 0]]  primes used 20, W trivial in 9; local 1s total 1258s
+=== D=-19 l=59 (predicted: kappa!=0 line P2) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[389a1_D-19_l59] 60 points, maxA=50959, terms=58153, 5s
+  x-poly recognition err 0.0e+00, max log10 den 128.4
+  polredbest 1098s; g coeff max log10 35.7
+  resolvents ok
+  y-coordinate mode: sqrtD
+[389a1_D-19_l59] FINAL candidates (a,b,c): [[0, 1, 0]]  primes used 20, W trivial in 4; local 0s total 1135s
+=== D=-4 l=59 (predicted: kappa=0 (D=-4, units 4: degree may be 30)) ===
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-claude/3e963557-071e-5378-94ef-6245b6256453/scratchpad/kgen2.py", line 80, in <module>
+    out=run(D,l,PREC,qmax,maxq); json.dump({'D':D,'l':l,'result':out},open(f'result_D{D}_l{l}.json','w'))
+  File "/tmp/claude-0/-home-claude/3e963557-071e-5378-94ef-6245b6256453/scratchpad/kgen2.py", line 9, in run
+    pts,F,keys=r[0],r[1],[str(k) for k in r[2]]; h=len(keys); n=l+1; assert h==n,(h,n); log(f'[{tag}] {h} points, maxA={r[3]}, terms={r[4]}, {round(time.time()-t0)}s')
+                                                                            ^^^^
+AssertionError: (30, 60)
+BATTERY2_DONE

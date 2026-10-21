@@ -1,0 +1,52 @@
+PARI stack size set to 4000000000 bytes, maximum size set to 4000002048
+47 optimal rank-2 curves, N<= 1500
+389a    r_an=2 Reg=0.15246018 Sha=1.00000000 cremona=1 OK
+433a    r_an=2 Reg=0.22469416 Sha=1.00000000 cremona=1 OK
+446d    r_an=2 Reg=0.09734310 Sha=1.00000000 cremona=1 OK
+563a    r_an=2 Reg=0.21922900 Sha=1.00000000 cremona=1 OK
+571b    r_an=2 Reg=0.17725314 Sha=1.00000000 cremona=1 OK
+643a    r_an=2 Reg=0.22917962 Sha=1.00000000 cremona=1 OK
+655a    r_an=2 Reg=0.09895352 Sha=1.00000000 cremona=1 OK
+664a    r_an=2 Reg=0.09667605 Sha=1.00000000 cremona=1 OK
+681c    r_an=2 Reg=0.13607969 Sha=1.00000000 cremona=1 OK
+707a    r_an=2 Reg=0.11285746 Sha=1.00000000 cremona=1 OK
+709a    r_an=2 Reg=0.25868317 Sha=1.00000000 cremona=1 OK
+718b    r_an=2 Reg=0.16985836 Sha=1.00000000 cremona=1 OK
+794a    r_an=2 Reg=0.14904999 Sha=1.00000000 cremona=1 OK
+817a    r_an=2 Reg=0.25625638 Sha=1.00000000 cremona=1 OK
+916c    r_an=2 Reg=0.13646820 Sha=1.00000000 cremona=1 OK
+944e    r_an=2 Reg=0.11786068 Sha=1.00000000 cremona=1 OK
+997b    r_an=2 Reg=0.57101926 Sha=1.00000000 cremona=1 OK
+997c    r_an=2 Reg=0.24970547 Sha=1.00000000 cremona=1 OK
+1001c   r_an=2 Reg=0.03601075 Sha=1.00000000 cremona=1 OK
+1028a   r_an=2 Reg=0.13646823 Sha=1.00000000 cremona=1 OK
+1034a   r_an=2 Reg=0.15776797 Sha=1.00000000 cremona=1 OK
+1058c   r_an=2 Reg=0.20624092 Sha=1.00000000 cremona=1 OK
+1070a   r_an=2 Reg=0.08783048 Sha=1.00000000 cremona=1 OK
+1073a   r_an=2 Reg=0.25012060 Sha=1.00000000 cremona=1 OK
+1077a   r_an=2 Reg=0.20175491 Sha=1.00000000 cremona=1 OK
+1088j   r_an=2 Reg=0.53166563 Sha=1.00000000 cremona=1 OK
+1094a   r_an=2 Reg=0.16610818 Sha=1.00000000 cremona=1 OK
+1102a   r_an=2 Reg=0.14821179 Sha=1.00000000 cremona=1 OK
+1126a   r_an=2 Reg=0.22939247 Sha=1.00000000 cremona=1 OK
+1132a   r_an=2 Reg=0.15022426 Sha=1.00000000 cremona=1 OK
+1137a   r_an=2 Reg=0.19842384 Sha=1.00000000 cremona=1 OK
+1141a   r_an=2 Reg=0.12341228 Sha=1.00000000 cremona=1 OK
+1143c   r_an=2 Reg=0.11342318 Sha=1.00000000 cremona=1 OK
+1147a   r_an=2 Reg=0.29162343 Sha=1.00000000 cremona=1 OK
+1171a   r_an=2 Reg=0.33670298 Sha=1.00000000 cremona=1 OK
+1246c   r_an=2 Reg=0.12706134 Sha=1.00000000 cremona=1 OK
+1309b   r_an=2 Reg=0.10619669 Sha=1.00000000 cremona=1 OK
+1324a   r_an=2 Reg=0.22292363 Sha=1.00000000 cremona=1 OK
+1325e   r_an=2 Reg=0.14360935 Sha=1.00000000 cremona=1 OK
+1431a   r_an=2 Reg=0.28613126 Sha=1.00000000 cremona=1 OK
+1436a   r_an=2 Reg=0.22782319 Sha=1.00000000 cremona=1 OK
+1443c   r_an=2 Reg=0.79046310 Sha=1.00000000 cremona=1 OK
+1446a   r_an=2 Reg=0.11919891 Sha=1.00000000 cremona=1 OK
+1466b   r_an=2 Reg=0.08873156 Sha=1.00000000 cremona=1 OK
+1477a   r_an=2 Reg=0.21082348 Sha=1.00000000 cremona=1 OK
+1480a   r_an=2 Reg=0.08132049 Sha=1.00000000 cremona=1 OK
+1483a   r_an=2 Reg=0.39528819 Sha=1.00000000 cremona=1 OK
+time 5 s
+Sha distribution {1: 47}
+problems []

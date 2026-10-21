@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Numerical verification of the refined Mazur–Tate conjecture in ranks 2 and 3"
+authors:
+  - family-names: Alencar
+    given-names: Rauf
+date-released: 2026-10-21
+version: "0.1-unreviewed"
+license: MIT

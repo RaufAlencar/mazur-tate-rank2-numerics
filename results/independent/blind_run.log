@@ -1,0 +1,8 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+563a1 {'r': 2, 'u_previsto': 4, 'nao_triviais_ok': 34, 'falhas': 0, 'triviais': 9, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 1}
+643a1 {'r': 2, 'u_previsto': 4, 'nao_triviais_ok': 36, 'falhas': 0, 'triviais': 7, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 1}
+664a1 {'r': 2, 'u_previsto': 4, 'nao_triviais_ok': 36, 'falhas': 0, 'triviais': 6, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 23}
+681c1 {'r': 2, 'u_previsto': 4, 'nao_triviais_ok': 37, 'falhas': 0, 'triviais': 6, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 5}
+707a1 {'r': 2, 'u_previsto': 8, 'nao_triviais_ok': 33, 'falhas': 0, 'triviais': 8, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 4}
+997b1 {'r': 2, 'u_previsto': 8, 'nao_triviais_ok': 35, 'falhas': 0, 'triviais': 8, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 2}
+11197a1 {'r': 3, 'u_previsto': -16, 'nao_triviais_ok': 26, 'falhas': 0, 'triviais': 6, 'fora_de_Ir': 0, 'detalhes_falhas': [], 'segundos': 7}

@@ -1,0 +1,26 @@
+secao,experimento,curva,parametros,previsto,resultado,status
+8,BSD forte,47 curvas posto 2 N<=1500,arquimediano,Sha inteiro,Sha=1 em 47/47,ok
+8,Sha em posto 2,279056 curvas N<=500000,tabela Cremona,-,0 curvas com Sha!=1,ok
+8,BSD p-adica,47 curvas p=3..13,ellpadicbsd,ord L_p = 2,190/190,ok
+10,P6 2-Selmer,348672 curvas posto 2 N<=500000,ellrank,limite superior 2,348672/348672,ok
+10,P2 reta Darmon-Rotger,389a1 196 instancias,h_p(P0 P0)/R_p,nao nulo,196/196 nao nulo,ok
+11,kappa_17,389a1 K=Q(sqrt-5) p=3,25 primos,reta P1-P2,-(P1-P2),ok
+11,controle kappa=0,43a1 K=Q(sqrt-8) l=29,15 primos,0,0 em 15/15,ok
+12,kappa_5,389a1 K=Q(sqrt-7) p=3,20 primos,reta P1+P2,-(P1+P2),ok
+12,kappa_17,389a1 K=Q(sqrt-7),20 primos,0,0,ok
+12,kappa_17,389a1 K=Q(sqrt-11),20 primos,P1-P2,P1-P2,ok
+12,kappa_29,389a1 K=Q(sqrt-11),20 primos,0,0,ok
+12,kappa_29,389a1 K=Q(sqrt-19),20 primos,P1-P2,P1-P2,ok
+12,kappa_41,389a1 K=Q(sqrt-7),20 primos,P1-P2,-(P1-P2),ok
+12,kappa_41,389a1 K=Q(sqrt-11),20 primos,P1-P2,-(P1-P2),ok
+12,kappa_41,389a1 K=Q(sqrt-19),20 primos,P1-P2,-(P1-P2),ok
+12,kappa_53,389a1 K=Q(sqrt-19),20 primos,0,0,ok
+12,kappa_59,389a1 K=Q(sqrt-7),20 primos,P2,P2,ok
+12,kappa_59,389a1 K=Q(sqrt-19),20 primos,P2,P2,ok
+16,kappa_19 p=5,389a1 K=Q(sqrt-7),20 primos,P1+P2,P1+P2,ok
+16,kappa_19 p=5,389a1 K=Q(sqrt-11),20 primos,P1+P2,P1+P2,ok
+16,kappa_47 p=3,571b1 K=Q(sqrt-7),20 primos,0,0,ok
+16,kappa_59 p=3,571b1 K=Q(sqrt-7),20 primos,P1+P2,P1+P2,ok
+16,kappa_47 p=3,571b1 K=Q(sqrt-8),20 primos,P1+P2,P1+P2,ok
+13,Mazur-Tate ord theta_m,11a1 37a1 389a1 446d1 5077a1,75 primos m=1 mod 9,ord>=posto,75/75,ok
+15,Mazur-Tate termo lider,389a1 p=3 m<=1200,20 primos com 3 nao divide #E(F_m),c2 = u*#E(F_m)*det,u=-1 em 20/20 (6 ambos nulos),ok

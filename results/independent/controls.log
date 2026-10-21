@@ -1,0 +1,10 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+563a1 com u certo = 4              acertos  34  falhas   0
+563a1 com u = -4                   acertos   2  falhas  32
+563a1 com u = 8                    acertos   0  falhas  34
+563a1 com u = 2                    acertos   0  falhas  34
+664a1 certo (c_Tam = 4)            acertos  36  falhas   0
+664a1 SEM c_Tam (=1)               acertos   2  falhas  37
+664a1 com c_Tam = 2                acertos   1  falhas  36
+563a1 pontos + theta de 643a1      acertos   1  falhas  38
+11197a1 com u = +16                acertos   0  falhas  26
