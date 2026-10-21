@@ -1,0 +1,9 @@
+[0,0,1,-13,18] rank gens [[1, 2], [3, 2]] Tamagawa prod 2 disc sign -1
+rank 2: tested 51, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('4', 51), ('8/2', 27), ('16/4', 27), ('32/8', 27), ('64/16', 27), ('256', 8)]
+[0,1,0,-5,4] rank gens [[1, 1], [-1, -3]] Tamagawa prod 3 disc sign -1
+rank 2: tested 45, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('4', 45), ('8/2', 26), ('16/4', 26), ('32/8', 26), ('64/16', 26), ('-256', 9)]
+[0,0,0,-4,1] rank gens [[0, 1], [2, 1]] Tamagawa prod 3 disc sign 1
+rank 2: tested 46, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('8', 46), ('16/2', 25), ('32/4', 25), ('64/8', 25), ('128/16', 25), ('128', 7)]
+Terminated
+
+[exited with code 143]

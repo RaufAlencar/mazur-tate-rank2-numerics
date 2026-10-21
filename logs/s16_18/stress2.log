@@ -1,0 +1,4 @@
+[0,1,0,-25,39] rank gens [[-1, 8], [7, 16]] Tamagawa prod 4 disc sign 1
+rank 2: tested 44, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('2', 44), ('4/2', 25), ('8/4', 25), ('16/8', 25), ('32/16', 25), ('128', 9)]
+[0,0,1,-7,6] rank gens [[1, -1], [2, -1], [0, -3]] Tamagawa prod 1 disc sign 1
+rank 3: tested 45, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('-16', 45), ('-32/2', 22), ('-64/4', 22), ('-128/8', 22), ('-256/16', 22), ('-256', 10)]

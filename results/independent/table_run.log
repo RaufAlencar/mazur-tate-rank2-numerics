@@ -1,0 +1,11 @@
+PARI stack size set to 4000000000 bytes, maximum size set to 4000002048
+389a1 {'r': 2, 'c_inf': 2, 'tors': 1, 'c_Tam': 1, 'u_E': '8/1', 'm_max': 600, 'ok': 90, 'falhas': 0, 'triviais': 15, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 27}
+709a1 {'r': 2, 'c_inf': 2, 'tors': 1, 'c_Tam': 1, 'u_E': '8/1', 'm_max': 400, 'ok': 65, 'falhas': 0, 'triviais': 10, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 7}
+446d1 {'r': 2, 'c_inf': 2, 'tors': 1, 'c_Tam': 2, 'u_E': '8/1', 'm_max': 400, 'ok': 62, 'falhas': 0, 'triviais': 12, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 47}
+571b1 {'r': 2, 'c_inf': 1, 'tors': 1, 'c_Tam': 1, 'u_E': '4/1', 'm_max': 330, 'ok': 55, 'falhas': 0, 'triviais': 8, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 3}
+5077a1 {'r': 3, 'c_inf': 2, 'tors': 1, 'c_Tam': 1, 'u_E': '-16/1', 'm_max': 330, 'ok': 47, 'falhas': 0, 'triviais': 16, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 17}
+655a1 {'r': 2, 'c_inf': 1, 'tors': 1, 'c_Tam': 2, 'u_E': '4/1', 'm_max': 330, 'ok': 55, 'falhas': 0, 'triviais': 7, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 24}
+1132a1 {'r': 2, 'c_inf': 1, 'tors': 1, 'c_Tam': 3, 'u_E': '4/1', 'm_max': 330, 'ok': 43, 'falhas': 0, 'triviais': 19, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 97}
+916c1 {'r': 2, 'c_inf': 2, 'tors': 1, 'c_Tam': 3, 'u_E': '8/1', 'm_max': 330, 'ok': 45, 'falhas': 0, 'triviais': 17, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 80}
+1088j1 {'r': 2, 'c_inf': 2, 'tors': 2, 'c_Tam': 4, 'u_E': '8/4', 'm_max': 300, 'ok': 47, 'falhas': 0, 'triviais': 11, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 734}
+433a1 {'r': 2, 'c_inf': 1, 'tors': 1, 'c_Tam': 1, 'u_E': '4/1', 'm_max': 200, 'ok': 37, 'falhas': 0, 'triviais': 6, 'fora_de_Ir': 0, 'detalhes': [], 'seg': 1}

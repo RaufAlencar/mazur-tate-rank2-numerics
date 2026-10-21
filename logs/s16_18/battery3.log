@@ -1,0 +1,32 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+11 jobs: [('[0,1,1,-2,0]', -7, 19, 5), ('[0,1,1,-2,0]', -11, 19, 5), ('[0,1,1,-4,2]', -7, 47, 3), ('[0,1,1,-4,2]', -7, 59, 3), ('[0,1,1,-4,2]', -8, 47, 3), ('[0,1,1,-4,2]', -19, 59, 3), ('[0,1,1,-4,2]', -67, 11, 3), ('[0,-1,1,-2,0]', -7, 5, 3), ('[0,-1,1,-2,0]', -7, 47, 3), ('[0,-1,1,-2,0]', -7, 59, 3), ('[0,-1,1,-2,0]', -19, 59, 3)]
+=== [0,1,1,-2,0] D=-7 l=19 p=5 PREC=150 ===
+[389_[0,1,1,-2,0]_D-7_l19_p5] PREDICTION: line [(1, 1), (2, 2), (3, 3), (4, 4)]   (ker=[(1, 1), (2, 2), (3, 3), (4, 4)], twist gen 5-divisible at l: 0)
+[389_[0,1,1,-2,0]_D-7_l19_p5] FINAL: prediction line [(1, 1), (2, 2), (3, 3), (4, 4)] | computed candidates (a,b,c) up to scalar: [[1, 1, 0], [2, 2, 0], [3, 3, 0], [4, 4, 0]] | primes 20, W trivial in 2 | 3s
+=== [0,1,1,-2,0] D=-11 l=19 p=5 PREC=150 ===
+[389_[0,1,1,-2,0]_D-11_l19_p5] PREDICTION: line [(1, 1), (2, 2), (3, 3), (4, 4)]   (ker=[(1, 1), (2, 2), (3, 3), (4, 4)], twist gen 5-divisible at l: 0)
+[389_[0,1,1,-2,0]_D-11_l19_p5] FINAL: prediction line [(1, 1), (2, 2), (3, 3), (4, 4)] | computed candidates (a,b,c) up to scalar: [[1, 1, 0], [2, 2, 0], [3, 3, 0], [4, 4, 0]] | primes 20, W trivial in 2 | 2s
+=== [0,1,1,-4,2] D=-7 l=47 p=3 PREC=300 ===
+[571_[0,1,1,-4,2]_D-7_l47_p3] PREDICTION: kappa=0   (ker=[(1, 1), (2, 2)], twist gen 3-divisible at l: 1)
+[571_[0,1,1,-4,2]_D-7_l47_p3] FINAL: prediction kappa=0 | computed candidates (a,b,c) up to scalar: [[0, 0, 0]] | primes 20, W trivial in 20 | 236s
+=== [0,1,1,-4,2] D=-7 l=59 p=3 PREC=380 ===
+[571_[0,1,1,-4,2]_D-7_l59_p3] PREDICTION: line [(1, 1), (2, 2)]   (ker=[(1, 1), (2, 2)], twist gen 3-divisible at l: 0)
+[571_[0,1,1,-4,2]_D-7_l59_p3] FINAL: prediction line [(1, 1), (2, 2)] | computed candidates (a,b,c) up to scalar: [[1, 1, 0], [2, 2, 0]] | primes 20, W trivial in 9 | 1105s
+=== [0,1,1,-4,2] D=-8 l=47 p=3 PREC=300 ===
+[571_[0,1,1,-4,2]_D-8_l47_p3] PREDICTION: line [(1, 1), (2, 2)]   (ker=[(1, 1), (2, 2)], twist gen 3-divisible at l: 0)
+[571_[0,1,1,-4,2]_D-8_l47_p3] FINAL: prediction line [(1, 1), (2, 2)] | computed candidates (a,b,c) up to scalar: [[1, 1, 0], [2, 2, 0]] | primes 20, W trivial in 5 | 336s
+=== [0,1,1,-4,2] D=-19 l=59 p=3 PREC=380 ===
+[571_[0,1,1,-4,2]_D-19_l59_p3] PREDICTION: kappa=0   (ker=[(1, 1), (2, 2)], twist gen 3-divisible at l: 1)
+cypari2.handle_error.PariError: precision too low in roundr (precision loss in truncation)
+=== [0,1,1,-4,2] D=-67 l=11 p=3 PREC=150 ===
+cypari2.handle_error.PariError: nonexistent component: index > 0
+=== [0,-1,1,-2,0] D=-7 l=5 p=3 PREC=150 ===
+[709_[0,-1,1,-2,0]_D-7_l5_p3] PREDICTION: line [(1, 0), (2, 0)]   (ker=[(1, 0), (2, 0)], twist gen 3-divisible at l: 0)
+[709_[0,-1,1,-2,0]_D-7_l5_p3] FINAL: prediction line [(1, 0), (2, 0)] | computed candidates (a,b,c) up to scalar: [[1, 0, 0], [2, 0, 0]] | primes 20, W trivial in 6 | 0s
+=== [0,-1,1,-2,0] D=-7 l=47 p=3 PREC=300 ===
+[709_[0,-1,1,-2,0]_D-7_l47_p3] PREDICTION: kappa=0   (ker=[(1, 1), (2, 2)], twist gen 3-divisible at l: 1)
+[709_[0,-1,1,-2,0]_D-7_l47_p3] FINAL: prediction kappa=0 | computed candidates (a,b,c) up to scalar: [[0, 0, 0]] | primes 20, W trivial in 20 | 198s
+=== [0,-1,1,-2,0] D=-7 l=59 p=3 PREC=380 ===
+[709_[0,-1,1,-2,0]_D-7_l59_p3] PREDICTION: line [(1, 2), (2, 1)]   (ker=[(1, 2), (2, 1)], twist gen 3-divisible at l: 0)
+[709_[0,-1,1,-2,0]_D-7_l59_p3] FINAL: prediction line [(1, 2), (2, 1)] | computed candidates (a,b,c) up to scalar: [[1, 2, 0], [2, 1, 0]] | primes 20, W trivial in 6 | 883s
+=== [0,-1,1,-2,0] D=-19 l=59 p=3 PREC=380 ===

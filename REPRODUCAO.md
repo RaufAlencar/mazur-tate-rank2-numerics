@@ -44,3 +44,21 @@ O teste falha quando deve: constante errada (563a1 com u = −4, 8, 2: 0–2 ace
 
 ## Conclusão
 A identidade da nota, incluindo a regra para u_E e o papel de c_Tam, foi confirmada por uma implementação independente e por uma previsão cega em curvas novas. Ressalvas que continuam valendo (nota §7): sinal (−1)ʳ vs (−1)^{ν(m)} em aberto; lema δ = 1 em ℓ = 2 não provado; fórmula do emparelhamento derivada assumindo a descrição de Néron dos splittings. Reprodução no mesmo PARI/GP 2.17.2 — independente no código, não na biblioteca.
+
+## 4. As 10 curvas da tabela da nota, com a implementação independente (`table_run.py`, `table_run.log`)
+Constante FIXA pela fórmula u_E = (−2)ʳ·c∞/#tors² (para 1088j1, testado tors²·lhs ≡ (−2)ʳ·c∞·det, sem dividir mod n). Base: a da nota para 389a1; saturada do `ellrank` nas demais.
+
+| Curva | r | c∞ | tors | c_Tam | u_E | m ≤ | não triviais OK | falhas | θ_m ∉ Iʳ |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 389a1 | 2 | 2 | 1 | 1 | 8 | 600 | 90 | 0 | 0 |
+| 709a1 | 2 | 2 | 1 | 1 | 8 | 400 | 65 | 0 | 0 |
+| 446d1 | 2 | 2 | 1 | 2 | 8 | 400 | 62 | 0 | 0 |
+| 571b1 | 2 | 1 | 1 | 1 | 4 | 330 | 55 | 0 | 0 |
+| 5077a1 | 3 | 2 | 1 | 1 | −16 | 330 | 47 | 0 | 0 |
+| 655a1 | 2 | 1 | 1 | 2 | 4 | 330 | 55 | 0 | 0 |
+| 1132a1 | 2 | 1 | 1 | 3 | 4 | 330 | 43 | 0 | 0 |
+| 916c1 | 2 | 2 | 1 | 3 | 8 | 330 | 45 | 0 | 0 |
+| 1088j1 | 2 | 2 | 2 | 4 | 8/4 = 2 | 300 | 47 | 0 | 0 |
+| 433a1 | 2 | 1 | 1 | 1 | 4 | 200 | 37 | 0 | 0 |
+
+**Total da implementação independente: 17 curvas (10 da nota + 7 cegas), 783 níveis não triviais, 0 falhas.**

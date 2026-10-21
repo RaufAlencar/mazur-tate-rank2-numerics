@@ -1,0 +1,4 @@
+[0,1,1,-4,2] rank gens [[1, -1], [0, -2]] Tamagawa prod 1 disc sign -1
+rank 2: tested 54, theta not in I^r: 0; best u (2^r M^(2r-1) c_r = u * 2^r det h): [('4', 54), ('8/2', 29), ('16/4', 29), ('32/8', 29), ('64/16', 29), ('256', 8)]
+
+[exited with code 0]

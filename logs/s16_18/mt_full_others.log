@@ -1,0 +1,9 @@
+PARI stack size set to 8000000000 bytes, maximum size set to 8000000000
+[0,1,1,-4,2]: identity N^3*c2 = 8*det(<R_i,R_j>) mod (m-1)/2 :  OK 2 (of which 1 with gcd(N,n)>1), trivial(both 0) 9, FAIL 111
+  fails: [(13, 6, 2, 4, 1), (19, 9, 2, 4, 4), (23, 11, 7, 3, 10), (29, 14, 6, 12, 11), (31, 15, 9, 3, 9), (43, 21, 15, 9, 3), (47, 23, 10, 20, 19), (59, 29, 11, 22, 5), (61, 30, 12, 24, 19), (67, 33, 23, 13, 16), (71, 35, 5, 10, 27), (79, 39, 34, 29, 2)]
+PARI stack size set to 8000000000 bytes, maximum size set to 8000000000
+[0,-1,1,-2,0]: identity N^3*c2 = 8*det(<R_i,R_j>) mod (m-1)/2 :  OK 111 (of which 58 with gcd(N,n)>1), trivial(both 0) 12, FAIL 0
+PARI stack size set to 8000000000 bytes, maximum size set to 8000000000
+[1,-1,0,-4,4]: identity N^3*c2 = 8*det(<R_i,R_j>) mod (m-1)/2 :  OK 2 (of which 1 with gcd(N,n)>1), trivial(both 0) 14, FAIL 106
+  fails: [(11, 5, 3, 0, 2), (19, 9, 7, 8, 2), (23, 11, 4, 9, 7), (29, 14, 2, 0, 5), (37, 18, 0, 6, 15), (41, 20, 16, 8, 7), (43, 21, 18, 9, 8), (47, 23, 7, 15, 8), (53, 26, 4, 18, 3), (59, 29, 27, 14, 13), (61, 30, 10, 20, 2), (67, 33, 18, 24, 24)]
+DONE

@@ -1,0 +1,2 @@
+PARI stack size set to 8000000000 bytes, maximum size set to 8000000000
+[0,1,1,-2,0]: identity N^3*c2 = 8*det(<R_i,R_j>) mod (m-1)/2 :  OK 221 (of which 106 with gcd(N,n)>1), trivial(both 0) 15, FAIL 0
