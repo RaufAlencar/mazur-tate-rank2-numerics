@@ -1,0 +1,9 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+37a1 {'c_inf': 2, 'c_Tam': 1, 'nao_triviais': 67, 'acertos': {'-2c': 67, '+2c': 2}, 'theta_fora_de_I': 0}
+43a1 {'c_inf': 1, 'c_Tam': 1, 'nao_triviais': 66, 'acertos': {'-2c': 66, '+2c': 2}, 'theta_fora_de_I': 0}
+53a1 {'c_inf': 1, 'c_Tam': 1, 'nao_triviais': 68, 'acertos': {'-2c': 68, '+2c': 1}, 'theta_fora_de_I': 0}
+57a1 {'c_inf': 1, 'c_Tam': 2, 'nao_triviais': 69, 'acertos': {'-2c': 69, '+2c': 1}, 'theta_fora_de_I': 0}
+58a1 {'c_inf': 1, 'c_Tam': 2, 'nao_triviais': 67, 'acertos': {'-2c': 67, '+2c': 1}, 'theta_fora_de_I': 0}
+61a1 {'c_inf': 1, 'c_Tam': 1, 'nao_triviais': 69, 'acertos': {'-2c': 69, '+2c': 1}, 'theta_fora_de_I': 0}
+77a1 {'c_inf': 1, 'c_Tam': 2, 'nao_triviais': 62, 'acertos': {'-2c': 62, '+2c': 1}, 'theta_fora_de_I': 0}
+79a1 {'c_inf': 2, 'c_Tam': 1, 'nao_triviais': 65, 'acertos': {'-2c': 65, '+2c': 3}, 'theta_fora_de_I': 0}

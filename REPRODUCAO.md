@@ -62,3 +62,20 @@ Constante FIXA pela fórmula u_E = (−2)ʳ·c∞/#tors² (para 1088j1, testado 
 | 433a1 | 2 | 1 | 1 | 1 | 4 | 200 | 37 | 0 | 0 |
 
 **Total da implementação independente: 17 curvas (10 da nota + 7 cegas), 783 níveis não triviais, 0 falhas.**
+
+## 5. Sinal em posto 1 (depois do envio da v0.1) — `sign_rank1.py`, `sign_rank1.log`
+Motivação: um revisor externo notou que a frase da nota (§4(b), §7.2) "um fator (−1)^{r(r−1)/2} resolveria o sinal" está errada (em r = 3 ela trocaria o sinal certo) e sugeriu (−1)^{r(r+1)/2}. Com só r = 2, 3, ambas as hipóteses (−1)^{r+1} e (−1)^{r(r+1)/2} cabem; elas divergem em r = 1.
+Hipóteses registradas antes de rodar em `sign_predictions_rank1.json` (13:29): H_A (lei da nota) u_E = −2c∞; H_B (revisor) u_E = +2c∞.
+
+| Curva | c∞ | c_Tam | níveis não triviais | acertos u = −2c∞ | acertos u = +2c∞ |
+| --- | --- | --- | --- | --- | --- |
+| 37a1 | 2 | 1 | 67 | 67 | 2 |
+| 43a1 | 1 | 1 | 66 | 66 | 2 |
+| 53a1 | 1 | 1 | 68 | 68 | 1 |
+| 57a1 | 1 | 2 | 69 | 69 | 1 |
+| 58a1 | 1 | 2 | 67 | 67 | 1 |
+| 61a1 | 1 | 1 | 69 | 69 | 1 |
+| 77a1 | 1 | 2 | 62 | 62 | 1 |
+| 79a1 | 2 | 1 | 65 | 65 | 3 |
+
+**H_A confirmada (533/533), H_B refutada.** A lei u_E = (−2)ʳc∞/#tors² vale em r = 1, 2, 3; o fator entre a convenção da nota e o −1 fixo de Ota é (−1)^{r+1}, não (−1)^{r(r−1)/2} (nota) nem (−1)^{r(r+1)/2} (revisor).

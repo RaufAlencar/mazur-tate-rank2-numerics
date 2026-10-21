@@ -1,0 +1,7 @@
+{
+ "registrado_em": "2026-10-21T13:29:02-03:00",
+ "pergunta": "sinal de u_E em posto 1 (decide entre as hipoteses de convencao)",
+ "H_A": "lei empirica da nota u_E = (-2)^r c_inf/tors^2  => posto 1: u_E = -2*c_inf (fator de convencao f(r)=(-1)^(r+1), f(1)=+1)",
+ "H_B": "f(r) = (-1)^(r(r+1)/2) do revisor, com o -1 fixo de Ota => posto 1: u_E = +2*c_inf",
+ "curvas": ["37a1","43a1","53a1","57a1","58a1","61a1","77a1","79a1"]
+}
