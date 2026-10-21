@@ -73,6 +73,7 @@ Convenções que custaram horas (ver seções 11 e 15 do documento):
 
 - BSD forte: 47/47 curvas de posto 2 (N ≤ 1500), Ш = 1; nenhuma curva de posto 2 com Ш ≠ 1 em 279 056 (N ≤ 500 000).
 - 2-Selmer: limite superior = 2 em 348 672 curvas de posto 2 (N ≤ 500 000); Ш[2] = 0 em todas.
+  - **Correção (21/10/2026, sessão de registro):** a conclusão "Ш[2] = 0" é inválida. O limite superior R devolvido por `ellrank` já desconta a 2-parte de Ш detectada (o terceiro valor, s). Exemplo no próprio intervalo: 499290e4 (Cremona; LMFDB 499290.e2) tem posto 2, #Ш analítico = 4 e `ellrank` = [2, 2, 2]. "Limite superior = 2" prova posto ≤ 2, não Ш[2] = 0. Ver `REPRODUCAO.md` §8.
 - Classes de Kolyvagin: direção = ker(E(Q)/p → E(F_ℓ)/p) e critério de anulamento confirmados em 17/17 casos
   (4 corpos, p = 3 e 5, curvas 389a1 e 571b1) — enunciado é Prop. 0.2 do rascunho de Stein; verificação numérica da direção parece inédita.
 - Mazur–Tate: ord_I θ_m ≥ posto em 75/75 (postos 0–3); termo líder c₂(m) ≡ −#E(F_m)·det⟨P_i,P_j⟩_m (mod 3) em 20/20 primos de 389a1.

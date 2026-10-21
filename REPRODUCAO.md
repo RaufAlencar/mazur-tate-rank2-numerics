@@ -129,3 +129,12 @@ Conferidas as hipóteses do Thm. 1.2 de Ota que dá para checar: E sem CM; p ∤
 | 997b1 | 7 | 1051 | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 **9 dos 11 níveis satisfazem todas as hipóteses conferidas** (estão no alcance do teorema de Ota); 2 estão fora (389a1 m = 1831: E(F_m)[5] ≅ (Z/5)²; 997b1 em p = 5: 5 ∣ #E(F_5)). Nenhum dos 11 viola a implicação.
+
+## 8. Curvas de posto 2 com #Ш > 1 (sessão exploratória isolada `sha-rank2`, 21/10/2026) e duas correções que ela revelou
+Uma sessão separada, trabalhando só em `Desktop\BSD_Sha_rank2`, testou a lei u_E = (−2)ʳ·c∞·#Ш/#tors² em posto 2 com #Ш > 1, calculando θ_m pelas L-séries torcidas L(E,χ,1) em vez de `msfromell` (inviável acima de N ≈ 2·10⁴ com a memória disponível); a rota foi validada contra `msfromell` em 425/425 pares (curva, nível) com N ≤ 5077. Resultado relatado (`BSD_Sha_rank2/RELATORIO.md`): 0 falhas em 4 curvas — 53295337.a1 e 136116413.a1 (#Ш = 9; constante inferida dos dados, sem hipótese, = 36 e 72, como a lei prevê) e 499290e4, 226005g3 (#Ш = 4).
+
+**Conferido aqui (`check_sha_rank2.py`):** as quatro têm posto 2 provado (`ellrank` R = 2 e dois geradores saturados) e #Ш analítico = 9, 9, 4, 4 (9,0000…, 9,0000…, 4,0000…, 4,0000…). A parte θ_m/identidade **ainda não foi reproduzida** de forma independente aqui; o resultado é exploratório até isso.
+
+**Correções que isso revelou:**
+1. **Nota v0.4, §7.4:** "none exists in Cremona's tables up to conductor 500,000" é exagerado. É verdade para as curvas **ótimas** (279 056 de posto 2, todas com #Ш = 1), mas há curvas **não ótimas** de posto 2 com #Ш = 4 nas mesmas tabelas — p. ex. 499290e4 (classe 499290e: e1–e3 têm #Ш = 1, e4 tem 4) e 226005g3 (g3 tem 4, as demais 1). Só nos arquivos 220000–229999 e 490000–499999 há 6 curvas de posto 2 com #Ш > 1, todas não ótimas. O #Ш muda dentro da classe de isogenia.
+2. **Diário da pesquisa ("Mapa da Obstrução", P6) e `code/research/README_research_session.md`:** a inferência "limite superior de 2-Selmer = 2 ⇒ Ш[2] = 0 em 348 672 curvas" é inválida: o R do `ellrank` já desconta a parte de Ш[2] detectada (s); 499290e4 tem `ellrank` = [2, 2, 2] e #Ш = 4. Correção anotada no README do repositório.
