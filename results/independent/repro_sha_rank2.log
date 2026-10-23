@@ -1,0 +1,18 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+== calibração de κ (S_ms / S_L), deve ser constante = ±c∞ ==
+389a1 c∞ = 2 m = 11 razões: ['-309017/1000000', '809017/1000000']
+389a1 c∞ = 2 m = 13 razões: ['-1']
+389a1 c∞ = 2 m = 17 razões: ['-1', '0', '1']
+433a1 c∞ = 1 m = 11 razões: ['-309017/1000000', '809017/1000000']
+433a1 c∞ = 1 m = 13 razões: ['-1', '1/2']
+433a1 c∞ = 1 m = 17 razões: ['-1', '0', '1']
+
+== 53295337.a1 (#Ш = 9, tors 1, c_Tam 1) ==
+m  11 n   5 | erro 1.0e-57 | c2   1 detH   3 | lhs   3 lei(36)   3 sem Ш(4)   2 | OK
+m  13 n   6 | erro 7.6e-57 | c2   3 detH   3 | lhs   0 lei(36)   0 sem Ш(4)   0 | trivial
+m  17 n   8 | erro 1.5e-56 | c2   4 detH   0 | lhs   0 lei(36)   0 sem Ш(4)   0 | trivial
+m  19 n   9 | erro 5.9e-57 | c2   0 detH   0 | lhs   0 lei(36)   0 sem Ш(4)   0 | trivial
+m  23 n  11 | erro 1.4e-56 | c2  10 detH  10 | lhs   8 lei(36)   8 sem Ш(4)   7 | OK
+m  29 n  14 | erro 6.8e-57 | c2   5 detH  13 | lhs   6 lei(36)   6 sem Ш(4)  10 | OK
+m  31 n  15 | erro 4.3e-56 | c2   3 detH   3 | lhs   3 lei(36)   3 sem Ш(4)  12 | OK
+m  37 n  18 | erro 4.7e-56 | c2   0 detH   0 | lhs   0 lei(36)   0 sem Ш(4)   0 | trivial
