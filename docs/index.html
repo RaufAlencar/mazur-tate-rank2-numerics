@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mazur-Tate 389a1 · do TikTok à fronteira da matemática</title>
+<meta name="description" content="Um curioso, uma IA e mais de 1.700 verificações numéricas da conjectura refinada de Mazur-Tate em curvas elípticas de posto 0 a 3. Explicado do zero, com laboratório interativo e dados reais. Nota não revisada por pares.">
+<meta property="og:title" content="Do TikTok à fronteira da matemática">
+<meta property="og:description" content="Um curioso, uma IA e mais de 1.700 verificações numéricas da conjectura refinada de Mazur-Tate. Laboratório interativo com dados reais. Nota não revisada por pares.">
+<meta property="og:image" content="https://raufalencar.github.io/mazur-tate-rank2-numerics/capa.jpg">
+<meta property="og:url" content="https://raufalencar.github.io/mazur-tate-rank2-numerics/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070f'/%3E%3Cellipse cx='11' cy='16' rx='4' ry='6' fill='none' stroke='%233ef0ff' stroke-width='2.4'/%3E%3Cpath d='M26 3C19 9 19 23 26 29' fill='none' stroke='%23ff4fd8' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<style>
+:root{
+  --bg:#05070f; --bg2:#0a0f1f; --glass:rgba(18,26,52,.62); --line:rgba(120,150,255,.16); --line2:rgba(120,150,255,.32);
+  --ink:#eef2ff; --muted:#a6afd6; --dim:#6f78a3;
+  --cyan:#3ef0ff; --mag:#ff4fd8; --gold:#ffc857; --lime:#7dff9b; --red:#ff6b81; --violet:#8f7bff;
+  --r:20px; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+   radial-gradient(900px 600px at 85% -10%,rgba(143,123,255,.16),transparent 60%),
+   radial-gradient(700px 500px at -10% 30%,rgba(62,240,255,.10),transparent 60%),
+   linear-gradient(rgba(120,150,255,.05) 1px,transparent 1px) 0 0/48px 48px,
+   linear-gradient(90deg,rgba(120,150,255,.05) 1px,transparent 1px) 0 0/48px 48px}
+main,header,footer{position:relative;z-index:1}
+a{color:var(--cyan)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:700}
+h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:600}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1em}
+.muted{color:var(--muted)} .dim{color:var(--dim)}
+.mono{font-family:"JetBrains Mono",monospace}
+.grad{background:linear-gradient(92deg,var(--cyan),var(--violet) 50%,var(--mag));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* barra de progresso e topo */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;background:linear-gradient(90deg,var(--cyan),var(--mag))}
+.top{position:sticky;top:0;z-index:40;background:rgba(5,7,15,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.brand{font:700 1rem "Space Grotesk";color:var(--ink);text-decoration:none;display:flex;gap:10px;align-items:center}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;font-size:.9rem}
+.nav a:hover{color:var(--ink)}
+.lang{border:1px solid var(--line2);background:transparent;color:var(--ink);border-radius:999px;padding:6px 14px;font:600 .82rem "JetBrains Mono";cursor:pointer}
+@media (max-width:980px){.nav a{display:none}}
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%}
+.banner{position:relative;min-height:62vh;display:flex;align-items:center;background:url(capa.jpg) center/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,15,.9),rgba(5,7,15,.35) 55%,rgba(5,7,15,.1))}
+.banner .wrap{position:relative;width:100%}
+.banner blockquote{margin:0;max-width:560px;font:600 clamp(1.6rem,3.2vw,2.5rem)/1.2 "Space Grotesk";letter-spacing:-.01em}
+.banner .artnote{margin:18px 0 0;font:500 .78rem "JetBrains Mono";color:var(--dim)}
+@media (max-width:820px){.banner{background-position:70% center}.banner:before{background:rgba(5,7,15,.62)}}
+.hero:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,7,15,.92) 0%,rgba(5,7,15,.7) 40%,rgba(5,7,15,.05) 75%),linear-gradient(0deg,var(--bg),transparent 25%)}
+@media (max-width:820px){.hero:after{background:linear-gradient(0deg,rgba(5,7,15,.95) 10%,rgba(5,7,15,.72) 60%,rgba(5,7,15,.5))}}
+.hero .wrap{position:relative;z-index:2;padding:80px 24px}
+.hud{display:inline-flex;gap:10px;align-items:center;font:600 .78rem "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,200,87,.4);background:rgba(255,200,87,.07);padding:7px 14px;border-radius:999px;margin-bottom:26px}
+.hud b{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.lead{font-size:clamp(1.05rem,1.7vw,1.3rem);color:var(--muted);max-width:700px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:14px;padding:13px 22px;font-weight:600;text-decoration:none;border:1px solid var(--line2);color:var(--ink);background:var(--glass);backdrop-filter:blur(8px);cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .2s}
+.btn.primary{background:linear-gradient(92deg,var(--cyan),var(--violet));color:#050812;border:0}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(62,240,255,.18)}
+.heroStats{display:flex;gap:34px;flex-wrap:wrap;margin-top:46px}
+.heroStats div{font:600 .8rem "JetBrains Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.heroStats strong{display:block;font:700 2.1rem "Space Grotesk";color:var(--ink);letter-spacing:-.02em;text-transform:none}
+.hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;font:500 .78rem "JetBrains Mono";color:var(--dim)}
+/* seções */
+section{padding:110px 0;position:relative}
+.kicker{font:600 .78rem "JetBrains Mono";color:var(--cyan);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.kicker:before{content:"";width:26px;height:1px;background:var(--cyan)}
+.sub{font-size:1.15rem;color:var(--muted);max-width:780px;margin-bottom:40px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:960px){.grid2,.grid3{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.grid4{grid-template-columns:1fr}}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:26px;backdrop-filter:blur(10px);position:relative}
+.card .ic{font:700 .8rem "JetBrains Mono";color:var(--cyan);margin-bottom:12px;display:block}
+.glow{box-shadow:0 0 0 1px rgba(62,240,255,.12),0 20px 60px rgba(62,240,255,.06)}
+.stage{background:radial-gradient(120% 120% at 20% 0%,rgba(30,40,90,.65),rgba(8,12,28,.85));border:1px solid var(--line2);border-radius:var(--r);padding:16px;position:relative;overflow:hidden}
+.stage canvas{width:100%;display:block;border-radius:12px;touch-action:none}
+.stage .tag{position:absolute;top:14px;left:16px;font:600 .72rem "JetBrains Mono";color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;z-index:2;pointer-events:none}
+.cap{font-size:.88rem;color:var(--dim);margin-top:10px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.chip{border:1px solid var(--line2);background:rgba(8,12,28,.8);color:var(--ink);border-radius:999px;padding:7px 14px;font:600 .82rem Inter;cursor:pointer;transition:.15s}
+.chip:hover,.chip.on{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 16px rgba(62,240,255,.18)}
+.slider{display:flex;align-items:center;gap:12px;font:500 .85rem "JetBrains Mono";color:var(--muted);width:100%}
+.slider input{flex:1;accent-color:var(--cyan)}
+.slider output{min-width:64px;text-align:right;color:var(--ink)}
+/* capítulos */
+.chapters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chapters button{border:1px solid var(--line2);background:transparent;color:var(--muted);border-radius:12px;padding:10px 16px;font:600 .88rem Inter;cursor:pointer;display:flex;gap:10px;align-items:center}
+.chapters button span{font:600 .75rem "JetBrains Mono";color:var(--dim)}
+.chapters button.on{background:linear-gradient(92deg,rgba(62,240,255,.16),rgba(143,123,255,.16));color:var(--ink);border-color:var(--cyan)}
+.chapter{display:none}
+.chapter.on{display:grid;animation:fade .5s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+/* linha do tempo */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;position:relative}
+.timeline:before{content:"";position:absolute;top:21px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--mag))}
+@media (max-width:960px){.timeline{grid-template-columns:1fr 1fr}.timeline:before{display:none}}
+@media (max-width:520px){.timeline{grid-template-columns:1fr}}
+.tl{position:relative;padding-top:46px}
+.tl:before{content:"";position:absolute;top:13px;left:0;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.tl .when{font:600 .8rem "JetBrains Mono";color:var(--gold)}
+.tl h3{font-size:1.08rem;margin:.3em 0 .3em}
+.tl p{font-size:.92rem;color:var(--muted)}
+/* laboratório */
+.lab{display:grid;grid-template-columns:1.15fr 1fr;gap:26px}
+@media (max-width:960px){.lab{grid-template-columns:1fr}}
+.levels{display:flex;flex-wrap:wrap;gap:6px;max-height:300px;overflow:auto;padding:4px}
+.lv{font:600 .78rem "JetBrains Mono";border:1px solid var(--line2);background:rgba(8,12,28,.8);color:var(--muted);border-radius:8px;padding:6px 8px;cursor:pointer;min-width:46px;text-align:center}
+.lv.ok{border-color:rgba(125,255,155,.45);color:var(--lime)}
+.lv.triv{opacity:.45}
+.lv.sel{background:var(--cyan);color:#05070f;border-color:var(--cyan)}
+.lv.flash{animation:flash .5s}
+@keyframes flash{50%{background:rgba(125,255,155,.35)}}
+.calc{font-family:"JetBrains Mono",monospace;font-size:.9rem}
+.calc .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.calc .row span:first-child{color:var(--muted)}
+.duel{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:18px 0}
+.duel .side{background:rgba(8,12,28,.85);border:1px solid var(--line2);border-radius:16px;padding:18px 10px;text-align:center}
+.duel .big{font:700 3rem "Space Grotesk";line-height:1;color:var(--cyan)}
+.duel .side.b .big{color:var(--mag)}
+.duel .eq{font:700 2rem "Space Grotesk";color:var(--lime)}
+.meter{height:8px;border-radius:99px;background:rgba(120,150,255,.12);overflow:hidden;margin-top:12px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lime),var(--cyan));transition:width .2s}
+/* números */
+.stat{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.stat .n{font:700 2.8rem "Space Grotesk";line-height:1;background:linear-gradient(92deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{color:var(--muted);font-size:.92rem;margin-top:10px}
+.formula{background:rgba(8,12,28,.85);border:1px solid var(--line2);border-radius:var(--r);padding:22px;overflow-x:auto;text-align:center;font-size:1.2rem}
+/* usos */
+.use{border-top:2px solid var(--cyan)}
+.use.warn{border-top-color:var(--red)}
+.use h3{margin-top:.2em}
+.pill{display:inline-block;font:600 .72rem "JetBrains Mono";padding:3px 10px;border-radius:99px;border:1px solid var(--line2);color:var(--muted);margin-bottom:10px}
+.pill.y{color:var(--lime);border-color:rgba(125,255,155,.4)}
+.pill.m{color:var(--gold);border-color:rgba(255,200,87,.4)}
+.pill.n{color:var(--red);border-color:rgba(255,107,129,.4)}
+/* listas */
+.list{list-style:none;padding:0;margin:0}
+.list li{padding:12px 0 12px 32px;border-bottom:1px dashed var(--line);position:relative;font-size:.96rem}
+.list li:before{position:absolute;left:0;top:11px;font-weight:700}
+.no li:before{content:"✕";color:var(--red)} .yes li:before{content:"✓";color:var(--lime)} .fix li:before{content:"↺";color:var(--gold)}
+/* fluxo do método */
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.flow button{border:1px solid var(--line2);background:rgba(8,12,28,.85);color:var(--ink);border-radius:14px;padding:12px 16px;font:600 .9rem Inter;cursor:pointer;text-align:left}
+.flow button small{display:block;font:500 .7rem "JetBrains Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.flow button.on{border-color:var(--mag);box-shadow:0 0 22px rgba(255,79,216,.22)}
+.flow .arr{color:var(--dim);font-family:"JetBrains Mono"}
+.flowInfo{margin-top:18px;min-height:96px}
+/* status */
+.status{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:960px){.status{grid-template-columns:1fr 1fr}}
+.st{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--glass)}
+.st .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+.st h3{font-size:1rem;margin:.4em 0 .2em}
+.st p{font-size:.88rem;color:var(--muted);margin:0}
+/* glossário */
+.term{border-bottom:1px dashed var(--cyan);cursor:help;color:var(--ink)}
+#tip{position:fixed;z-index:60;max-width:300px;background:#0d1430;border:1px solid var(--cyan);border-radius:12px;padding:12px 14px;font-size:.88rem;color:var(--ink);box-shadow:0 10px 40px rgba(0,0,0,.5);pointer-events:none;opacity:0;transition:opacity .15s}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+footer{padding:50px 0;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line)}
+.note{border-left:3px solid var(--gold);padding:12px 18px;background:rgba(255,200,87,.06);border-radius:0 14px 14px 0;color:var(--muted)}
+[data-en]{display:none}
+html[lang="en"] [data-pt]{display:none}
+html[lang="en"] [data-en]{display:revert}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<div id="tip" role="tooltip"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><i></i>Mazur-Tate · 389a1</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#resumo"><span data-pt>Resumo</span><span data-en>Summary</span></a>
+      <a href="#aprender"><span data-pt>Aprender</span><span data-en>Learn</span></a>
+      <a href="#bsd"><span data-pt>O experimento</span><span data-en>The experiment</span></a>
+      <a href="#lab"><span data-pt>Laboratório</span><span data-en>Lab</span></a>
+      <a href="#usos"><span data-pt>Para que serve</span><span data-en>What it is for</span></a>
+      <a href="#metodo"><span data-pt>Método</span><span data-en>Method</span></a>
+      <button class="lang" id="langBtn" type="button" aria-label="Mudar idioma / switch language">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="t-hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hud"><b></b><span data-pt>Nota numérica · não revisada por pares · código aberto</span><span data-en>Numerical note · not peer reviewed · open code</span></div>
+    <h1 id="t-hero"><span data-pt>Do TikTok à<br><span class="grad">fronteira da matemática</span></span><span data-en>From TikTok to the<br><span class="grad">frontier of mathematics</span></span></h1>
+    <p class="lead" data-pt>Um vídeo sobre Perelman, uma pessoa curiosa sem formação em matemática e uma inteligência artificial. Em duas semanas, mais de 1.700 verificações de uma conjectura ligada a um dos Problemas do Milênio. Aqui você aprende do zero o que foi testado, mexe nos dados reais e vê os erros corrigidos em público.</p>
+    <p class="lead" data-en>A video about Perelman, a curious person with no mathematical training, and an artificial intelligence. In two weeks, more than 1,700 checks of a conjecture related to one of the Millennium Problems. Here you learn from scratch what was tested, play with the real data and see the mistakes corrected in public.</p>
+    <div class="cta">
+      <a class="btn primary" href="#resumo"><span data-pt>Começar em 60 segundos</span><span data-en>Start in 60 seconds</span></a>
+      <a class="btn" href="#lab"><span data-pt>Ir direto ao laboratório</span><span data-en>Go straight to the lab</span></a>
+    </div>
+    <div class="heroStats" aria-label="Números principais">
+      <div><strong class="count" data-to="1722">0</strong><span data-pt>verificações</span><span data-en>checks</span></div>
+      <div><strong class="count" data-to="33">0</strong><span data-pt>curvas</span><span data-en>curves</span></div>
+      <div><strong>0 → 3</strong><span data-pt>postos testados</span><span data-en>ranks tested</span></div>
+      <div><strong class="count" data-to="0">0</strong><span data-pt>falhas</span><span data-en>failures</span></div>
+    </div>
+  </div>
+  <div class="hint" data-pt>passe o mouse sobre a curva</div><div class="hint" data-en>move your cursor over the curve</div>
+</section>
+
+<!-- ================= FAIXA COM ARTE ================= -->
+<section class="banner" aria-label="Arte de capa">
+  <div class="wrap">
+    <blockquote class="rv"><span data-pt>Uma pergunta, uma IA e um método que não aceita "parece certo".</span><span data-en>A question, an AI, and a method that does not accept "looks right".</span></blockquote>
+    <p class="artnote" data-pt>Arte ilustrativa gerada por IA (Canva). As figuras dos experimentos abaixo são cálculos reais.</p><p class="artnote" data-en>Illustrative art generated by AI (Canva). The figures in the experiments below are real computations.</p>
+  </div>
+</section>
+
+<!-- ================= RESUMO ================= -->
+<section id="resumo" aria-labelledby="t-res">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Em 60 segundos</div><div class="kicker rv" data-en>In 60 seconds</div>
+    <h2 id="t-res" class="rv"><span data-pt>A história inteira em quatro cartões</span><span data-en>The whole story in four cards</span></h2>
+    <div class="grid4">
+      <div class="card rv"><span class="ic">01 / <span data-pt>O OBJETO</span><span data-en>THE OBJECT</span></span><h3 data-pt>Uma curva com segredos</h3><h3 data-en>A curve with secrets</h3><p class="muted" data-pt>Uma <span class="term" data-tip="elliptic">curva elíptica</span> é uma equação simples. A pergunta difícil é quantos pontos com coordenadas em frações ela tem.</p><p class="muted" data-en>An <span class="term" data-tip="elliptic">elliptic curve</span> is a simple equation. The hard question is how many points with fractional coordinates it has.</p></div>
+      <div class="card rv"><span class="ic">02 / <span data-pt>O PRÊMIO</span><span data-en>THE PRIZE</span></span><h3 data-pt>Um milhão de dólares</h3><h3 data-en>A million dollars</h3><p class="muted" data-pt>A <span class="term" data-tip="bsd">conjectura BSD</span> diz como prever essa quantidade. Para <span class="term" data-tip="rank">posto</span> 2 ou mais, ninguém sabe provar.</p><p class="muted" data-en>The <span class="term" data-tip="bsd">BSD conjecture</span> says how to predict that amount. For <span class="term" data-tip="rank">rank</span> 2 or more, nobody knows how to prove it.</p></div>
+      <div class="card rv"><span class="ic">03 / <span data-pt>O TESTE</span><span data-en>THE TEST</span></span><h3 data-pt>Uma versão "de relógio"</h3><h3 data-en>A "clock" version</h3><p class="muted" data-pt>Testamos uma versão da BSD proposta por Mazur e Tate em 1987, que vive em <span class="term" data-tip="mod">relógios</span>. Dá para conferir no computador, caso a caso.</p><p class="muted" data-en>We tested a version of BSD proposed by Mazur and Tate in 1987, which lives on <span class="term" data-tip="mod">clocks</span>. It can be checked by computer, case by case.</p></div>
+      <div class="card rv"><span class="ic">04 / <span data-pt>O RESULTADO</span><span data-en>THE RESULT</span></span><h3 data-pt>1.722 acertos, 0 falhas</h3><h3 data-en>1,722 matches, 0 failures</h3><p class="muted" data-pt>Mais uma fórmula simples para uma peça que antes só tinha definição abstrata. Não é prova da BSD; é evidência e ferramenta.</p><p class="muted" data-en>Plus a simple formula for a piece that only had an abstract definition. It is not a proof of BSD; it is evidence and a tool.</p></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl rv"><div class="when">20/10/2026</div><h3 data-pt>O vídeo</h3><h3 data-en>The video</h3><p data-pt>A história de Perelman no TikTok vira pergunta: dá para chegar perto de um desses problemas?</p><p data-en>Perelman's story on TikTok becomes a question: can one get close to one of these problems?</p></div>
+      <div class="tl rv"><div class="when">21/10/2026</div><h3 data-pt>A nota sai</h3><h3 data-en>The note goes out</h3><p data-pt>Reimplementação independente e teste cego antes de enviar a dois especialistas.</p><p data-en>Independent re-implementation and a blind test before sending it to two specialists.</p></div>
+      <div class="tl rv"><div class="when">21 a 29/10</div><h3 data-pt>Seis rodadas de crítica</h3><h3 data-en>Six rounds of critique</h3><p data-pt>Um erro de sinal achado, testado e explicado. Referências conferidas na fonte.</p><p data-en>A sign error found, tested and explained. References checked at the source.</p></div>
+      <div class="tl rv"><div class="when">21/10 a 03/11</div><h3 data-pt>Ш = 9 em posto 2</h3><h3 data-en>Ш = 9 in rank 2</h3><p data-pt>O fator Ш testado em posto 2, até onde sabemos, pela primeira vez. E uma lacuna da prova fechada.</p><p data-en>The Ш factor tested in rank 2, to our knowledge, for the first time. And a gap in the proof closed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APRENDER ================= -->
+<section id="aprender" aria-labelledby="t-apr">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Aprenda brincando</div><div class="kicker rv" data-en>Learn by playing</div>
+    <h2 id="t-apr" class="rv"><span data-pt>Cinco experimentos para entender sem fórmula</span><span data-en>Five experiments to understand without formulas</span></h2>
+    <p class="sub rv" data-pt>Tudo abaixo é calculado ao vivo no seu navegador. Nenhuma imagem é ilustração: são as contas de verdade, desenhadas.</p>
+    <p class="sub rv" data-en>Everything below is computed live in your browser. No picture is an illustration: they are the real computations, drawn.</p>
+
+    <div class="chapters rv" role="tablist">
+      <button class="on" data-ch="0" role="tab"><span>01</span><b data-pt>A forma</b><b data-en>The shape</b></button>
+      <button data-ch="1" role="tab"><span>02</span><b data-pt>Somar pontos</b><b data-en>Adding points</b></button>
+      <button data-ch="2" role="tab"><span>03</span><b data-pt>A explosão</b><b data-en>The explosion</b></button>
+      <button data-ch="3" role="tab"><span>04</span><b data-pt>O relógio</b><b data-en>The clock</b></button>
+      <button data-ch="4" role="tab"><span>05</span><b data-pt>A rosquinha</b><b data-en>The donut</b></button>
+    </div>
+
+    <!-- 01 forma -->
+    <div class="chapter grid2 on" data-chap="0">
+      <div>
+        <h3 data-pt>Uma equação, muitas formas</h3><h3 data-en>One equation, many shapes</h3>
+        <p data-pt>Toda curva elíptica pode ser escrita como <span class="mono">y² = x³ + a·x + b</span>. Mexa nos controles: às vezes a curva tem um pedaço só, às vezes ganha uma "ilha" separada. Quando os dois números se equilibram de um jeito especial, ela ganha um bico e deixa de ser elíptica.</p>
+        <p data-en>Every elliptic curve can be written as <span class="mono">y² = x³ + a·x + b</span>. Move the controls: sometimes the curve is one piece, sometimes it gains a separate "island". When the two numbers balance in a special way, it gets a cusp and stops being elliptic.</p>
+        <div class="slider"><span>a</span><input id="sa" type="range" min="-3" max="2" step="0.05" value="-1.6" aria-label="a"><output id="oa">-1.60</output></div>
+        <div class="slider"><span>b</span><input id="sb" type="range" min="-2" max="2" step="0.05" value="0.6" aria-label="b"><output id="ob">0.60</output></div>
+        <p class="note" id="shapeInfo" style="margin-top:16px"></p>
+      </div>
+      <div class="stage"><span class="tag">y² = x³ + ax + b</span><canvas id="shapeCanvas" width="900" height="700" role="img" aria-label="Curva elíptica com coeficientes ajustáveis"></canvas></div>
+    </div>
+
+    <!-- 02 soma -->
+    <div class="chapter grid2" data-chap="1">
+      <div class="stage"><span class="tag">389a1 · y² + y = x³ + x² − 2x</span><canvas id="curveCanvas" width="900" height="720" role="img" aria-label="Curva 389a1 com a construção da soma de dois pontos"></canvas>
+        <div class="controls">
+          <button class="chip" id="btnBasic" type="button">P₁ + P₂</button>
+          <button class="chip" id="btnStep" type="button"><span data-pt>+ P₁ de novo</span><span data-en>+ P₁ again</span></button>
+          <button class="chip" id="btnAuto" type="button"><span data-pt>▶ animar</span><span data-en>▶ animate</span></button>
+          <button class="chip" id="btnReset" type="button"><span data-pt>recomeçar</span><span data-en>reset</span></button>
+        </div>
+        <p class="cap mono" id="curveCap"></p>
+      </div>
+      <div>
+        <h3 data-pt>Dois pontos fazem um terceiro</h3><h3 data-en>Two points make a third</h3>
+        <p data-pt>Esta é a curva <span class="mono">389a1</span>, a menor curva de <span class="term" data-tip="rank">posto</span> 2 que existe. Ela tem dois pontos "geradores", P₁ = (−1, 1) e P₂ = (0, 0). Trace uma reta pelos dois: ela corta a curva num terceiro ponto. Espelhe esse ponto e você tem a "soma".</p>
+        <p data-en>This is the curve <span class="mono">389a1</span>, the smallest rank-2 curve there is. It has two "generator" points, P₁ = (−1, 1) and P₂ = (0, 0). Draw a line through both: it meets the curve at a third point. Mirror that point and you have the "sum".</p>
+        <p data-pt>Clique em quaisquer dois pontos da curva para somar. O detalhe mágico: se os dois pontos têm coordenadas em frações, a soma também tem. Somando P₁ e P₂ de todos os jeitos, você obtém <em>todos</em> os pontos racionais da curva. "Posto 2" quer dizer exatamente isso: dois geradores independentes.</p>
+        <p data-en>Click any two points on the curve to add them. The magic detail: if both points have fractional coordinates, so does the sum. Adding P₁ and P₂ in every way gives <em>all</em> the rational points of the curve. "Rank 2" means exactly that: two independent generators.</p>
+      </div>
+    </div>
+
+    <!-- 03 explosão -->
+    <div class="chapter grid2" data-chap="2">
+      <div>
+        <h3 data-pt>Por que isso é difícil: os números explodem</h3><h3 data-en>Why this is hard: the numbers explode</h3>
+        <p data-pt>Some P₁ com ele mesmo várias vezes. As frações ficam enormes muito rápido: o número de dígitos cresce como n². Arraste o controle e veja o numerador de x(n·P₁) calculado com aritmética exata, sem arredondar nada.</p>
+        <p data-en>Add P₁ to itself many times. The fractions get huge very fast: the number of digits grows like n². Drag the control and see the numerator of x(n·P₁) computed with exact arithmetic, with nothing rounded.</p>
+        <div class="slider"><span>n</span><input id="sn" type="range" min="1" max="40" step="1" value="12" aria-label="n"><output id="on">12</output></div>
+        <div class="card" style="margin-top:14px;padding:16px"><div class="mono dim" style="font-size:.75rem" id="digLabel"></div><div class="mono" id="bigNum" style="word-break:break-all;font-size:.78rem;color:var(--cyan);max-height:170px;overflow:auto"></div></div>
+        <p class="cap" data-pt>No nosso exemplo da 389a1 no relógio 23, os pontos usados têm coordenadas com 234 dígitos (é o 28·P₁).</p>
+        <p class="cap" data-en>In our example of 389a1 on clock 23, the points used have coordinates with 234 digits (it is 28·P₁).</p>
+      </div>
+      <div class="stage"><span class="tag" data-pt>dígitos de x(n·P₁)</span><span class="tag" data-en>digits of x(n·P₁)</span><canvas id="digitsCanvas" width="900" height="640" role="img" aria-label="Número de dígitos de x(n·P1)"></canvas></div>
+    </div>
+
+    <!-- 04 relógio -->
+    <div class="chapter grid2" data-chap="3">
+      <div class="stage"><span class="tag" id="clockTag">mod 23</span><canvas id="clockCanvas" width="860" height="860" role="img" aria-label="Pontos da curva 389a1 módulo m e a órbita de P1"></canvas></div>
+      <div>
+        <h3 data-pt>A curva num relógio</h3><h3 data-en>The curve on a clock</h3>
+        <p data-pt>Agora faça as contas <span class="term" data-tip="mod">módulo m</span>, como ponteiros que voltam ao zero. A curva vira uma nuvem finita de pontos que parece aleatória. Mas a regra da soma continua valendo: a linha brilhante é P₁, 2·P₁, 3·P₁... pulando pela nuvem até voltar ao início.</p>
+        <p data-en>Now compute <span class="term" data-tip="mod">modulo m</span>, like clock hands that return to zero. The curve becomes a finite cloud of points that looks random. But the addition rule still holds: the bright line is P₁, 2·P₁, 3·P₁... hopping through the cloud until it comes back to the start.</p>
+        <div class="slider"><span>m</span><input id="sm" type="range" min="0" max="40" step="1" value="6" aria-label="m"><output id="om">23</output></div>
+        <p class="note" id="clockInfo" style="margin-top:14px"></p>
+        <p class="muted" data-pt>É neste mundo de relógios que Mazur e Tate formularam a versão da BSD que testamos. A contagem de pontos em cada relógio é o ingrediente do próximo experimento.</p>
+        <p class="muted" data-en>It is in this world of clocks that Mazur and Tate formulated the version of BSD that we tested. The point count on each clock is the ingredient of the next experiment.</p>
+      </div>
+    </div>
+
+    <!-- 05 toro -->
+    <div class="chapter grid2" data-chap="4">
+      <div>
+        <h3 data-pt>No fundo, uma rosquinha</h3><h3 data-en>Deep down, a donut</h3>
+        <p data-pt>Se deixarmos x e y serem números complexos, a curva inteira vira a superfície de uma rosquinha (um toro). As duas partes que você viu no plano são os dois anéis brilhantes. Arraste para girar.</p>
+        <p data-en>If we let x and y be complex numbers, the whole curve becomes the surface of a donut (a torus). The two pieces you saw in the plane are the two bright rings. Drag to rotate.</p>
+        <p data-pt>É por isso que somar pontos funciona tão bem: na rosquinha, somar é só andar. Essa geometria é a base de tudo, inclusive da criptografia que protege a internet.</p>
+        <p data-en>That is why adding points works so well: on the donut, adding is just walking. This geometry is the basis of everything, including the cryptography that protects the internet.</p>
+      </div>
+      <div class="stage"><span class="tag" data-pt>E(ℂ) ≅ toro</span><span class="tag" data-en>E(ℂ) ≅ torus</span><canvas id="torusCanvas" width="860" height="700" role="img" aria-label="Toro girando com os dois anéis reais da curva"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIMENTO BSD ================= -->
+<section id="bsd" aria-labelledby="t-bsd">
+  <div class="wrap grid2">
+    <div>
+      <div class="kicker rv" data-pt>O experimento de 1960</div><div class="kicker rv" data-en>The 1960 experiment</div>
+      <h2 id="t-bsd" class="rv"><span data-pt>Refaça a descoberta de Birch e Swinnerton-Dyer</span><span data-en>Redo Birch and Swinnerton-Dyer's discovery</span></h2>
+      <p class="rv" data-pt>Nos anos 1960, Bryan Birch e Peter Swinnerton-Dyer contaram pontos de curvas em milhares de relógios num dos primeiros computadores da Inglaterra. Notaram algo estranho: quanto mais pontos racionais a curva tinha, mais pontos ela tinha <em>em média</em> nos relógios. A linha subia mais inclinada.</p>
+      <p class="rv" data-en>In the 1960s Bryan Birch and Peter Swinnerton-Dyer counted points of curves on thousands of clocks on one of the first computers in England. They noticed something odd: the more rational points a curve had, the more points it had <em>on average</em> on the clocks. The line climbed more steeply.</p>
+      <p class="rv" data-pt>Aperte o botão. Seu navegador vai contar pontos de quatro curvas, de posto 0, 1, 2 e 3, em mais de mil relógios. Repare: as inclinações se separam na ordem do posto. Esse é o "raio-x" que a conjectura promete.</p>
+      <p class="rv" data-en>Press the button. Your browser will count points of four curves, of rank 0, 1, 2 and 3, on more than a thousand clocks. Notice: the slopes separate in order of rank. That is the "X-ray" the conjecture promises.</p>
+      <div class="controls rv"><button class="btn primary" id="bsdRun" type="button"><span data-pt>▶ Contar pontos</span><span data-en>▶ Count points</span></button><span class="mono dim" id="bsdStatus"></span></div>
+    </div>
+    <div class="stage rv"><span class="tag" data-pt>Σ log(Nₚ/p) contra log log p</span><span class="tag" data-en>Σ log(Nₚ/p) versus log log p</span><canvas id="bsdCanvas" width="900" height="680" role="img" aria-label="Gráfico de Birch e Swinnerton-Dyer para quatro curvas"></canvas>
+      <p class="cap" data-pt>Curvas: 11a1 (posto 0), 37a1 (posto 1), 389a1 (posto 2), 5077a1 (posto 3). As oscilações são normais; a tendência é o que importa. Isto é uma ilustração da conjectura, não uma prova.</p>
+      <p class="cap" data-en>Curves: 11a1 (rank 0), 37a1 (rank 1), 389a1 (rank 2), 5077a1 (rank 3). The wiggles are normal; the trend is what matters. This illustrates the conjecture; it does not prove it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LABORATÓRIO ================= -->
+<section id="lab" aria-labelledby="t-lab">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Laboratório com dados reais</div><div class="kicker rv" data-en>Lab with real data</div>
+    <h2 id="t-lab" class="rv"><span data-pt>Confira você mesmo: dois caminhos, o mesmo número</span><span data-en>Check it yourself: two routes, the same number</span></h2>
+    <p class="sub rv" data-pt>Para cada relógio m, a conjectura de Mazur-Tate diz que duas contas completamente diferentes devem dar o mesmo resultado. Uma usa a <span class="term" data-tip="theta">função L</span> (o raio-x). A outra usa os <span class="term" data-tip="pairing">pontos racionais</span> (o que está dentro do cofre). Clique num relógio.</p>
+    <p class="sub rv" data-en>For each clock m, the Mazur-Tate conjecture says two completely different computations must give the same result. One uses the <span class="term" data-tip="theta">L-function</span> (the X-ray). The other uses the <span class="term" data-tip="pairing">rational points</span> (what is inside the safe). Click a clock.</p>
+    <div class="lab rv">
+      <div class="card">
+        <div class="controls" style="margin-top:0;margin-bottom:14px">
+          <button class="chip on" data-curve="389a1">389a1 · <span data-pt>posto 2</span><span data-en>rank 2</span></button>
+          <button class="chip" data-curve="5077a1">5077a1 · <span data-pt>posto 3</span><span data-en>rank 3</span></button>
+          <button class="chip" id="runAll" type="button"><span data-pt>▶ verificar todos</span><span data-en>▶ check all</span></button>
+        </div>
+        <div class="levels" id="levels" aria-label="Relógios disponíveis"></div>
+        <div class="meter"><i id="meter"></i></div>
+        <p class="cap mono" id="labCount"></p>
+      </div>
+      <div class="card glow">
+        <div class="mono dim" style="font-size:.78rem" id="labTitle"></div>
+        <div class="duel">
+          <div class="side"><div class="big" id="sideA">3</div><div class="dim" style="font-size:.82rem" data-pt>pela função L</div><div class="dim" style="font-size:.82rem" data-en>from the L-function</div></div>
+          <div class="eq" id="eqSign">=</div>
+          <div class="side b"><div class="big" id="sideB">3</div><div class="dim" style="font-size:.82rem" data-pt>pelos pontos</div><div class="dim" style="font-size:.82rem" data-en>from the points</div></div>
+        </div>
+        <div class="calc" id="calc"></div>
+      </div>
+    </div>
+    <p class="cap rv" style="margin-top:16px" data-pt>Valores gerados em 03/11/2026 pelo código independente do repositório (<span class="mono">code/independent/mt_indep.gp</span>; script <span class="mono">code/independent/site_data/dump.py</span>), que foi reescrito do zero só a partir do texto da nota. "Trivial" quer dizer que os dois lados dão zero, o que não testa muita coisa; contamos só os outros.</p>
+    <p class="cap rv" style="margin-top:16px" data-en>Values generated on 3 Nov 2026 by the repository's independent code (<span class="mono">code/independent/mt_indep.gp</span>; script <span class="mono">code/independent/site_data/dump.py</span>), rewritten from scratch from the text of the note alone. "Trivial" means both sides are zero, which tests little; we only count the others.</p>
+  </div>
+</section>
+
+<!-- ================= RESULTADOS ================= -->
+<section id="resultados" aria-labelledby="t-resu">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>O que encontramos</div><div class="kicker rv" data-en>What we found</div>
+    <h2 id="t-resu" class="rv"><span data-pt>Os números, sem enfeite</span><span data-en>The numbers, unvarnished</span></h2>
+    <div class="grid4">
+      <div class="stat rv"><div class="n count" data-to="1722">0</div><div class="l" data-pt>verificações não triviais em 33 curvas de posto 0 a 3, sem nenhuma falha</div><div class="l" data-en>non-trivial checks on 33 curves of rank 0 to 3, with no failures</div></div>
+      <div class="stat rv"><div class="n count" data-to="237">0</div><div class="l" data-pt>no teste cego: a resposta foi registrada antes de rodar, em 7 curvas novas</div><div class="l" data-en>in the blind test: the answer was registered before running, on 7 new curves</div></div>
+      <div class="stat rv"><div class="n">Ш = 9</div><div class="l" data-pt>em posto 2: o fator <span class="term" data-tip="sha">Ш</span> testado, até onde sabemos, pela primeira vez; reproduzido de forma independente</div><div class="l" data-en>in rank 2: the <span class="term" data-tip="sha">Ш</span> factor tested, to our knowledge, for the first time; reproduced independently</div></div>
+      <div class="stat rv"><div class="n">ℓ = 2</div><div class="l" data-pt>lacuna da prova fechada e conferida por duas verificações; entra na próxima versão da nota</div><div class="l" data-en>gap in the proof closed and checked twice; goes into the next version of the note</div></div>
+    </div>
+    <div class="grid2" style="margin-top:44px">
+      <div class="rv">
+        <h3 data-pt>A fórmula que saiu disso</h3><h3 data-en>The formula that came out of it</h3>
+        <p data-pt>O <span class="term" data-tip="pairing">emparelhamento de Mazur-Tate</span> tinha só uma definição abstrata, que ninguém usava para calcular. A nota mostra que, para pontos do tipo certo, ele se lê direto no numerador A(R) da coordenada x:</p>
+        <p data-en>The <span class="term" data-tip="pairing">Mazur-Tate pairing</span> only had an abstract definition that nobody used for computing. The note shows that, for points of the right kind, it can be read directly off the numerator A(R) of the x-coordinate:</p>
+        <div class="formula" id="fMain"></div>
+        <p class="cap" data-pt>A derivação está completa; falta um especialista confirmar que as convenções locais coincidem com as de Mazur-Tate (1983).</p>
+        <p class="cap" data-en>The derivation is complete; a specialist still needs to confirm that the local conventions agree with those of Mazur-Tate (1983).</p>
+      </div>
+      <div class="rv">
+        <h3 data-pt>A identidade testada</h3><h3 data-en>The identity tested</h3>
+        <p data-pt>À esquerda, o termo principal do <span class="term" data-tip="theta">elemento theta</span>. À direita, o determinante da matriz de emparelhamentos dos pontos. Tudo lido no relógio n = (m−1)/2:</p>
+        <p data-en>On the left, the leading term of the <span class="term" data-tip="theta">theta element</span>. On the right, the determinant of the pairing matrix of the points. All read on the clock n = (m−1)/2:</p>
+        <div class="formula" id="fId"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= USOS ================= -->
+<section id="usos" aria-labelledby="t-usos">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Para que serve</div><div class="kicker rv" data-en>What it is for</div>
+    <h2 id="t-usos" class="rv"><span data-pt>Potenciais de uso, com os pés no chão</span><span data-en>Potential uses, feet on the ground</span></h2>
+    <p class="sub rv" data-pt>Matemática pura raramente tem uso imediato, e prometer isso seria desonesto. Mas este trabalho tem utilidades reais, algumas já disponíveis, outras possíveis.</p>
+    <p class="sub rv" data-en>Pure mathematics rarely has immediate use, and promising it would be dishonest. But this work has real uses, some available now, others possible.</p>
+    <div class="grid3">
+      <div class="card use rv"><span class="pill y" data-pt>já disponível</span><span class="pill y" data-en>available now</span><h3 data-pt>Banco de testes para software matemático</h3><h3 data-en>Test bank for mathematical software</h3><p class="muted" data-pt>Mais de 1.700 casos com resposta conhecida servem para conferir programas como PARI/GP, SageMath e Magma quando implementarem elementos theta e emparelhamentos.</p><p class="muted" data-en>More than 1,700 cases with known answers can check programs such as PARI/GP, SageMath and Magma when they implement theta elements and pairings.</p></div>
+      <div class="card use rv"><span class="pill y" data-pt>já disponível</span><span class="pill y" data-en>available now</span><h3 data-pt>Um atalho de cálculo</h3><h3 data-en>A computational shortcut</h3><p class="muted" data-pt>A fórmula elementar troca uma construção abstrata por uma conta de frações. Isso pode baratear experimentos de outros pesquisadores sobre Mazur-Tate.</p><p class="muted" data-en>The elementary formula replaces an abstract construction with a computation on fractions. That may make other researchers' experiments on Mazur-Tate cheaper.</p></div>
+      <div class="card use rv"><span class="pill y" data-pt>já disponível</span><span class="pill y" data-en>available now</span><h3 data-pt>Um modelo de pesquisa com IA</h3><h3 data-en>A model for AI-assisted research</h3><p class="muted" data-pt>Previsão registrada antes, reimplementação independente, controles que devem falhar e correção pública. Esse protocolo serve para qualquer área em que a IA ajuda a explorar.</p><p class="muted" data-en>Predictions registered first, independent re-implementation, controls that must fail and public correction. This protocol works in any field where AI helps explore.</p></div>
+      <div class="card use rv"><span class="pill m" data-pt>possível</span><span class="pill m" data-en>possible</span><h3 data-pt>Pistas para especialistas</h3><h3 data-en>Leads for specialists</h3><p class="muted" data-pt>Os padrões encontrados, como o comportamento do fator Ш em posto 2, podem sugerir o que vale a pena provar. Isso depende de quem é da área olhar.</p><p class="muted" data-en>The patterns found, such as the behaviour of the Ш factor in rank 2, may suggest what is worth proving. That depends on people in the field taking a look.</p></div>
+      <div class="card use rv"><span class="pill m" data-pt>possível</span><span class="pill m" data-en>possible</span><h3 data-pt>Ensino e divulgação</h3><h3 data-en>Teaching and outreach</h3><p class="muted" data-pt>Este site mostra que dá para tocar num problema de fronteira com curiosidade, método e ferramentas abertas. Escolas e cursos podem usar os experimentos interativos.</p><p class="muted" data-en>This site shows that one can touch a frontier problem with curiosity, method and open tools. Schools and courses can use the interactive experiments.</p></div>
+      <div class="card use warn rv"><span class="pill n" data-pt>não serve para</span><span class="pill n" data-en>not for</span><h3 data-pt>Quebrar criptografia</h3><h3 data-en>Breaking cryptography</h3><p class="muted" data-pt>Curvas elípticas protegem o cadeado do navegador, o Signal e o Bitcoin. Mas lá a segurança vem de outro problema, em relógios gigantes. Nada aqui enfraquece isso. E não resolve a BSD nem ganha o prêmio.</p><p class="muted" data-en>Elliptic curves protect the browser padlock, Signal and Bitcoin. But there the security comes from a different problem, on gigantic clocks. Nothing here weakens it. And it does not solve BSD or win the prize.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HONESTIDADE ================= -->
+<section id="honestidade" aria-labelledby="t-hon">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Com honestidade</div><div class="kicker rv" data-en>Honestly</div>
+    <h2 id="t-hon" class="rv"><span data-pt>O que isto é, e o que não é</span><span data-en>What this is, and what it is not</span></h2>
+    <div class="grid3">
+      <div class="card rv"><h3 data-pt>Não fizemos</h3><h3 data-en>We did not</h3><ul class="list no">
+        <li data-pt>Resolver a conjectura BSD. Nada aqui chega perto disso.</li><li data-en>Solve the BSD conjecture. Nothing here comes close.</li>
+        <li data-pt>Ligar o mundo dos relógios ao valor real da função L em s = 1. Essa ponte continua sem existir.</li><li data-en>Connect the world of clocks to the real value of the L-function at s = 1. That bridge still does not exist.</li>
+        <li data-pt>Ter o aval de especialistas. A nota foi enviada a dois e ainda não houve resposta.</li><li data-en>Get the endorsement of specialists. The note was sent to two of them and there is no reply yet.</li></ul></div>
+      <div class="card rv"><h3 data-pt>Fizemos</h3><h3 data-en>We did</h3><ul class="list yes">
+        <li data-pt>Verificações numéricas de uma conjectura existente, em postos 0 a 3.</li><li data-en>Numerical checks of an existing conjecture, in ranks 0 to 3.</li>
+        <li data-pt>Uma fórmula elementar para o emparelhamento, com derivação completa.</li><li data-en>An elementary formula for the pairing, with a complete derivation.</li>
+        <li data-pt>Tudo público e reproduzível, com o código e os registros.</li><li data-en>Everything public and reproducible, with code and logs.</li></ul></div>
+      <div class="card rv"><h3 data-pt>Erros corrigidos em público</h3><h3 data-en>Mistakes corrected in public</h3><ul class="list fix">
+        <li data-pt>Uma afirmação errada sobre o sinal, na primeira versão.</li><li data-en>A wrong statement about the sign, in the first version.</li>
+        <li data-pt>Uma contagem: eram 11 casos, não 12.</li><li data-en>A count: there were 11 cases, not 12.</li>
+        <li data-pt>Autores, anos e conteúdo de referências.</li><li data-en>Authors, years and content of references.</li>
+        <li data-pt>Uma frase sobre curvas "ótimas" e uma conclusão sobre 2-Selmer.</li><li data-en>A sentence about "optimal" curves and a 2-Selmer conclusion.</li></ul></div>
+    </div>
+    <p class="note rv" style="margin-top:28px" data-pt>Todas as versões da nota continuam visíveis no GitHub, inclusive a primeira, enviada aos especialistas. Corrigir sem apagar faz parte do método.</p>
+    <p class="note rv" style="margin-top:28px" data-en>Every version of the note remains visible on GitHub, including the first one, sent to the specialists. Correcting without erasing is part of the method.</p>
+  </div>
+</section>
+
+<!-- ================= MÉTODO ================= -->
+<section id="metodo" aria-labelledby="t-met">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Como foi feito</div><div class="kicker rv" data-en>How it was done</div>
+    <h2 id="t-met" class="rv"><span data-pt>IA com rigor de laboratório</span><span data-en>AI with laboratory rigour</span></h2>
+    <p class="sub rv" data-pt>O trabalho foi feito com o Claude, da Anthropic, dividido em sessões separadas que não confiam umas nas outras. Clique em cada etapa.</p>
+    <p class="sub rv" data-en>The work was done with Claude, by Anthropic, split into separate sessions that do not trust each other. Click each step.</p>
+    <div class="flow rv" id="flow"></div>
+    <div class="card flowInfo rv" id="flowInfo"></div>
+
+    <h3 class="rv" style="margin-top:60px" data-pt>Onde estamos agora</h3><h3 class="rv" style="margin-top:60px" data-en>Where we are now</h3>
+    <div class="status rv">
+      <div class="st"><span class="dot" style="background:var(--lime)"></span><span class="mono dim">v0.5</span><h3 data-pt>Nota publicada</h3><h3 data-en>Note published</h3><p data-pt>PDF, código e registros no GitHub.</p><p data-en>PDF, code and logs on GitHub.</p></div>
+      <div class="st"><span class="dot" style="background:var(--gold)"></span><span class="mono dim">v0.6</span><h3 data-pt>Em preparo</h3><h3 data-en>In preparation</h3><p data-pt>Com a prova do caso ℓ = 2.</p><p data-en>With the proof of the case ℓ = 2.</p></div>
+      <div class="st"><span class="dot" style="background:var(--gold)"></span><span class="mono dim" data-pt>especialistas</span><span class="mono dim" data-en>specialists</span><h3 data-pt>Aguardando</h3><h3 data-en>Waiting</h3><p data-pt>Enviada em 21/10, sem resposta ainda.</p><p data-en>Sent on 21 Oct, no reply yet.</p></div>
+      <div class="st"><span class="dot" style="background:var(--violet)"></span><span class="mono dim" data-pt>frentes abertas</span><span class="mono dim" data-en>open fronts</span><h3 data-pt>Testes em andamento</h3><h3 data-en>Tests running</h3><p data-pt>Estatística de 3-isogenia e classes de Kolyvagin em posto 3.</p><p data-en>3-isogeny statistics and Kolyvagin classes in rank 3.</p></div>
+    </div>
+    <p class="cap rv" data-pt>Atualizado em 03/11/2026.</p><p class="cap rv" data-en>Updated on 3 Nov 2026.</p>
+  </div>
+</section>
+
+<!-- ================= LINKS ================= -->
+<section aria-labelledby="t-links">
+  <div class="wrap">
+    <div class="kicker rv" data-pt>Para ir mais fundo</div><div class="kicker rv" data-en>To go deeper</div>
+    <h2 id="t-links" class="rv"><span data-pt>A nota, o código e os registros</span><span data-en>The note, the code and the logs</span></h2>
+    <div class="grid3">
+      <a class="card rv" style="text-decoration:none;color:inherit" href="https://github.com/RaufAlencar/mazur-tate-rank2-numerics/blob/main/note/Alencar_MazurTate_rank0-3_v0.5.pdf"><span class="ic">PDF</span><h3 data-pt>Nota técnica</h3><h3 data-en>Technical note</h3><p class="muted" data-pt>Versão atual, em inglês, com todas as ressalvas.</p><p class="muted" data-en>Current version, with every caveat.</p></a>
+      <a class="card rv" style="text-decoration:none;color:inherit" href="https://github.com/RaufAlencar/mazur-tate-rank2-numerics"><span class="ic">GITHUB</span><h3 data-pt>Código e dados</h3><h3 data-en>Code and data</h3><p class="muted" data-pt>PARI/GP e Python. Qualquer pessoa pode rodar.</p><p class="muted" data-en>PARI/GP and Python. Anyone can run it.</p></a>
+      <a class="card rv" style="text-decoration:none;color:inherit" href="https://github.com/RaufAlencar/mazur-tate-rank2-numerics/blob/main/REPRODUCAO.md"><span class="ic">LOG</span><h3 data-pt>Registro de reprodução</h3><h3 data-en>Reproduction log</h3><p class="muted" data-pt>Cada teste, cada previsão e cada correção.</p><p class="muted" data-en>Every test, every prediction and every correction.</p></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-pt><strong>Rauf Alencar</strong> · Brasil · trabalho feito com assistência de IA (Claude, Anthropic). Nota numérica não revisada por pares: não é uma prova da conjectura de Birch e Swinnerton-Dyer. As figuras dos experimentos são calculadas no seu navegador; a arte de fundo do topo foi gerada por IA (Canva) e é só ilustrativa. Texto e dados sob CC BY 4.0, código sob MIT.</p>
+    <p data-en><strong>Rauf Alencar</strong> · Brazil · work done with AI assistance (Claude, Anthropic). Numerical note, not peer reviewed: it is not a proof of the Birch and Swinnerton-Dyer conjecture. The figures in the experiments are computed in your browser; the background art at the top was generated by AI (Canva) and is only illustrative. Text and data under CC BY 4.0, code under MIT.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script>
+const LEVELS = {"389a1":[[5,2,0,0,9],[7,3,1,1,13],[11,5,2,2,16],[13,6,2,2,17],[17,8,0,0,24],[19,9,0,0,15],[23,11,3,3,28],[29,14,10,10,36],[31,15,3,3,28],[37,18,12,12,46],[41,20,0,0,45],[43,21,19,19,32],[47,23,14,14,50],[53,26,2,2,60],[59,29,26,26,57],[61,30,10,10,70],[67,33,11,11,73],[71,35,26,26,82],[73,36,0,0,81],[79,39,6,6,93],[83,41,27,27,96],[89,44,4,4,98],[97,48,8,8,107],[101,50,34,34,106],[103,51,43,43,110],[107,53,39,39,108],[109,54,0,0,108],[113,56,0,0,105],[127,63,36,36,117],[131,65,0,0,130],[137,68,36,36,140],[139,69,7,7,124],[149,74,10,10,140],[151,75,42,42,162],[157,78,62,62,164],[163,81,54,54,184],[167,83,57,57,160],[173,86,2,2,159],[179,89,8,8,199],[181,90,50,50,167],[191,95,37,37,196],[193,96,64,64,212],[197,98,90,90,190],[199,99,79,79,202],[211,105,30,30,205],[223,111,77,77,229],[227,113,71,71,216],[229,114,106,106,238],[233,116,88,88,240],[239,119,31,31,235],[241,120,80,80,272],[251,125,0,0,230],[257,128,0,0,250],[263,131,128,128,288],[269,134,66,66,267],[271,135,50,50,280],[277,138,126,126,261],[281,140,0,0,294],[283,141,11,11,293],[293,146,24,24,304],[307,153,126,126,282],[311,155,151,151,319],[313,156,48,48,295],[317,158,4,4,340],[331,165,94,94,328],[337,168,40,40,356],[347,173,42,42,339],[349,174,138,138,360],[353,176,144,144,340],[359,179,54,54,380],[367,183,0,0,366],[373,186,36,36,396],[379,189,7,7,376],[383,191,5,5,391],[397,198,88,88,374]],"5077a1":[[5,2,0,0,10],[7,3,0,0,12],[11,5,0,0,18],[13,6,0,0,18],[17,8,0,0,22],[19,9,0,0,27],[23,11,10,10,30],[29,14,0,0,36],[31,15,13,13,34],[37,18,2,2,38],[41,20,16,16,42],[43,21,18,18,52],[47,23,0,0,57],[53,26,18,18,63],[59,29,2,2,71],[61,30,22,22,64],[67,33,16,16,80],[71,35,0,0,80],[73,36,12,12,88],[79,39,6,6,71],[83,41,29,29,86],[89,44,24,24,79],[97,48,0,0,92],[101,50,32,32,98],[103,51,38,38,104],[107,53,30,30,96],[109,54,42,42,103],[113,56,0,0,119],[127,63,48,48,121],[131,65,9,9,139],[137,68,32,32,141],[139,69,57,57,136],[149,74,4,4,144],[151,75,25,25,143],[157,78,54,54,154],[163,81,0,0,168],[167,83,0,0,176],[173,86,56,56,183],[179,89,74,74,171],[181,90,54,54,163],[191,95,0,0,208],[193,96,0,0,207],[197,98,10,10,218],[199,99,36,36,213],[211,105,21,21,224],[223,111,69,69,203],[227,113,87,87,254],[229,114,102,102,240],[233,116,24,24,219],[239,119,34,34,255],[241,120,24,24,271]]};
+const html = document.documentElement, langBtn = document.getElementById('langBtn');
+const isEN = () => html.lang === 'en';
+const T = (pt, en) => isEN() ? en : pt;
+const redraws = [];
+function setLang(l){ html.lang = l === 'en' ? 'en' : 'pt-BR'; langBtn.textContent = l === 'en' ? 'PT' : 'EN';
+  try{ localStorage.setItem('lang', l); }catch(e){} redraws.forEach(f => f()); }
+langBtn.addEventListener('click', () => setLang(isEN() ? 'pt' : 'en'));
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- glossário ---------- */
+const GL = {
+  elliptic:['Equação do tipo y² = x³ + ax + b. Apesar do nome, não tem nada a ver com elipses.','An equation like y² = x³ + ax + b. Despite the name, it has nothing to do with ellipses.'],
+  bsd:['Conjectura de Birch e Swinnerton-Dyer (anos 1960): a função L de uma curva revela quantos pontos racionais ela tem. Um dos sete Problemas do Milênio do Clay Institute.','Birch and Swinnerton-Dyer conjecture (1960s): the L-function of a curve reveals how many rational points it has. One of the Clay Institute\'s seven Millennium Problems.'],
+  rank:['Número de pontos "geradores" independentes. Posto 0: finitos pontos. Posto 2: todos os pontos saem de dois.','Number of independent "generator" points. Rank 0: finitely many points. Rank 2: every point comes from two.'],
+  mod:['Contas "módulo m": como num relógio de m horas, ao passar de m volta-se ao zero.','Arithmetic "modulo m": like a clock with m hours, after m you go back to zero.'],
+  theta:['Elemento theta de Mazur-Tate: um objeto montado a partir da função L, que guarda a informação analítica da curva em cada relógio.','Mazur-Tate theta element: an object built from the L-function that stores the curve\'s analytic information on each clock.'],
+  pairing:['Emparelhamento de Mazur-Tate: uma forma de medir os pontos racionais dentro de cada relógio. A nota dá uma fórmula simples para ele.','Mazur-Tate pairing: a way of measuring the rational points inside each clock. The note gives a simple formula for it.'],
+  sha:['Grupo de Tate-Shafarevich (Ш, letra russa "sha"): mede o quanto a curva "engana" quem procura pontos. Aparece na fórmula da BSD e é muito difícil de calcular.','Tate-Shafarevich group (Ш, Russian letter "sha"): measures how much the curve "fools" those looking for points. It appears in the BSD formula and is very hard to compute.']
+};
+const tip = document.getElementById('tip');
+document.addEventListener('mouseover', e => { const t = e.target.closest('.term'); if (!t) return;
+  tip.textContent = GL[t.dataset.tip][isEN()?1:0]; tip.style.opacity = 1; });
+document.addEventListener('mousemove', e => { tip.style.left = Math.min(innerWidth-320, e.clientX+14)+'px'; tip.style.top = (e.clientY+18)+'px'; });
+document.addEventListener('mouseout', e => { if (e.target.closest('.term')) tip.style.opacity = 0; });
+document.addEventListener('click', e => { const t = e.target.closest('.term'); if (!t){ tip.style.opacity = 0; return; }
+  const r = t.getBoundingClientRect(); tip.textContent = GL[t.dataset.tip][isEN()?1:0]; tip.style.left = Math.max(8,Math.min(innerWidth-320, r.left))+'px'; tip.style.top = (r.bottom+8)+'px'; tip.style.opacity = 1; });
+
+/* ---------- progresso, reveal, contadores ---------- */
+addEventListener('scroll', () => { const h = document.documentElement; document.getElementById('prog').style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; }, {passive:true});
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add('in');
+  e.target.querySelectorAll?.('.count').forEach(countUp); if (e.target.classList.contains('count')) countUp(e.target); io.unobserve(e.target); }), {threshold:.12});
+document.querySelectorAll('.rv, .heroStats .count').forEach(el => io.observe(el));
+function countUp(el){ if (el.dataset.done) return; el.dataset.done = 1; const to = +el.dataset.to, t0 = performance.now(), d = reduced ? 1 : 1400;
+  (function f(t){ const k = Math.min(1,(t-t0)/d), v = Math.round(to*(1-Math.pow(1-k,3))); el.textContent = v.toLocaleString(isEN()?'en':'pt-BR'); if (k<1) requestAnimationFrame(f); })(t0); }
+
+/* ---------- fórmulas ---------- */
+function kx(id, s){ try{ katex.render(s, document.getElementById(id), {displayMode:true, throwOnError:false}); }catch(e){ document.getElementById(id).textContent = s; } }
+kx('fMain', "\\langle R,R\\rangle_m \\;=\\; \\big[\\,A(R)\\,\\big]^{-1}");
+kx('fId', "2^r M^{2r-1}\\, c_r(m)\\;\\equiv\\; u_E\\cdot \\det\\big(\\langle R_i,R_j\\rangle_m\\big)\\pmod{n}");
+
+/* ---------- curva 389a1 (a1=0, a3=1) ---------- */
+const A2 = 1, A4 = -2, A6 = 0, A3 = 1;
+const f389 = x => x*x*x + A2*x*x + A4*x + A6;
+const disc = x => 1 + 4*f389(x);
+function add(P, Q){
+  if (!P) return Q; if (!Q) return P;
+  let lam;
+  if (Math.abs(P[0]-Q[0]) < 1e-12){
+    if (Math.abs(P[1]+Q[1]+A3) < 1e-9) return null;
+    lam = (3*P[0]*P[0] + 2*A2*P[0] + A4) / (2*P[1] + A3);
+  } else lam = (Q[1]-P[1]) / (Q[0]-P[0]);
+  const nu = P[1] - lam*P[0], x3 = lam*lam - A2 - P[0] - Q[0], y3 = -lam*x3 - nu - A3;
+  return [x3, y3, lam, nu];
+}
+
+/* ---------- HERO: partículas sobre a curva ---------- */
+(() => {
+  const c = document.getElementById('heroCanvas'), g = c.getContext('2d');
+  let W, H, dpr, parts = [], mouse = {x:-1e4, y:-1e4};
+  const view = {xmin:-2.4, xmax:3.4, ymin:-3.4, ymax:2.4};
+  function S(x,y){ return [(x-view.xmin)/(view.xmax-view.xmin)*W, H-(y-view.ymin)/(view.ymax-view.ymin)*H]; }
+  function size(){ const r = c.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio||1); W = c.width = r.width*dpr; H = c.height = r.height*dpr;
+    const ar = W/H, half = 3.0; view.ymin = -0.5 - half; view.ymax = -0.5 + half;
+    view.xmin = ar > 1.2 ? 2.6 - 2*half*ar : -2.6; view.xmax = view.xmin + 2*half*ar; }
+  function spawn(){ const p = {}; p.sign = Math.random() < .5 ? 1 : -1; p.x = view.xmin + Math.random()*(view.xmax-view.xmin); p.v = (.15+Math.random()*.6)*(Math.random()<.5?1:-1); p.off = (Math.random()-.5)*.04; p.s = .6+Math.random()*1.8; p.hue = Math.random(); p.dx = 0; p.dy = 0; return p; }
+  size(); for (let i=0;i<650;i++) parts.push(spawn());
+  addEventListener('resize', size);
+  c.parentElement.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); mouse.x = (e.clientX-r.left)*dpr; mouse.y = (e.clientY-r.top)*dpr; });
+  c.parentElement.addEventListener('pointerleave', () => { mouse.x = mouse.y = -1e4; });
+  let last = performance.now();
+  function frame(t){
+    const dt = Math.min(.05, (t-last)/1000); last = t;
+    g.fillStyle = 'rgba(5,7,15,.28)'; g.fillRect(0,0,W,H);
+    g.globalCompositeOperation = 'lighter';
+    for (const p of parts){
+      p.x += p.v*dt*.35;
+      let d = disc(p.x);
+      if (p.x < view.xmin || p.x > view.xmax || d < 0){ if (d < 0 && Math.random()<.5){ p.v = -p.v; p.x += p.v*dt*.8; } else Object.assign(p, spawn()); d = disc(p.x); if (d<0) continue; }
+      let [sx, sy] = S(p.x, (-1 + p.sign*Math.sqrt(d))/2 + p.off);
+      const mx = sx - mouse.x, my = sy - mouse.y, md = Math.hypot(mx,my), R = 160*dpr;
+      if (md < R){ const k = (1-md/R)*38*dpr; p.dx += mx/md*k*dt*6; p.dy += my/md*k*dt*6; }
+      p.dx *= .92; p.dy *= .92; sx += p.dx; sy += p.dy;
+      const col = p.hue < .55 ? '62,240,255' : p.hue < .85 ? '143,123,255' : '255,79,216';
+      const r = p.s*dpr*1.5;
+      const gr = g.createRadialGradient(sx,sy,0,sx,sy,r*3); gr.addColorStop(0,`rgba(${col},.55)`); gr.addColorStop(1,`rgba(${col},0)`);
+      g.fillStyle = gr; g.beginPath(); g.arc(sx,sy,r*3,0,7); g.fill();
+    }
+    g.globalCompositeOperation = 'source-over';
+    // pontos geradores
+    for (const [P,lab] of [[[-1,1],'P₁'],[[0,0],'P₂']]){ const [sx,sy] = S(P[0],P[1]); g.strokeStyle = 'rgba(255,200,87,.9)'; g.lineWidth = 1.5*dpr; g.beginPath(); g.arc(sx,sy,9*dpr+Math.sin(t/400)*2*dpr,0,7); g.stroke(); g.fillStyle = '#ffc857'; g.font = `600 ${13*dpr}px JetBrains Mono`; g.fillText(lab, sx+14*dpr, sy-12*dpr); }
+    // véu para leitura
+    const v = g.createLinearGradient(0,0,W,0); v.addColorStop(0,'rgba(5,7,15,.55)'); v.addColorStop(.5,'rgba(5,7,15,.12)'); v.addColorStop(1,'rgba(5,7,15,0)');
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  g.fillStyle = '#05070f'; g.fillRect(0,0,W,H); requestAnimationFrame(frame);
+})();
+
+/* ---------- capítulos ---------- */
+const chapBtns = document.querySelectorAll('.chapters button');
+chapBtns.forEach(b => b.addEventListener('click', () => { chapBtns.forEach(x => x.classList.toggle('on', x===b));
+  document.querySelectorAll('.chapter').forEach(c => c.classList.toggle('on', c.dataset.chap === b.dataset.ch)); redraws.forEach(f => f()); }));
+
+/* ---------- 01 forma ---------- */
+(() => {
+  const c = document.getElementById('shapeCanvas'), g = c.getContext('2d'), sa = document.getElementById('sa'), sb = document.getElementById('sb');
+  const V = {xmin:-3, xmax:3, ymin:-3.3, ymax:3.3};
+  const S = (x,y) => [(x-V.xmin)/(V.xmax-V.xmin)*c.width, c.height-(y-V.ymin)/(V.ymax-V.ymin)*c.height];
+  function draw(){
+    const a = +sa.value, b = +sb.value; document.getElementById('oa').textContent = a.toFixed(2); document.getElementById('ob').textContent = b.toFixed(2);
+    g.clearRect(0,0,c.width,c.height);
+    g.strokeStyle = 'rgba(166,175,214,.14)'; g.lineWidth = 1; const o = S(0,0); g.beginPath(); g.moveTo(0,o[1]); g.lineTo(c.width,o[1]); g.moveTo(o[0],0); g.lineTo(o[0],c.height); g.stroke();
+    const D = -16*(4*a*a*a + 27*b*b);
+    const gr = g.createLinearGradient(0,0,c.width,c.height); gr.addColorStop(0,'#3ef0ff'); gr.addColorStop(1,'#ff4fd8');
+    g.strokeStyle = gr; g.lineWidth = 4.5; g.lineCap = 'round'; g.shadowColor = '#3ef0ff'; g.shadowBlur = 18;
+    for (const s of [1,-1]){ g.beginPath(); let st = false;
+      for (let i=0;i<=2400;i++){ const x = V.xmin + i/2400*(V.xmax-V.xmin), v = x*x*x + a*x + b; if (v < 0){ st = false; continue; }
+        const [px,py] = S(x, s*Math.sqrt(v)); if (!st){ g.moveTo(px,py); st = true; } else g.lineTo(px,py); } g.stroke(); }
+    g.shadowBlur = 0;
+    const info = document.getElementById('shapeInfo');
+    if (Math.abs(D) < 0.6) info.textContent = T('Quase singular: a curva está prestes a ganhar um bico ou um cruzamento. Com Δ = 0 ela deixa de ser elíptica.','Almost singular: the curve is about to get a cusp or a crossing. With Δ = 0 it stops being elliptic.');
+    else if (D > 0) info.textContent = T(`Δ = ${D.toFixed(1)} > 0: dois pedaços, como a 389a1. Um oval fechado e um ramo infinito.`,`Δ = ${D.toFixed(1)} > 0: two pieces, like 389a1. A closed oval and an infinite branch.`);
+    else info.textContent = T(`Δ = ${D.toFixed(1)} < 0: um pedaço só.`,`Δ = ${D.toFixed(1)} < 0: a single piece.`);
+  }
+  sa.oninput = sb.oninput = draw; redraws.push(draw); draw();
+})();
+
+/* ---------- 02 soma ---------- */
+const curve = (() => {
+  const cv = document.getElementById('curveCanvas'), cx = cv.getContext('2d');
+  const VIEW = {xmin:-3, xmax:3.2, ymin:-4.2, ymax:3.2};
+  const toS = (x,y) => [(x-VIEW.xmin)/(VIEW.xmax-VIEW.xmin)*cv.width, cv.height-(y-VIEW.ymin)/(VIEW.ymax-VIEW.ymin)*cv.height];
+  const toW = (sx,sy) => [VIEW.xmin + sx/cv.width*(VIEW.xmax-VIEW.xmin), VIEW.ymin + (cv.height-sy)/cv.height*(VIEW.ymax-VIEW.ymin)];
+  const P1 = [-1,1], P2 = [0,0];
+  let picks = [], steps = [], acc = null, accN = 0, timer = null, cap = '';
+  function path(sign){ cx.beginPath(); let st = false;
+    for (let i=0;i<=1600;i++){ const x = VIEW.xmin + i/1600*(VIEW.xmax-VIEW.xmin), d = disc(x); if (d<0){ st=false; continue; }
+      const [sx,sy] = toS(x,(-1+sign*Math.sqrt(d))/2); if (!st){ cx.moveTo(sx,sy); st=true; } else cx.lineTo(sx,sy); } cx.stroke(); }
+  function dot(P,color,label){ const [sx,sy] = toS(P[0],P[1]); if (sx<-50||sx>cv.width+50||sy<-50||sy>cv.height+50) return;
+    cx.shadowColor = color; cx.shadowBlur = 20; cx.fillStyle = color; cx.beginPath(); cx.arc(sx,sy,9,0,7); cx.fill(); cx.shadowBlur = 0;
+    if (label){ cx.fillStyle = '#eef2ff'; cx.font = '600 24px JetBrains Mono'; cx.fillText(label, sx+14, sy-12); } }
+  function line(lam,nu,color){ const a = toS(VIEW.xmin, lam*VIEW.xmin+nu), b = toS(VIEW.xmax, lam*VIEW.xmax+nu);
+    cx.strokeStyle = color; cx.lineWidth = 2.5; cx.beginPath(); cx.moveTo(a[0],a[1]); cx.lineTo(b[0],b[1]); cx.stroke(); }
+  function draw(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    cx.strokeStyle = 'rgba(166,175,214,.14)'; cx.lineWidth = 1; const o = toS(0,0); cx.beginPath(); cx.moveTo(0,o[1]); cx.lineTo(cv.width,o[1]); cx.moveTo(o[0],0); cx.lineTo(o[0],cv.height); cx.stroke();
+    const gr = cx.createLinearGradient(0,0,cv.width,cv.height); gr.addColorStop(0,'#3ef0ff'); gr.addColorStop(1,'#8f7bff');
+    cx.strokeStyle = gr; cx.lineWidth = 4.5; cx.lineCap = 'round'; cx.shadowColor = '#3ef0ff'; cx.shadowBlur = 16; path(1); path(-1); cx.shadowBlur = 0;
+    for (const s of steps){ line(s.lam, s.nu, 'rgba(255,200,87,.85)');
+      const [a,b] = [toS(s.R[0],s.R[1]), toS(s.R[0],-s.R[1]-A3)]; cx.save(); cx.setLineDash([8,8]); cx.strokeStyle = 'rgba(255,79,216,.85)'; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(a[0],a[1]); cx.lineTo(b[0],b[1]); cx.stroke(); cx.restore();
+      dot(s.R,'#6f78a3'); dot(s.S,'#ff4fd8',s.label); }
+    for (const [i,P] of picks.entries()) dot(P,'#ffc857', i ? 'Q' : 'P');
+    if (!picks.length && !steps.length){ dot(P1,'#ffc857','P₁'); dot(P2,'#ffc857','P₂'); }
+    document.getElementById('curveCap').textContent = cap || T('Clique em dois pontos da curva, ou use os botões.','Click two points on the curve, or use the buttons.');
+  }
+  const fmt = v => (Math.round(v*1000)/1000).toString();
+  function sumStep(P,Q,label){ const r = add(P,Q); if (!r) return null; steps.push({lam:r[2], nu:r[3], R:[r[0],-r[1]-A3], S:[r[0],r[1]], label}); return [r[0],r[1]]; }
+  function stop(){ clearInterval(timer); timer = null; }
+  function step(){ if (!acc){ acc = P1; accN = 1; } const S = sumStep(acc,P1,(accN+1)+'·P₁'); if (!S) return; acc = S; accN++; if (steps.length > 2) steps.shift();
+    cap = `${accN}·P₁ = (${fmt(S[0])}, ${fmt(S[1])})`; draw(); if (accN >= 9) stop(); }
+  document.getElementById('btnBasic').onclick = () => { stop(); steps=[]; picks=[]; const S = sumStep(P1,P2,'P₁+P₂'); acc = S; accN = 1; cap = `P₁ + P₂ = (${fmt(S[0])}, ${fmt(S[1])}) · ` + T('outro ponto racional','another rational point'); draw(); };
+  document.getElementById('btnStep').onclick = () => { stop(); step(); };
+  document.getElementById('btnAuto').onclick = () => { stop(); steps=[]; picks=[]; acc=null; accN=0; timer = setInterval(step, 900); step(); };
+  document.getElementById('btnReset').onclick = () => { stop(); steps=[]; picks=[]; acc=null; accN=0; cap=''; draw(); };
+  cv.addEventListener('click', ev => { stop(); const r = cv.getBoundingClientRect(), sx = (ev.clientX-r.left)/r.width*cv.width, sy = (ev.clientY-r.top)/r.height*cv.height;
+    const [x,y] = toW(sx,sy), d = disc(x); if (d < 0) return; const y1 = (-1+Math.sqrt(d))/2, y2 = (-1-Math.sqrt(d))/2, P = [x, Math.abs(y-y1) < Math.abs(y-y2) ? y1 : y2];
+    if (picks.length >= 2 || steps.length){ picks = []; steps = []; } picks.push(P);
+    if (picks.length === 2){ const S = sumStep(picks[0],picks[1],'P+Q'); cap = S ? `P + Q = (${fmt(S[0])}, ${fmt(S[1])})` : 'P + Q = O'; } else cap = T('Agora clique num segundo ponto Q.','Now click a second point Q.');
+    draw(); });
+  redraws.push(draw); draw(); return {draw};
+})();
+
+/* ---------- 03 explosão (aritmética exata) ---------- */
+function gcd(a,b){ a = a<0n?-a:a; b = b<0n?-b:b; while (b){ [a,b] = [b, a%b]; } return a; }
+class Q { constructor(n,d=1n){ if (d<0n){ n=-n; d=-d; } const g = gcd(n,d)||1n; this.n=n/g; this.d=d/g; }
+  add(o){ return new Q(this.n*o.d + o.n*this.d, this.d*o.d); } sub(o){ return new Q(this.n*o.d - o.n*this.d, this.d*o.d); }
+  mul(o){ return new Q(this.n*o.n, this.d*o.d); } div(o){ return new Q(this.n*o.d, this.d*o.n); } eq(o){ return this.n===o.n && this.d===o.d; } }
+const q = n => new Q(BigInt(n));
+function addQ(P,R){
+  if (!P) return R; if (!R) return P; let lam;
+  if (P[0].eq(R[0])){ if (P[1].add(R[1]).add(q(A3)).n === 0n) return null;
+    lam = P[0].mul(P[0]).mul(q(3)).add(P[0].mul(q(2*A2))).add(q(A4)).div(P[1].mul(q(2)).add(q(A3))); }
+  else lam = R[1].sub(P[1]).div(R[0].sub(P[0]));
+  const nu = P[1].sub(lam.mul(P[0])), x3 = lam.mul(lam).sub(q(A2)).sub(P[0]).sub(R[0]), y3 = q(0).sub(lam.mul(x3)).sub(nu).sub(q(A3));
+  return [x3, y3];
+}
+const MULT = (() => { const out = []; let R = null; const P = [q(-1),q(1)]; for (let n=1;n<=40;n++){ R = addQ(R,P); out.push(R); } return out; })();
+(() => {
+  const c = document.getElementById('digitsCanvas'), g = c.getContext('2d'), sn = document.getElementById('sn');
+  const dig = MULT.map(R => (R[0].n<0n?-R[0].n:R[0].n).toString().length);
+  function draw(){
+    const n = +sn.value; document.getElementById('on').textContent = n;
+    const num = MULT[n-1][0].n.toString();
+    document.getElementById('bigNum').textContent = num;
+    document.getElementById('digLabel').textContent = T(`numerador de x(${n}·P₁): ${num.replace('-','').length} dígitos`, `numerator of x(${n}·P₁): ${num.replace('-','').length} digits`);
+    const W = c.width, H = c.height, pad = 60, N = 40, mx = dig[N-1], bw = (W-2*pad)/N;
+    g.clearRect(0,0,W,H);
+    dig.forEach((v,i) => { const h = (H-2*pad-30)*v/mx, x = pad + i*bw + 2, y = H-pad-h, on = i < n;
+      const gr = g.createLinearGradient(0,y,0,H-pad); gr.addColorStop(0, on ? '#3ef0ff' : 'rgba(62,240,255,.18)'); gr.addColorStop(1, on ? '#8f7bff' : 'rgba(143,123,255,.12)');
+      g.fillStyle = gr; if (i === n-1){ g.shadowColor = '#3ef0ff'; g.shadowBlur = 24; } g.fillRect(x,y,bw-4,h); g.shadowBlur = 0;
+      if ((i+1)%10===0 || i===0){ g.fillStyle = '#6f78a3'; g.font = '500 18px JetBrains Mono'; g.fillText(String(i+1), x, H-pad+28); } });
+    g.fillStyle = '#eef2ff'; g.font = '700 30px Space Grotesk'; g.fillText(dig[n-1] + T(' dígitos',' digits'), pad, pad+6);
+  }
+  sn.oninput = draw; redraws.push(draw); draw();
+})();
+
+/* ---------- 04 relógio com órbita ---------- */
+(() => {
+  const PR = []; for (let p=5;p<=211;p++){ let ok = true; for (let d=2;d*d<=p;d++) if (p%d===0){ ok=false; break; } if (ok) PR.push(p); }
+  const sm = document.getElementById('sm'); sm.max = PR.length-1; sm.value = PR.indexOf(23);
+  const c = document.getElementById('clockCanvas'), g = c.getContext('2d');
+  let p = 23, pts = [], orbit = [], k = 0, tmr = null;
+  const md = (a,m) => ((a%m)+m)%m;
+  function pw(b,e,m){ let r = 1; b = md(b,m); while (e){ if (e&1) r = r*b%m; b = b*b%m; e >>= 1; } return r; }
+  const inv = (a,m) => pw(a, m-2, m);
+  function addM(P,R){ if (!P) return R; if (!R) return P; let lam;
+    if (P[0]===R[0]){ if (md(P[1]+R[1]+1,p)===0) return null; lam = md((3*P[0]*P[0] + 2*P[0] - 2) * inv(md(2*P[1]+1,p),p), p); }
+    else lam = md((R[1]-P[1]) * inv(md(R[0]-P[0],p),p), p);
+    const nu = md(P[1]-lam*P[0],p), x3 = md(lam*lam - 1 - P[0] - R[0], p), y3 = md(-lam*x3 - nu - 1, p); return [x3,y3]; }
+  function setup(){
+    p = PR[+sm.value]; document.getElementById('om').textContent = p; document.getElementById('clockTag').textContent = 'mod ' + p;
+    pts = []; for (let x=0;x<p;x++) for (let y=0;y<p;y++) if (md(y*y+y,p) === md(x*x*x + x*x - 2*x, p)) pts.push([x,y]);
+    orbit = []; let R = null; const P = [md(-1,p), 1]; for (let i=0;i<2000;i++){ R = addM(R,P); if (!R) break; orbit.push(R); }
+    k = 0; clearInterval(tmr); const ord = orbit.length + 1;
+    document.getElementById('clockInfo').textContent = T(`Módulo ${p}: ${pts.length} pontos mais o "ponto no infinito", ${pts.length+1} no total. P₁ volta ao início depois de ${ord} passos.`,
+      `Modulo ${p}: ${pts.length} points plus the "point at infinity", ${pts.length+1} in total. P₁ returns to the start after ${ord} steps.`);
+    tmr = setInterval(() => { k = (k+1) % (orbit.length+12); draw(); }, Math.max(30, 2400/orbit.length));
+    draw();
+  }
+  function draw(){
+    const W = c.width, pad = 50, s = (W-2*pad)/p; g.clearRect(0,0,W,W);
+    const X = x => pad + (x+.5)*s, Y = y => W - pad - (y+.5)*s;
+    if (p <= 60){ g.strokeStyle = 'rgba(120,150,255,.07)'; g.lineWidth = 1; for (let i=0;i<=p;i++){ g.beginPath(); g.moveTo(pad+i*s,pad); g.lineTo(pad+i*s,W-pad); g.moveTo(pad,pad+i*s); g.lineTo(W-pad,pad+i*s); g.stroke(); } }
+    const r = Math.max(2, Math.min(9, s*.32));
+    for (const [x,y] of pts){ g.fillStyle = 'rgba(166,175,214,.55)'; g.beginPath(); g.arc(X(x),Y(y),r*.7,0,7); g.fill(); }
+    const upto = Math.min(k, orbit.length);
+    g.lineWidth = 2; for (let i=1;i<upto;i++){ const a = orbit[i-1], b = orbit[i], al = .15 + .7*(i/upto);
+      g.strokeStyle = `rgba(62,240,255,${al})`; g.beginPath(); g.moveTo(X(a[0]),Y(a[1])); g.lineTo(X(b[0]),Y(b[1])); g.stroke(); }
+    for (let i=0;i<upto;i++){ const a = orbit[i]; g.fillStyle = i===upto-1 ? '#ff4fd8' : 'rgba(62,240,255,.95)'; if (i===upto-1){ g.shadowColor='#ff4fd8'; g.shadowBlur=24; }
+      g.beginPath(); g.arc(X(a[0]),Y(a[1]), i===upto-1 ? r*1.6 : r, 0, 7); g.fill(); g.shadowBlur = 0; }
+    g.fillStyle = '#6f78a3'; g.font = '500 20px JetBrains Mono'; g.fillText('x →', W-pad-44, W-pad+36);
+    if (upto) { g.fillStyle = '#ff4fd8'; g.font = '600 24px JetBrains Mono'; g.textAlign = 'right'; g.fillText(`${upto}·P₁`, W-pad, pad-14); g.textAlign = 'left'; }
+  }
+  sm.oninput = setup; redraws.push(() => { document.getElementById('clockInfo').textContent && setup(); }); setup();
+})();
+
+/* ---------- 05 toro ---------- */
+(() => {
+  const c = document.getElementById('torusCanvas'), g = c.getContext('2d');
+  let ax = .9, ay = .4, drag = null, t0 = performance.now();
+  const Rr = 1, rr = .42;
+  function P(u,v){ const x = (Rr + rr*Math.cos(v))*Math.cos(u), y = (Rr + rr*Math.cos(v))*Math.sin(u), z = rr*Math.sin(v);
+    const y1 = y*Math.cos(ax) - z*Math.sin(ax), z1 = y*Math.sin(ax) + z*Math.cos(ax);
+    const x2 = x*Math.cos(ay) + z1*Math.sin(ay), z2 = -x*Math.sin(ay) + z1*Math.cos(ay);
+    const sc = 760/(3.4 - z2); return [c.width/2 + x2*sc, c.height/2 + y1*sc, z2]; }
+  function poly(fn, n, col, w){ let prev = null; for (let i=0;i<=n;i++){ const p = fn(i/n*Math.PI*2); if (prev){ const d = (p[2]+prev[2])/2, al = .12 + .75*((d+1.5)/3);
+      g.strokeStyle = col.replace('A', Math.max(.05,Math.min(1,al)).toFixed(2)); g.lineWidth = w; g.beginPath(); g.moveTo(prev[0],prev[1]); g.lineTo(p[0],p[1]); g.stroke(); } prev = p; } }
+  function draw(t){
+    if (!drag && !reduced) ay += .004;
+    g.clearRect(0,0,c.width,c.height);
+    for (let i=0;i<28;i++){ const u = i/28*Math.PI*2; poly(v => P(u,v), 40, 'rgba(143,123,255,A)', 1.2); }
+    for (let j=0;j<14;j++){ const v = j/14*Math.PI*2; poly(u => P(u,v), 80, 'rgba(120,150,255,A)', 1); }
+    g.shadowColor = '#3ef0ff'; g.shadowBlur = 16; poly(u => P(u,0), 120, 'rgba(62,240,255,A)', 4);
+    g.shadowColor = '#ff4fd8'; poly(u => P(u,Math.PI), 120, 'rgba(255,79,216,A)', 4); g.shadowBlur = 0;
+    const u = ((t||0)-t0)/1400, p = P(u,0); g.fillStyle = '#ffc857'; g.shadowColor = '#ffc857'; g.shadowBlur = 20; g.beginPath(); g.arc(p[0],p[1],8,0,7); g.fill(); g.shadowBlur = 0;
+    if (!reduced) requestAnimationFrame(draw);
+  }
+  c.addEventListener('pointerdown', e => { drag = [e.clientX, e.clientY]; c.setPointerCapture(e.pointerId); });
+  c.addEventListener('pointermove', e => { if (!drag) return; ay += (e.clientX-drag[0])*.01; ax += (e.clientY-drag[1])*.01; drag = [e.clientX, e.clientY]; });
+  c.addEventListener('pointerup', () => drag = null);
+  requestAnimationFrame(draw);
+})();
+
+/* ---------- experimento BSD: Σ log(N_p/p) ---------- */
+(() => {
+  const CURVES = [
+    {lab:'11a1', r:0, a2:-1, a4:-10, a6:-20, N:11, col:'#6f78a3'},
+    {lab:'37a1', r:1, a2:0, a4:-1, a6:0, N:37, col:'#7dff9b'},
+    {lab:'389a1', r:2, a2:1, a4:-2, a6:0, N:389, col:'#3ef0ff'},
+    {lab:'5077a1', r:3, a2:0, a4:-7, a6:6, N:5077, col:'#ff4fd8'} ];
+  const PMAX = 12000, c = document.getElementById('bsdCanvas'), g = c.getContext('2d');
+  const sieve = new Uint8Array(PMAX+1), primes = []; for (let i=2;i<=PMAX;i++){ if (!sieve[i]){ primes.push(i); for (let j=i*i;j<=PMAX;j+=i) sieve[j]=1; } }
+  let series = CURVES.map(() => []), done = 0, running = false;
+  // y^2 + y = x^3 + a2 x^2 + a4 x + a6  <=>  (2y+1)^2 = 4f(x)+1 ; N_p = p + 1 + sum_x legendre(4f(x)+1)
+  function countPts(cv, p, isSq){ let s = 0; for (let x=0;x<p;x++){ const v = (((4*((((x*x)%p)*x + cv.a2*x*x + cv.a4*x + cv.a6)%p) + 1)%p)+p)%p; s += v===0 ? 0 : (isSq[v] ? 1 : -1); } return p + 1 + s; }
+  const X = v => 70 + (v - Math.log(Math.log(3)))/(Math.log(Math.log(PMAX)) - Math.log(Math.log(3)))*(c.width-110);
+  let ymin = -3, ymax = 6;
+  const Y = v => c.height - 60 - (v-ymin)/(ymax-ymin)*(c.height-110);
+  function draw(){
+    g.clearRect(0,0,c.width,c.height);
+    g.strokeStyle = 'rgba(120,150,255,.12)'; g.lineWidth = 1; g.fillStyle = '#6f78a3'; g.font = '500 17px JetBrains Mono';
+    for (let v=Math.ceil(ymin); v<=ymax; v++){ g.beginPath(); g.moveTo(70,Y(v)); g.lineTo(c.width-40,Y(v)); g.stroke(); g.fillText(v, 30, Y(v)+5); }
+    for (const pp of [10,100,1000,10000]){ const xv = X(Math.log(Math.log(pp))); g.beginPath(); g.moveTo(xv,50); g.lineTo(xv,c.height-60); g.stroke(); g.fillText('p='+pp, xv-30, c.height-30); }
+    series.forEach((s,k) => { const cv = CURVES[k]; if (!s.length) return; g.strokeStyle = cv.col; g.lineWidth = 3; g.shadowColor = cv.col; g.shadowBlur = 10; g.beginPath();
+      s.forEach(([xv,yv],i) => i ? g.lineTo(X(xv),Y(yv)) : g.moveTo(X(xv),Y(yv))); g.stroke(); g.shadowBlur = 0;
+      g.fillStyle = cv.col; g.fillRect(96, 70 + (3-k)*34, 26, 5); g.font = '600 21px JetBrains Mono'; g.fillText(`${cv.lab} · ${T('posto','rank')} ${cv.r}`, 132, 78 + (3-k)*34); });
+    if (!series[0].length){ g.fillStyle = '#a6afd6'; g.font = '600 24px Space Grotesk'; g.fillText(T('Aperte "Contar pontos"','Press "Count points"'), 90, 110); }
+  }
+  function run(){
+    if (running) return; running = true; series = CURVES.map(() => []); done = 0; const acc = CURVES.map(() => 0); let idx = 0, lastDraw = 0; const ps = primes.filter(p => p >= 3);
+    function chunk(){
+      const tEnd = performance.now() + 30;
+      while (idx < ps.length && performance.now() < tEnd){
+        const p = ps[idx++]; const isSq = new Uint8Array(p); for (let y=1;y<p;y++) isSq[y*y%p] = 1;
+        CURVES.forEach((cv,k) => { if (cv.N % p === 0) return; acc[k] += Math.log(countPts(cv,p,isSq)/p); if (idx % 3 === 0 || p < 200) series[k].push([Math.log(Math.log(p)), acc[k]]); });
+      }
+      if (idx >= ps.length || performance.now() - lastDraw > 120){ lastDraw = performance.now(); let lo = 0, hi = 0; for (const s of series) for (const pt of s){ if (pt[1] < lo) lo = pt[1]; if (pt[1] > hi) hi = pt[1]; }
+        ymin = Math.min(-2, Math.floor(lo)); ymax = Math.max(4, Math.ceil(hi)); draw(); } document.getElementById('bsdStatus').textContent = T(`${idx} relógios contados (até p = ${ps[idx-1]})`, `${idx} clocks counted (up to p = ${ps[idx-1]})`);
+      if (idx < ps.length) setTimeout(chunk, 0); else running = false;
+    }
+    chunk();
+  }
+  document.getElementById('bsdRun').onclick = run; redraws.push(draw); draw();
+})();
+
+/* ---------- laboratório ---------- */
+(() => {
+  const UE = {'389a1':8, '5077a1':-16}, RK = {'389a1':2, '5077a1':3};
+  let cur = '389a1', sel = null, running = false;
+  const box = document.getElementById('levels');
+  function list(){ return LEVELS[cur]; }
+  const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹', SUB = '₀₁₂₃₄₅₆₇₈₉', sup = v => String(v).replace(/\d/g, d => SUP[d]), sub = v => String(v).replace(/\d/g, d => SUB[d]);
+  function build(){
+    box.innerHTML = '';
+    for (const row of list()){ const [m,n,a,b] = row, b0 = document.createElement('button'); b0.type = 'button';
+      b0.className = 'lv ' + (a === 0 && b === 0 ? 'triv' : 'ok'); b0.textContent = m; b0.dataset.m = m;
+      b0.onclick = () => show(m); box.appendChild(b0); }
+    count();
+    show(cur === '389a1' ? 23 : list().find(r => r[2] !== 0)[0]);
+  }
+  function count(){ const nt = list().filter(r => !(r[2]===0 && r[3]===0)), ok = nt.filter(r => r[2]===r[3]);
+    document.getElementById('labCount').textContent = T(`${cur}: ${list().length} relógios, ${nt.length} não triviais, ${ok.length} coincidem`, `${cur}: ${list().length} clocks, ${nt.length} non-trivial, ${ok.length} agree`);
+    document.getElementById('meter').style.width = (ok.length/nt.length*100)+'%'; }
+  function show(m){
+    sel = m; const row = list().find(r => r[0] === m); const [mm,n,a,b,M] = row, r = RK[cur];
+    box.querySelectorAll('.lv').forEach(x => x.classList.toggle('sel', +x.dataset.m === m));
+    document.getElementById('sideA').textContent = a; document.getElementById('sideB').textContent = b;
+    const eq = document.getElementById('eqSign'); eq.textContent = a === b ? '=' : '≠'; eq.style.color = a === b ? 'var(--lime)' : 'var(--red)';
+    document.getElementById('labTitle').textContent = T(`${cur} · relógio m = ${m}`, `${cur} · clock m = ${m}`);
+    document.getElementById('calc').innerHTML = [
+      [T('relógio da comparação','comparison clock'), `n = (m−1)/2 = ${n}`],
+      [T('pontos da curva no relógio m','points of the curve on clock m'), `#E(𝔽${sub(m)}) = ${M}`],
+      [T('posto r','rank r'), r],
+      [T('lado L','L side'), `2${sup(r)}·${M}${sup(2*r-1)}·c${sub(r)}(${m}) ≡ ${a} (mod ${n})`],
+      [T('lado dos pontos','points side'), `${UE[cur]}·det H ≡ ${b} (mod ${n})`],
+      [T('resultado','result'), a===0 && b===0 ? T('trivial (0 = 0)','trivial (0 = 0)') : (a===b ? T('coincidem ✓','agree ✓') : T('diferem ✕','differ ✕'))]
+    ].map(([k,v]) => `<div class="row"><span>${k}</span><span>${v}</span></div>`).join('');
+  }
+  document.querySelectorAll('[data-curve]').forEach(b => b.addEventListener('click', () => { if (running) return;
+    document.querySelectorAll('[data-curve]').forEach(x => x.classList.toggle('on', x===b)); cur = b.dataset.curve; build(); }));
+  document.getElementById('runAll').onclick = () => { if (running) return; running = true; const rows = list(); let i = 0; const meter = document.getElementById('meter'); let ok = 0, nt = 0;
+    (function tick(){ if (i >= rows.length){ running = false; count(); return; } const r = rows[i++]; show(r[0]); const el = box.querySelector(`[data-m="${r[0]}"]`); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); el.scrollIntoView({block:'nearest'});
+      if (!(r[2]===0 && r[3]===0)){ nt++; if (r[2]===r[3]) ok++; } meter.style.width = (i/rows.length*100)+'%';
+      document.getElementById('labCount').textContent = T(`verificando... ${ok}/${nt} não triviais coincidem`, `checking... ${ok}/${nt} non-trivial agree`);
+      setTimeout(tick, reduced ? 0 : 110); })(); };
+  redraws.push(() => { if (running) return; count(); sel && show(sel); }); build();
+})();
+
+/* ---------- fluxo do método ---------- */
+(() => {
+  const F = [
+    ['Sessão de pesquisa','Research session','lidera','leads','Explora, testa hipóteses e escreve a nota. Cada padrão é tratado como hipótese, não como prova.','Explores, tests hypotheses and writes the note. Every pattern is treated as a hypothesis, not as proof.'],
+    ['Sessão de registro','Record session','confere','checks','Reescreve o cálculo do zero só a partir do texto da nota, sem ver o código da pesquisa. Se as duas versões concordam, não é um bug compartilhado.','Rewrites the computation from scratch from the text of the note alone, without seeing the research code. If both versions agree, it is not a shared bug.'],
+    ['Teste cego','Blind test','prevê','predicts','A resposta para 7 curvas novas foi registrada num arquivo antes de rodar. Resultado: 237 de 237. Controles feitos para falhar falharam.','The answer for 7 new curves was registered in a file before running. Result: 237 out of 237. Controls designed to fail did fail.'],
+    ['Revisor crítico','Critical reviewer','ataca','attacks','Seis rodadas de crítica dura. Achou um erro de sinal real e sugeriu outra correção, que foi testada e refutada.','Six rounds of tough critique. It found a real sign error and suggested another fix, which was tested and refuted.'],
+    ['Frentes isoladas','Isolated fronts','exploram','explore','Sessões separadas testam ideias novas (Ш em posto 2, estatística, a prova de ℓ = 2) sem contaminar o que já está pronto.','Separate sessions test new ideas (Ш in rank 2, statistics, the proof of ℓ = 2) without contaminating what is already done.'],
+    ['Publicação aberta','Open publication','registra','records','Cada versão fica no GitHub com tag. Erros viram correções visíveis, não apagões.','Every version stays on GitHub with a tag. Mistakes become visible corrections, not deletions.']
+  ];
+  const box = document.getElementById('flow'), info = document.getElementById('flowInfo'); let on = 0;
+  function render(){ box.innerHTML = F.map((f,i) => `${i?'<span class="arr">→</span>':''}<button type="button" data-i="${i}" class="${i===on?'on':''}"><small>${T(f[2],f[3])}</small>${T(f[0],f[1])}</button>`).join('');
+    box.querySelectorAll('button').forEach(b => b.onclick = () => { on = +b.dataset.i; render(); });
+    info.innerHTML = `<span class="ic">${String(on+1).padStart(2,'0')} / ${T(F[on][0],F[on][1]).toUpperCase()}</span><p style="margin:0">${T(F[on][4],F[on][5])}</p>`; }
+  redraws.push(render); render();
+})();
+
+/* ---------- início ---------- */
+let saved = 'pt'; try{ saved = localStorage.getItem('lang') || (navigator.language||'pt').slice(0,2); }catch(e){}
+setLang(saved === 'en' ? 'en' : 'pt');
+</script>
+</body>
+</html>
