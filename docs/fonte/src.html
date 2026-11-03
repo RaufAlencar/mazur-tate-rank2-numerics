@@ -111,7 +111,7 @@ section{padding:110px 0;position:relative}
 .chapter.on{display:grid;animation:fade .5s}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}}
 /* linha do tempo */
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;position:relative}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:30px;position:relative}
 .timeline:before{content:"";position:absolute;top:21px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--mag))}
 @media (max-width:960px){.timeline{grid-template-columns:1fr 1fr}.timeline:before{display:none}}
 @media (max-width:520px){.timeline{grid-template-columns:1fr}}
@@ -253,6 +253,7 @@ html[lang="en"] [data-en]{display:revert}
       <div class="tl rv"><div class="when">21/10/2026</div><h3 data-pt>A nota sai</h3><h3 data-en>The note goes out</h3><p data-pt>Reimplementação independente e teste cego antes de enviar a dois especialistas.</p><p data-en>Independent re-implementation and a blind test before sending it to two specialists.</p></div>
       <div class="tl rv"><div class="when">21 a 29/10</div><h3 data-pt>Seis rodadas de crítica</h3><h3 data-en>Six rounds of critique</h3><p data-pt>Um erro de sinal achado, testado e explicado. Referências conferidas na fonte.</p><p data-en>A sign error found, tested and explained. References checked at the source.</p></div>
       <div class="tl rv"><div class="when">21/10 a 03/11</div><h3 data-pt>Ш = 9 em posto 2</h3><h3 data-en>Ш = 9 in rank 2</h3><p data-pt>O fator Ш testado em posto 2, até onde sabemos, pela primeira vez. E uma lacuna da prova fechada.</p><p data-en>The Ш factor tested in rank 2, to our knowledge, for the first time. And a gap in the proof closed.</p></div>
+      <div class="tl rv"><div class="when">03/11/2026</div><h3 data-pt>Kolyvagin em posto 3</h3><h3 data-en>Kolyvagin in rank 3</h3><p data-pt>Uma previsão registrada antes do cálculo se confirma numa curva de posto 3. Um caso só.</p><p data-en>A prediction registered before the computation is confirmed on a rank-3 curve. A single case.</p></div>
     </div>
   </div>
 </section>
@@ -411,6 +412,12 @@ html[lang="en"] [data-en]{display:revert}
       <div class="stat rv"><div class="n">Ш = 9</div><div class="l" data-pt>em posto 2: o fator <span class="term" data-tip="sha">Ш</span> testado, até onde sabemos, pela primeira vez; reproduzido de forma independente</div><div class="l" data-en>in rank 2: the <span class="term" data-tip="sha">Ш</span> factor tested, to our knowledge, for the first time; reproduced independently</div></div>
       <div class="stat rv"><div class="n">ℓ = 2</div><div class="l" data-pt>lacuna da prova fechada e conferida por duas verificações; entra na próxima versão da nota</div><div class="l" data-en>gap in the proof closed and checked twice; goes into the next version of the note</div></div>
     </div>
+    <div class="card glow rv" style="margin-top:22px;border-color:rgba(255,79,216,.45)">
+      <span class="pill m" data-pt>novo · 03/11/2026 · exploratório</span><span class="pill m" data-en>new · 3 Nov 2026 · exploratory</span>
+      <h3 data-pt>Classes de Kolyvagin em posto 3: a previsão se confirmou</h3><h3 data-en>Kolyvagin classes in rank 3: the prediction held</h3>
+      <p class="muted" data-pt>As <span class="term" data-tip="kolyvagin">classes de Kolyvagin</span> são uma das ferramentas que permitiram provar a BSD, na parte do posto, nos postos 0 e 1. Numa curva de posto 3 (11642a1), escrevemos num arquivo, antes de calcular, em que "direção" uma dessas classes deveria apontar. O cálculo, com números de mais de mil dígitos, confirmou exatamente essa direção, em 25 de 25 verificações, e foi repetido por outro caminho com resultado idêntico. Até onde sabemos, é o primeiro teste numérico desse tipo em posto 3. Mas é um caso só: confirma a direção, não diz nada sobre a regra geral.</p>
+      <p class="muted" data-en>The <span class="term" data-tip="kolyvagin">Kolyvagin classes</span> are one of the tools that made it possible to prove BSD, as far as the rank is concerned, in ranks 0 and 1. On a rank-3 curve (11642a1) we wrote in a file, before computing, which "direction" one of these classes should point in. The computation, with numbers of more than a thousand digits, confirmed exactly that direction in 25 out of 25 checks, and was repeated by another route with an identical result. As far as we know, it is the first numerical test of this kind in rank 3. But it is a single case: it confirms the direction and says nothing about the general rule.</p>
+    </div>
     <div class="grid2" style="margin-top:44px">
       <div class="rv">
         <h3 data-pt>A fórmula que saiu disso</h3><h3 data-en>The formula that came out of it</h3>
@@ -488,7 +495,7 @@ html[lang="en"] [data-en]{display:revert}
       <div class="st"><span class="dot" style="background:var(--lime)"></span><span class="mono dim">v0.5</span><h3 data-pt>Nota publicada</h3><h3 data-en>Note published</h3><p data-pt>PDF, código e registros no GitHub.</p><p data-en>PDF, code and logs on GitHub.</p></div>
       <div class="st"><span class="dot" style="background:var(--gold)"></span><span class="mono dim">v0.6</span><h3 data-pt>Em preparo</h3><h3 data-en>In preparation</h3><p data-pt>Com a prova do caso ℓ = 2.</p><p data-en>With the proof of the case ℓ = 2.</p></div>
       <div class="st"><span class="dot" style="background:var(--gold)"></span><span class="mono dim" data-pt>especialistas</span><span class="mono dim" data-en>specialists</span><h3 data-pt>Aguardando</h3><h3 data-en>Waiting</h3><p data-pt>Enviada em 21/10, sem resposta ainda.</p><p data-en>Sent on 21 Oct, no reply yet.</p></div>
-      <div class="st"><span class="dot" style="background:var(--violet)"></span><span class="mono dim" data-pt>frentes abertas</span><span class="mono dim" data-en>open fronts</span><h3 data-pt>Testes em andamento</h3><h3 data-en>Tests running</h3><p data-pt>Estatística de 3-isogenia e classes de Kolyvagin em posto 3.</p><p data-en>3-isogeny statistics and Kolyvagin classes in rank 3.</p></div>
+      <div class="st"><span class="dot" style="background:var(--violet)"></span><span class="mono dim" data-pt>frentes abertas</span><span class="mono dim" data-en>open fronts</span><h3 data-pt>Testes em andamento</h3><h3 data-en>Tests running</h3><p data-pt>Estatística de 3-isogenia. Kolyvagin em posto 3: 1 caso concluído, outros inviáveis nesta máquina.</p><p data-en>3-isogeny statistics. Kolyvagin in rank 3: 1 case done, others not feasible on this machine.</p></div>
     </div>
     <p class="cap rv" data-pt>Atualizado em 03/11/2026.</p><p class="cap rv" data-en>Updated on 3 Nov 2026.</p>
   </div>
@@ -535,6 +542,7 @@ const GL = {
   mod:['Contas "módulo m": como num relógio de m horas, ao passar de m volta-se ao zero.','Arithmetic "modulo m": like a clock with m hours, after m you go back to zero.'],
   theta:['Elemento theta de Mazur-Tate: um objeto montado a partir da função L, que guarda a informação analítica da curva em cada relógio.','Mazur-Tate theta element: an object built from the L-function that stores the curve\'s analytic information on each clock.'],
   pairing:['Emparelhamento de Mazur-Tate: uma forma de medir os pontos racionais dentro de cada relógio. A nota dá uma fórmula simples para ele.','Mazur-Tate pairing: a way of measuring the rational points inside each clock. The note gives a simple formula for it.'],
+  kolyvagin:['Classes de Kolyvagin: objetos construídos a partir de pontos especiais (de Heegner). Com eles e com o teorema de Gross-Zagier, a parte da BSD sobre o posto foi provada para os postos 0 e 1 no fim dos anos 1980. Em posto 2 ou mais ainda carregam informação, mas ninguém sabe transformá-la em prova.','Kolyvagin classes: objects built from special (Heegner) points. With them and the Gross-Zagier theorem, the rank part of BSD was proved for ranks 0 and 1 in the late 1980s. In rank 2 or more they still carry information, but nobody knows how to turn it into a proof.'],
   sha:['Grupo de Tate-Shafarevich (Ш, letra russa "sha"): mede o quanto a curva "engana" quem procura pontos. Aparece na fórmula da BSD e é muito difícil de calcular.','Tate-Shafarevich group (Ш, Russian letter "sha"): measures how much the curve "fools" those looking for points. It appears in the BSD formula and is very hard to compute.']
 };
 const tip = document.getElementById('tip');
@@ -886,7 +894,7 @@ const MULT = (() => { const out = []; let R = null; const P = [q(-1),q(1)]; for 
     ['Sessão de registro','Record session','confere','checks','Reescreve o cálculo do zero só a partir do texto da nota, sem ver o código da pesquisa. Se as duas versões concordam, não é um bug compartilhado.','Rewrites the computation from scratch from the text of the note alone, without seeing the research code. If both versions agree, it is not a shared bug.'],
     ['Teste cego','Blind test','prevê','predicts','A resposta para 7 curvas novas foi registrada num arquivo antes de rodar. Resultado: 237 de 237. Controles feitos para falhar falharam.','The answer for 7 new curves was registered in a file before running. Result: 237 out of 237. Controls designed to fail did fail.'],
     ['Revisor crítico','Critical reviewer','ataca','attacks','Seis rodadas de crítica dura. Achou um erro de sinal real e sugeriu outra correção, que foi testada e refutada.','Six rounds of tough critique. It found a real sign error and suggested another fix, which was tested and refuted.'],
-    ['Frentes isoladas','Isolated fronts','exploram','explore','Sessões separadas testam ideias novas (Ш em posto 2, estatística, a prova de ℓ = 2) sem contaminar o que já está pronto.','Separate sessions test new ideas (Ш in rank 2, statistics, the proof of ℓ = 2) without contaminating what is already done.'],
+    ['Frentes isoladas','Isolated fronts','exploram','explore','Sessões separadas testam ideias novas (Ш em posto 2, estatística, a prova de ℓ = 2, Kolyvagin em posto 3) sem contaminar o que já está pronto.','Separate sessions test new ideas (Ш in rank 2, statistics, the proof of ℓ = 2, Kolyvagin in rank 3) without contaminating what is already done.'],
     ['Publicação aberta','Open publication','registra','records','Cada versão fica no GitHub com tag. Erros viram correções visíveis, não apagões.','Every version stays on GitHub with a tag. Mistakes become visible corrections, not deletions.']
   ];
   const box = document.getElementById('flow'), info = document.getElementById('flowInfo'); let on = 0;

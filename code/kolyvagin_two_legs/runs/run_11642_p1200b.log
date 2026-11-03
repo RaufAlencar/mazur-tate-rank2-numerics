@@ -1,0 +1,35 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[11642_D-7_n5x17_p3] gens [[2, -2], [3, -2], [4, 2]]  PREDICTION: line [(1, 2, 2), (2, 1, 1)] or 0
+  Atkin-Lehner signs {1: 1, 2: 1, 5821: 1, 11642: 1}
+  terms 4962973
+  AL check Q=2: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 2.2e-30
+  AL check Q=5821: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 6.4e-30
+  AL check Q=11642: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 4.9e-30
+  leg l=5: h=6, Weber class polynomial T^6 - T^5 + 4*T + 1
+  resolvent c=2 l=5: err 0.0e+00, den 1
+  resolvent c=3 l=5: err 0.0e+00, den 1
+  x in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 19
+  y in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 27
+  leg l=17: h=18, Weber class polynomial T^18 - T^17 + 17*T^16 - 34*T^15 + 34*T^13 + 119*T^12 + 17*T^10 + 340*T^9 + 272*T^8 + 119*T^6 + 544*T^5 - 34*T^3 + 272*T^2 - 256*T + 1
+  resolvent c=2 l=17: err 0.0e+00, den 1
+  resolvent c=3 l=17: err 0.0e+00, den 1
+  x in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 75
+  y in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 112
+  legs done 97s
+  108 level-n points 1329s
+  x(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 599
+  x(y_n) in theta1^i theta2^j: LLL common denominator, log10 d = 717 (precision 1213)
+  y(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 599
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrativo/Desktop/BSD_Kolyvagin_2pernas/kgen2p.py", line 247, in <module>
+    pred,res,cnts=run(ainvs,D,l1,l2,p,PREC,qmax,maxq)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Administrativo/Desktop/BSD_Kolyvagin_2pernas/kgen2p.py", line 190, in run
+    CY,ey=solve_K(rows,ys,D,bound,'y(y_n) in theta1^i theta2^j',SOLY)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Administrativo/Desktop/BSD_Kolyvagin_2pernas/kgen2p.py", line 30, in solve_K
+    res=pari('reccommon')(pari.Vec(RR),P,8)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cypari2/gen.pyx", line 4080, in cypari2.gen.Gen.__call__
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: _-_: forbidden addition t_REAL + t_VEC (0 elts)

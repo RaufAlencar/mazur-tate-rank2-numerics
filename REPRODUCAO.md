@@ -142,3 +142,20 @@ Uma sessão separada, trabalhando só em `Desktop\BSD_Sha_rank2`, testou a lei u
 ### 8b. Reprodução independente do teste de #Ш = 9 em posto 2 (23/10/2026) — `theta_lfun.gp`, `repro_sha_rank2.py`, `calib_direct.py`, `calib_ratio.py`
 θ_m calculado por uma rota distinta da sessão `sha-rank2`: L-funções torcidas do próprio PARI (`lfun(lfuntwist(E,[znstar(m,1),[k]]),1)`), somas de Gauss e inversão por caracteres, sem a série dela. **Calibração direta:** com ω₁ = Re(E.omega[1]), os símbolos reconstruídos coincidem exatamente com os de `msfromell` (após a ↦ a⁻¹, que vem da convenção de caracteres e não altera a classe em I²/I³ quando r é par) em 389a1, 433a1 e 5077a1, m ∈ {11,…,23}, com κ = −1 em todos (a sessão `sha-rank2` escreve κ = −c∞ porque normaliza pelo período real completo Ω = c∞ω₁; as duas formas são equivalentes). Uma primeira checagem de calibração minha (razões caractere a caractere) estava errada por comparar χ com χ̄; foi substituída por esta.
 **53295337.a1 (#Ш = 9, c∞ = 1, tors 1, c_Tam 1), m ≤ 37 (o job parou no limite de tempo):** símbolos racionais com erro ≤ 5·10⁻⁵⁶; θ_m ∈ I² em todos os níveis; **4 níveis discriminantes (m = 11, 23, 29, 31), lei com #Ш (u = 36) certa nos 4, alternativa sem #Ш (u = 4) errada nos 4**; 4 níveis triviais. Não reproduzidos aqui: 136116413.a1 e as curvas de #Ш = 4.
+
+## 9. Classes de Kolyvagin de duas pernas em posto 3 (sessão exploratória isolada `kolyvagin-2pernas`, 03/11/2026)
+
+Material completo em `code/kolyvagin_two_legs/` (relatório `RELATORIO.md`, pré-registro, código, logs com hashes, dumps numéricos).
+
+**O que foi testado.** Em 11642a1 (posto 3), K = Q(√−7), p = 3, n = 5·17, a classe derivada κ₈₅ ∈ E(Q)/3 ≅ F₃³. Previsão registrada antes do cálculo (`prereg/PREREGISTRO.md`, sha256 fbd139d0…0c3a3b, 12:31 de 03/11): κ₈₅ está na reta ker red₅ ∩ ker red₁₇ = ⟨P₁+2P₂+2P₃⟩, ou é 0. Controles: κ₅ = κ₁₇ = 0 (forçado).
+
+**Resultado da sessão.** κ₈₅ é não nulo e gera exatamente a reta prevista; candidatos convergem no 7º de 25 primos q e se mantêm; κ₅ = κ₁₇ = 0 em 25/25. Todas as checagens internas passaram em todos os primos (132 pontos reduzidos na curva, relações de traço). Replicação pelo mesmo autor em 2600 dígitos, com outro método de reconhecimento (bestappr direto em vez de LLL): linhas por primo idênticas. 5077a1 e o controle de zero forçado de duas pernas (18097a1) foram inviáveis nesta máquina (~100 h estimadas).
+
+**O que a sessão de registro conferiu (03/11).**
+- Hashes do pré-registro e das previsões batem com os arquivos; o pré-registro (12:31) é anterior a todas as execuções de posto 3 (a primeira, de teste, às 13:13).
+- A reta prevista foi recalculada por código próprio, independente (`code/independent/kolyvagin_line_check.py`): com P₁ = (2,−2), P₂ = (3,−2), P₃ = (4,2), E(F₅) ≅ Z/9 e E(F₁₇) ≅ Z/24, a interseção dos núcleos de E(Q)/3 → E(F_ℓ)/3 é {0, (1,2,2), (2,1,1)}, ou seja ⟨P₁+2P₂+2P₃⟩. Também conferidos: posto analítico 3, torção trivial, h(−7) = 1, ℓ = 5 e 17 inertes em K com 3 | ℓ+1 e 3 | a_ℓ (a₅ = −3, a₁₇ = −6).
+- As linhas por primo das execuções de 1200 e 2600 dígitos são idênticas (mesmo md5, descontado o tempo) e a linha final dos dois logs é a mesma.
+
+**O que NÃO foi conferido de forma independente.** O cálculo de κ₈₅ em si (pontos de Heegner de grau 108 e o reconhecimento) não foi refeito por outro código; a replicação em 2600 dígitos é do mesmo autor. A garantia vem das checagens mod q e da replicação por outro método de reconhecimento.
+
+**Leitura honesta.** É um único par (curva, n). Que κ_n esteja na interseção é quase elementar a partir dos axiomas de sistema de Kolyvagin; o conteúdo não trivial é κ_n ≠ 0 neste par (o sistema de Heegner é não nulo mod 3 em ν = 2 para esta curva), compatível com a conjectura de Kolyvagin e com Howard 2004, Mazur-Rubin 2004 e W. Zhang. Não foi feita busca de literatura que já tenha calculado κ_{ℓ₁ℓ₂} explicitamente em posto 3; portanto "primeiro teste" só vale "até onde sabemos". Status: exploratório, fora da nota até a sessão de pesquisa decidir.

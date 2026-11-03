@@ -1,0 +1,51 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[11642_D-7_n5x17_p3] gens [[2, -2], [3, -2], [4, 2]]  PREDICTION: line [(1, 2, 2), (2, 1, 1)] or 0
+  Atkin-Lehner signs {1: 1, 2: 1, 5821: 1, 11642: 1}
+  terms 4962973
+  AL check Q=2: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 2.2e-30
+  AL check Q=5821: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 6.4e-30
+  AL check Q=11642: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 4.9e-30
+  leg l=5: h=6, Weber class polynomial T^6 - T^5 + 4*T + 1
+  resolvent c=2 l=5: err 0.0e+00, den 1
+  resolvent c=3 l=5: err 0.0e+00, den 1
+  x in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 19
+  y in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 27
+  leg l=17: h=18, Weber class polynomial T^18 - T^17 + 17*T^16 - 34*T^15 + 34*T^13 + 119*T^12 + 17*T^10 + 340*T^9 + 272*T^8 + 119*T^6 + 544*T^5 - 34*T^3 + 272*T^2 - 256*T + 1
+  resolvent c=2 l=17: err 0.0e+00, den 1
+  resolvent c=3 l=17: err 0.0e+00, den 1
+  x in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 75
+  y in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 112
+  legs done 97s
+  level-n solutions read from dump runs/dump_11642_D-7_n5x17_p3_P1200_xynintheta1itheta2j.txt
+  x(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 599
+  x(y_n) in theta1^i theta2^j: LLL common denominator, log10 d = 717 (precision 1213)
+  y(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 599
+  y(y_n) in theta1^i theta2^j: LLL failed ([0, 9]); retry with known factor 10^717, effective precision 496
+  y(y_n) in theta1^i theta2^j: LLL common denominator, log10 d = 1074 (precision 1213)
+  log10 lcm of denominators: 1216
+q=52879 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1, 0] w_l1=[0, 0] w_l2=[0, 0] gens=[[2, 1], [2, 1], [2, 0]]  #cands:6
+q=76819 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1, 1] w_l1=[0, 0] w_l2=[0, 0] gens=[[0, 0], [1, 1], [1, 1]]  #cands:4
+q=97231 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[0], [1], [1]]  #cands:4
+q=99859 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[2], [1], [2]]  #cands:4
+q=102559 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[0], [2], [2]]  #cands:4
+q=105331 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2, 0] w_l1=[0, 0] w_l2=[0, 0] gens=[[1, 1], [1, 1], [1, 0]]  #cands:4
+q=126751 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2, 2] w_l1=[0, 0] w_l2=[0, 0] gens=[[0, 0], [0, 2], [1, 2]]  #cands:2
+q=130099 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[0], [2], [2]]  #cands:2
+q=133519 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[0, 0] w_l1=[0, 0] w_l2=[0, 0] gens=[[2, 2], [1, 1], [1, 1]]  #cands:2
+q=147919 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[1], [0], [0]]  #cands:2
+q=171679 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1, 2] w_l1=[0, 0] w_l2=[0, 0] gens=[[0, 1], [1, 2], [1, 0]]  #cands:2
+q=202309 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[1], [2], [0]]  #cands:2
+q=202381 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2, 2] w_l1=[0, 0] w_l2=[0, 0] gens=[[1, 2], [2, 1], [0, 2]]  #cands:2
+q=205549 dim=2 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1, 1] w_l1=[0, 0] w_l2=[0, 0] gens=[[1, 1], [1, 1], [2, 2]]  #cands:2
+q=207061 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[2], [0], [1]]  #cands:2
+q=217429 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[0], [2], [0]]  #cands:2
+q=245149 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[2], [0], [0]]  #cands:2
+q=247711 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[0], [2], [0]]  #cands:2
+q=258469 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[2], [0], [0]]  #cands:2
+q=290509 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[0] w_l1=[0] w_l2=[0] gens=[[0], [2], [1]]  #cands:2
+q=298579 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[2], [0], [1]]  #cands:2
+q=382351 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[0], [2], [0]]  #cands:2
+q=389299 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[0] w_l1=[0] w_l2=[0] gens=[[1], [0], [1]]  #cands:2
+q=441421 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[1] w_l1=[0] w_l2=[0] gens=[[2], [0], [1]]  #cands:2
+q=453301 dim=1 trace rel ok:1 Tr(y_l1)=0:1 Tr(y_l2)=0:1 w=[2] w_l1=[0] w_l2=[0] gens=[[1], [2], [0]]  #cands:2
+[11642_D-7_n5x17_p3] FINAL: prediction line [(1, 2, 2), (2, 1, 1)] or 0 | kappa_n candidates (a,b,c) up to scalar: [[1, 2, 2], [2, 1, 1]] | primes 25, W_n trivial in 3, W_l1 trivial in 25, W_l2 trivial in 25 | 113s

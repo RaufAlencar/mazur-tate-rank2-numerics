@@ -1,0 +1,204 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+[11642_D-7_n5x17_p3] gens [[2, -2], [3, -2], [4, 2]]  PREDICTION: line [(1, 2, 2), (2, 1, 1)] or 0
+  Atkin-Lehner signs {1: 1, 2: 1, 5821: 1, 11642: 1}
+  terms 1654391
+  AL check Q=2: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 2.2e-30
+  AL check Q=5821: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 6.4e-30
+  AL check Q=11642: |phi(tau)-w_Q phi(W_Q^-1 tau)| = 4.9e-30
+  leg l=5: h=6, Weber class polynomial T^6 - T^5 + 4*T + 1
+  resolvent c=2 l=5: err 0.0e+00, den 1
+  resolvent c=3 l=5: err 0.0e+00, den 1
+  x in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 19
+  y in zk_5: 6 coeffs in K, max rec err 0.0e+00, max log10 den 27
+  leg l=17: h=18, Weber class polynomial T^18 - T^17 + 17*T^16 - 34*T^15 + 34*T^13 + 119*T^12 + 17*T^10 + 340*T^9 + 272*T^8 + 119*T^6 + 544*T^5 - 34*T^3 + 272*T^2 - 256*T + 1
+  resolvent c=2 l=17: err 0.0e+00, den 1
+  resolvent c=3 l=17: err 0.0e+00, den 1
+  x in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 75
+  y in zk_17: 18 coeffs in K, max rec err 0.0e+00, max log10 den 112
+  legs done 93s
+  108 level-n points 382s
+  x(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 199
+  y(y_n) in theta1^i theta2^j: 108 coeffs in K, max rec err 0.0e+00, max log10 den 199
+  log10 lcm of denominators: 85506
+q=52879 level-n point not on curve
+q=76819 level-n point not on curve
+q=97231 level-n point not on curve
+q=99859 level-n point not on curve
+q=102559 level-n point not on curve
+q=105331 level-n point not on curve
+q=126751 level-n point not on curve
+q=130099 level-n point not on curve
+q=133519 level-n point not on curve
+q=147919 level-n point not on curve
+q=171679 level-n point not on curve
+q=202309 level-n point not on curve
+q=202381 level-n point not on curve
+q=205549 level-n point not on curve
+q=207061 level-n point not on curve
+q=217429 level-n point not on curve
+q=245149 level-n point not on curve
+q=247711 level-n point not on curve
+q=258469 level-n point not on curve
+q=290509 level-n point not on curve
+q=298579 level-n point not on curve
+q=382351 level-n point not on curve
+q=389299 level-n point not on curve
+q=441421 level-n point not on curve
+q=453301 level-n point not on curve
+q=455431 level-n point not on curve
+q=459271 level-n point not on curve
+q=462571 level-n point not on curve
+q=465469 level-n point not on curve
+q=470551 level-n point not on curve
+q=482071 level-n point not on curve
+q=482731 level-n point not on curve
+q=490519 level-n point not on curve
+q=498439 level-n point not on curve
+q=502699 level-n point not on curve
+q=513739 level-n point not on curve
+q=518431 level-n point not on curve
+q=530251 level-n point not on curve
+q=542791 level-n point not on curve
+q=543379 level-n point not on curve
+q=569419 level-n point not on curve
+q=583339 level-n point not on curve
+q=605719 level-n point not on curve
+q=629899 level-n point not on curve
+q=638359 level-n point not on curve
+q=670471 level-n point not on curve
+q=674269 level-n point not on curve
+q=687499 level-n point not on curve
+q=733741 level-n point not on curve
+q=769309 level-n point not on curve
+q=786739 level-n point not on curve
+q=816769 level-n point not on curve
+q=817951 level-n point not on curve
+q=819001 level-n point not on curve
+q=824821 level-n point not on curve
+q=847051 level-n point not on curve
+q=849601 level-n point not on curve
+q=857161 level-n point not on curve
+q=892861 level-n point not on curve
+q=893419 level-n point not on curve
+q=893881 level-n point not on curve
+q=901009 level-n point not on curve
+q=904681 level-n point not on curve
+q=909451 level-n point not on curve
+q=936811 level-n point not on curve
+q=960691 level-n point not on curve
+q=962119 level-n point not on curve
+q=967831 level-n point not on curve
+q=988129 level-n point not on curve
+q=993241 level-n point not on curve
+q=996871 level-n point not on curve
+q=1007059 level-n point not on curve
+q=1036729 level-n point not on curve
+q=1098379 level-n point not on curve
+q=1137529 level-n point not on curve
+q=1144441 level-n point not on curve
+q=1158481 level-n point not on curve
+q=1165711 level-n point not on curve
+q=1191199 level-n point not on curve
+q=1209889 level-n point not on curve
+q=1269391 level-n point not on curve
+q=1285981 level-n point not on curve
+q=1288711 level-n point not on curve
+q=1290571 level-n point not on curve
+q=1294231 level-n point not on curve
+q=1294651 level-n point not on curve
+q=1323799 level-n point not on curve
+q=1331929 level-n point not on curve
+q=1363891 level-n point not on curve
+q=1380619 level-n point not on curve
+q=1385479 level-n point not on curve
+q=1421191 level-n point not on curve
+q=1427749 level-n point not on curve
+q=1456219 level-n point not on curve
+q=1467211 level-n point not on curve
+q=1489051 level-n point not on curve
+q=1503751 level-n point not on curve
+q=1549531 level-n point not on curve
+q=1550221 level-n point not on curve
+q=1604359 level-n point not on curve
+q=1613809 level-n point not on curve
+q=1617211 level-n point not on curve
+q=1631611 level-n point not on curve
+q=1692091 level-n point not on curve
+q=1707931 level-n point not on curve
+q=1713601 level-n point not on curve
+q=1718551 level-n point not on curve
+q=1724059 level-n point not on curve
+q=1732231 level-n point not on curve
+q=1736599 level-n point not on curve
+q=1820869 level-n point not on curve
+q=1821541 level-n point not on curve
+q=1822549 level-n point not on curve
+q=1827589 level-n point not on curve
+q=1830901 level-n point not on curve
+q=1848589 level-n point not on curve
+q=1855729 level-n point not on curve
+q=1857949 level-n point not on curve
+q=1858669 level-n point not on curve
+q=1860301 level-n point not on curve
+q=1865221 level-n point not on curve
+q=1878781 level-n point not on curve
+q=1889311 level-n point not on curve
+q=1891639 level-n point not on curve
+q=1897429 level-n point not on curve
+q=1910101 level-n point not on curve
+q=1921021 level-n point not on curve
+q=1922461 level-n point not on curve
+q=1930261 level-n point not on curve
+q=1936981 level-n point not on curve
+q=1987819 level-n point not on curve
+q=1987981 level-n point not on curve
+q=1990279 level-n point not on curve
+q=2008189 level-n point not on curve
+q=2022301 level-n point not on curve
+q=2032711 level-n point not on curve
+q=2047819 level-n point not on curve
+q=2061361 level-n point not on curve
+q=2062999 level-n point not on curve
+q=2098699 level-n point not on curve
+q=2106931 level-n point not on curve
+q=2139979 level-n point not on curve
+q=2160589 level-n point not on curve
+q=2163079 level-n point not on curve
+q=2194021 level-n point not on curve
+q=2239309 level-n point not on curve
+q=2241901 level-n point not on curve
+q=2329399 level-n point not on curve
+q=2341819 level-n point not on curve
+q=2354059 level-n point not on curve
+q=2354899 level-n point not on curve
+q=2389249 level-n point not on curve
+q=2417851 level-n point not on curve
+q=2420779 level-n point not on curve
+q=2427541 level-n point not on curve
+q=2461309 level-n point not on curve
+q=2491171 level-n point not on curve
+q=2495599 level-n point not on curve
+q=2509831 level-n point not on curve
+q=2515039 level-n point not on curve
+q=2517271 level-n point not on curve
+q=2517379 level-n point not on curve
+q=2527981 level-n point not on curve
+q=2538691 level-n point not on curve
+q=2558581 level-n point not on curve
+q=2595139 level-n point not on curve
+q=2634991 level-n point not on curve
+q=2643349 level-n point not on curve
+q=2650621 level-n point not on curve
+q=2664061 level-n point not on curve
+q=2717509 level-n point not on curve
+q=2718811 level-n point not on curve
+q=2720239 level-n point not on curve
+q=2729239 level-n point not on curve
+q=2763331 level-n point not on curve
+q=2792071 level-n point not on curve
+q=2798821 level-n point not on curve
+q=2802199 level-n point not on curve
+q=2816899 level-n point not on curve
+q=2914909 level-n point not on curve
+q=2996011 level-n point not on curve
+[11642_D-7_n5x17_p3] FINAL: prediction line [(1, 2, 2), (2, 1, 1)] or 0 | kappa_n candidates (a,b,c) up to scalar: 0 | primes 0, W_n trivial in 0, W_l1 trivial in 0, W_l2 trivial in 0 | 495s
