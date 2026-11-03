@@ -64,7 +64,7 @@ p{margin:0 0 1em}
 .banner blockquote{margin:0;max-width:560px;font:600 clamp(1.6rem,3.2vw,2.5rem)/1.2 "Space Grotesk";letter-spacing:-.01em}
 .banner .artnote{margin:18px 0 0;font:500 .78rem "JetBrains Mono";color:var(--dim)}
 @media (max-width:820px){.banner{background-position:70% center}.banner:before{background:rgba(5,7,15,.62)}}
-.hero:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,7,15,.92) 0%,rgba(5,7,15,.7) 40%,rgba(5,7,15,.05) 75%),linear-gradient(0deg,var(--bg),transparent 25%)}
+.hero:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,7,15,.82) 0%,rgba(5,7,15,.5) 38%,rgba(5,7,15,0) 70%),linear-gradient(0deg,var(--bg),transparent 25%)}
 @media (max-width:820px){.hero:after{background:linear-gradient(0deg,rgba(5,7,15,.95) 10%,rgba(5,7,15,.72) 60%,rgba(5,7,15,.5))}}
 .hero .wrap{position:relative;z-index:2;padding:80px 24px}
 .hud{display:inline-flex;gap:10px;align-items:center;font:600 .78rem "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,200,87,.4);background:rgba(255,200,87,.07);padding:7px 14px;border-radius:999px;margin-bottom:26px}
@@ -225,7 +225,7 @@ html[lang="en"] [data-en]{display:revert}
       <div><strong class="count" data-to="0">0</strong><span data-pt>falhas</span><span data-en>failures</span></div>
     </div>
   </div>
-  <div class="hint" data-pt>passe o mouse sobre a curva</div><div class="hint" data-en>move your cursor over the curve</div>
+  <div class="hint" data-pt>mova o mouse (ou o dedo) pela tela: os pontos reagem</div><div class="hint" data-en>move your cursor (or finger) across the screen: the points react</div>
 </section>
 
 <!-- ================= FAIXA COM ARTE ================= -->
@@ -597,14 +597,18 @@ function add(P, Q){
       let d = disc(p.x);
       if (p.x < view.xmin || p.x > view.xmax || d < 0){ if (d < 0 && Math.random()<.5){ p.v = -p.v; p.x += p.v*dt*.8; } else Object.assign(p, spawn()); d = disc(p.x); if (d<0) continue; }
       let [sx, sy] = S(p.x, (-1 + p.sign*Math.sqrt(d))/2 + p.off);
-      const mx = sx - mouse.x, my = sy - mouse.y, md = Math.hypot(mx,my), R = 160*dpr;
-      if (md < R){ const k = (1-md/R)*38*dpr; p.dx += mx/md*k*dt*6; p.dy += my/md*k*dt*6; }
-      p.dx *= .92; p.dy *= .92; sx += p.dx; sy += p.dy;
+      const mx = sx - mouse.x, my = sy - mouse.y, md = Math.hypot(mx,my) || 1, R = 230*dpr;
+      if (md < R){ const k = (1-md/R)*140*dpr; p.dx += mx/md*k*dt*7; p.dy += my/md*k*dt*7; }
+      p.dx *= .9; p.dy *= .9; sx += p.dx; sy += p.dy;
+      if (md < R){ g.strokeStyle = `rgba(62,240,255,${(1-md/R)*.28})`; g.lineWidth = dpr; g.beginPath(); g.moveTo(mouse.x, mouse.y); g.lineTo(sx, sy); g.stroke(); }
       const col = p.hue < .55 ? '62,240,255' : p.hue < .85 ? '143,123,255' : '255,79,216';
       const r = p.s*dpr*1.5;
       const gr = g.createRadialGradient(sx,sy,0,sx,sy,r*3); gr.addColorStop(0,`rgba(${col},.55)`); gr.addColorStop(1,`rgba(${col},0)`);
       g.fillStyle = gr; g.beginPath(); g.arc(sx,sy,r*3,0,7); g.fill();
     }
+    if (mouse.x > -1e3){ const R2 = 230*dpr, hg = g.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,R2); hg.addColorStop(0,'rgba(143,123,255,.35)'); hg.addColorStop(.4,'rgba(62,240,255,.10)'); hg.addColorStop(1,'rgba(0,0,0,0)');
+      g.fillStyle = hg; g.beginPath(); g.arc(mouse.x,mouse.y,R2,0,7); g.fill();
+      g.strokeStyle = `rgba(255,200,87,${.5+.3*Math.sin(t/250)})`; g.lineWidth = 1.5*dpr; g.beginPath(); g.arc(mouse.x,mouse.y,(18+4*Math.sin(t/250))*dpr,0,7); g.stroke(); }
     g.globalCompositeOperation = 'source-over';
     // pontos geradores
     for (const [P,lab] of [[[-1,1],'P₁'],[[0,0],'P₂']]){ const [sx,sy] = S(P[0],P[1]); g.strokeStyle = 'rgba(255,200,87,.9)'; g.lineWidth = 1.5*dpr; g.beginPath(); g.arc(sx,sy,9*dpr+Math.sin(t/400)*2*dpr,0,7); g.stroke(); g.fillStyle = '#ffc857'; g.font = `600 ${13*dpr}px JetBrains Mono`; g.fillText(lab, sx+14*dpr, sy-12*dpr); }
