@@ -159,3 +159,17 @@ Material completo em `code/kolyvagin_two_legs/` (relatório `RELATORIO.md`, pré
 **O que NÃO foi conferido de forma independente.** O cálculo de κ₈₅ em si (pontos de Heegner de grau 108 e o reconhecimento) não foi refeito por outro código; a replicação em 2600 dígitos é do mesmo autor. A garantia vem das checagens mod q e da replicação por outro método de reconhecimento.
 
 **Leitura honesta.** É um único par (curva, n). Que κ_n esteja na interseção é quase elementar a partir dos axiomas de sistema de Kolyvagin; o conteúdo não trivial é κ_n ≠ 0 neste par (o sistema de Heegner é não nulo mod 3 em ν = 2 para esta curva), compatível com a conjectura de Kolyvagin e com Howard 2004, Mazur-Rubin 2004 e W. Zhang. Não foi feita busca de literatura que já tenha calculado κ_{ℓ₁ℓ₂} explicitamente em posto 3; portanto "primeiro teste" só vale "até onde sabemos". Status: exploratório, fora da nota até a sessão de pesquisa decidir.
+
+## 10. Estatística de det H mod p e o efeito da 3-isogenia (sessão isolada `mt-estatistica`; conferência do registro em 03/11/2026)
+
+Resultado da sessão (nota v0.6, §6): em 15 034 curvas de posto 1 a 3 (cerca de 3,7 milhões de pares curva-nível), H mod p se comporta como o modelo de Haar, com uma exceção registrada antes de coletar os dados (adendo 5): curvas com 3-isogenia racional e sem 3-torção têm det H ≡ 0 mod 3 mais vezes (posto 2: 0,374 contra 1/3 em 334 curvas; posto 3: 5 curvas). O mecanismo registrado explica parte; a versão corrigida é pós-hoc. Os dados brutos (582 MB) ficam fora do repositório.
+
+O que o registro conferiu:
+- **Contagem**: 15 034 curvas distintas por rótulo nos arquivos r1, r2, r3, rep_r1, rep_r2 e isog3_* (posto 1: 6 330; posto 2: 8 133; posto 3: 571).
+- **Estatística H5 recalculada dos .jsonl brutos** (`code/independent/isog3_check_h5.py`): posto 2, 334 curvas, 0,3743 ± 0,0061 contra controle 0,3319 ± 0,0017 (778), z = 6,68 e 6,66; posto 3, 5 curvas, 0,4932 ± 0,0492, z = 2,75 e 3,21. Idêntico ao relatório da sessão.
+- **Matrizes H brutas recalculadas por amostragem** com `mt_indep.gp` e os geradores de Cremona (`code/independent/isog3_spot_h.py`):
+  - primeira amostra, 14 curvas (10 de posto 2, 4 de posto 3): det H igual em 14/14. É uma amostra fraca: quase todos os casos têm n = 3 e det 0;
+  - segunda amostra, no subconjunto primário (3 ∤ M, n ≥ 30): 5/5 iguais, com n de 48 a 156, incluindo det não nulos (16, 64). Interrompida por tempo depois de 5 casos (`results/independent/isog3_spot_primario.log`).
+- Hashes dos arquivos de hipóteses conferidos.
+
+Não conferido: a seleção das curvas (isogenias e pareamento do controle) e os cálculos pós-hoc de s e da correção local.

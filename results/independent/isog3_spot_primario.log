@@ -1,0 +1,6 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+95850j1 M=1324 m=313 n=156 det_registro=12 det_meu=12 igual(+-)=True zero_mod3: True/True
+51975g1 M=352 m=97 n=48 det_registro=16 det_meu=16 igual(+-)=True zero_mod3: False/False
+29328m1 M=1424 m=163 n=81 det_registro=69 det_meu=69 igual(+-)=True zero_mod3: True/True
+77760cf1 M=880 m=229 n=114 det_registro=66 det_meu=66 igual(+-)=True zero_mod3: True/True
+51264bh1 M=784 m=181 n=90 det_registro=64 det_meu=64 igual(+-)=True zero_mod3: False/False
