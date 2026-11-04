@@ -5,7 +5,8 @@ authors:
   - family-names: Alencar
     given-names: Rauf
 date-released: 2026-11-04
-version: "0.6-unreviewed"
+version: "0.6.1-unreviewed"
+doi: "10.5281/zenodo.23964110"
 license: MIT
 repository-code: "https://github.com/RaufAlencar/mazur-tate-rank2-numerics"
 url: "https://raufalencar.github.io/mazur-tate-rank2-numerics/"
