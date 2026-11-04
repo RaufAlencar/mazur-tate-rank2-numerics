@@ -75,6 +75,7 @@ p{margin:0 0 1em}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:14px;padding:13px 22px;font-weight:600;text-decoration:none;border:1px solid var(--line2);color:var(--ink);background:var(--glass);backdrop-filter:blur(8px);cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .2s}
 .btn.primary{background:linear-gradient(92deg,var(--cyan),var(--violet));color:#050812;border:0}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(62,240,255,.18)}
+.doi{display:inline-flex;margin-top:22px;border-radius:8px;overflow:hidden;font:600 .82rem "JetBrains Mono";text-decoration:none;border:1px solid var(--line2)}.doi span{background:#1f2a52;color:var(--ink);padding:6px 10px}.doi b{background:rgba(62,240,255,.14);color:var(--cyan);padding:6px 12px;font-weight:600}.doi:hover b{background:rgba(62,240,255,.25)}
 .heroStats{display:flex;gap:34px;flex-wrap:wrap;margin-top:46px}
 .heroStats div{font:600 .8rem "JetBrains Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
 .heroStats strong{display:block;font:700 2.1rem "Space Grotesk";color:var(--ink);letter-spacing:-.02em;text-transform:none}
@@ -111,7 +112,7 @@ section{padding:110px 0;position:relative}
 .chapter.on{display:grid;animation:fade .5s}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}}
 /* linha do tempo */
-.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:30px;position:relative}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;position:relative}
 .timeline:before{content:"";position:absolute;top:21px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--mag))}
 @media (max-width:960px){.timeline{grid-template-columns:1fr 1fr}.timeline:before{display:none}}
 @media (max-width:520px){.timeline{grid-template-columns:1fr}}
@@ -214,6 +215,7 @@ html[lang="en"] [data-en]{display:revert}
     <h1 id="t-hero"><span data-pt>Do TikTok à<br><span class="grad">fronteira da matemática</span></span><span data-en>From TikTok to the<br><span class="grad">frontier of mathematics</span></span></h1>
     <p class="lead" data-pt>Um vídeo sobre Perelman, uma pessoa curiosa sem formação em matemática e uma inteligência artificial. Em duas semanas, mais de 1.700 verificações de uma conjectura ligada a um dos Problemas do Milênio. Aqui você aprende do zero o que foi testado, mexe nos dados reais e vê os erros corrigidos em público.</p>
     <p class="lead" data-en>A video about Perelman, a curious person with no mathematical training, and an artificial intelligence. In two weeks, more than 1,700 checks of a conjecture related to one of the Millennium Problems. Here you learn from scratch what was tested, play with the real data and see the mistakes corrected in public.</p>
+    <a class="doi" href="https://doi.org/10.5281/zenodo.23964110" aria-label="DOI no Zenodo"><span>DOI</span><b>10.5281/zenodo.23964110</b></a>
     <div class="cta">
       <a class="btn primary" href="#resumo"><span data-pt>Começar em 60 segundos</span><span data-en>Start in 60 seconds</span></a>
       <a class="btn" href="#lab"><span data-pt>Ir direto ao laboratório</span><span data-en>Go straight to the lab</span></a>
@@ -254,6 +256,7 @@ html[lang="en"] [data-en]{display:revert}
       <div class="tl rv"><div class="when">21 a 29/10</div><h3 data-pt>Seis rodadas de crítica</h3><h3 data-en>Six rounds of critique</h3><p data-pt>Um erro de sinal achado, testado e explicado. Referências conferidas na fonte.</p><p data-en>A sign error found, tested and explained. References checked at the source.</p></div>
       <div class="tl rv"><div class="when">21/10 a 03/11</div><h3 data-pt>Ш = 9 em posto 2</h3><h3 data-en>Ш = 9 in rank 2</h3><p data-pt>O fator Ш testado em posto 2, até onde sabemos, pela primeira vez. E uma lacuna da prova fechada.</p><p data-en>The Ш factor tested in rank 2, to our knowledge, for the first time. And a gap in the proof closed.</p></div>
       <div class="tl rv"><div class="when">03/11/2026</div><h3 data-pt>Kolyvagin em posto 3</h3><h3 data-en>Kolyvagin in rank 3</h3><p data-pt>Uma previsão registrada antes do cálculo se confirma numa curva de posto 3. Um caso só.</p><p data-en>A prediction registered before the computation is confirmed on a rank-3 curve. A single case.</p></div>
+      <div class="tl rv"><div class="when">04/11/2026</div><h3 data-pt>Registro permanente</h3><h3 data-en>Permanent record</h3><p data-pt>A v0.6 é arquivada no Zenodo, com DOI: o trabalho fica citável e com data.</p><p data-en>v0.6 is archived on Zenodo with a DOI: the work becomes citable and dated.</p></div>
     </div>
   </div>
 </section>
