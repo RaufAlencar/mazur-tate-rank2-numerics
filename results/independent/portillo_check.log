@@ -1,0 +1,17 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+P'=[1,0] m=23 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[1,0] m=29 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[1,0] m=31 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[1,0] m=37 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[1,0] m=41 razao PB/nossa = [40, 1, 40] (+-1? [True, True, True])
+P'=[3,5] m=23 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[3,5] m=29 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[3,5] m=31 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[3,5] m=37 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[3,5] m=41 razao PB/nossa = [1, 1, 40] (+-1? [True, True, True])
+P'=[-2,0] m=23 razao PB/nossa = [22, 1, 1] (+-1? [True, True, True])
+P'=[-2,0] m=29 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[-2,0] m=31 razao PB/nossa = [30, 1, 1] (+-1? [True, True, True])
+P'=[-2,0] m=37 razao PB/nossa = [1, 1, 1] (+-1? [True, True, True])
+P'=[-2,0] m=41 razao PB/nossa = [1, 40, 1] (+-1? [True, True, True])
+razao = +-1 em 45/45

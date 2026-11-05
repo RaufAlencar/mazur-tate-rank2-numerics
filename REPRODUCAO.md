@@ -173,3 +173,9 @@ O que o registro conferiu:
 - Hashes dos arquivos de hipóteses conferidos.
 
 Não conferido: a seleção das curvas (isogenias e pareamento do controle) e os cálculos pós-hoc de s e da correção local.
+
+## 11. Correção de atribuição da fórmula do emparelhamento (v0.7, 05/11/2026)
+- A v0.6 dizia que não tínhamos achado a fórmula do emparelhamento publicada. Estava errado: Portillo-Bobadilla (2019, arXiv:1709.01204, §3.2, eq. (18)) calcula o mesmo emparelhamento com uma razão cruzada de denominadores e um ponto auxiliar P′, e atribui a função g a Mazur–Tate, "page 747 of [12]"; a referência [12] dele é Mazur–Tate 1987 (Duke Math. J. 54, 711–750), conferida no PDF.
+- Comparação reproduzida: `code/independent/portillo_check/run_portillo.py` (lê `portillo.gp`, as funções do §8 da nota) em 389a1, níveis m = 23 a 41, com P′ ∈ {[1,0], [3,5], [−2,0]} escolhidos pela sessão de registro. Razão entre a fórmula dele e a nossa = ±1 em **45/45** casos. Log: `results/independent/portillo_check.log`.
+- Rodar (WSL): `cd code/independent/portillo_check && ~/bsdvenv/bin/python run_portillo.py`.
+- A nota v0.7 (rev 161) credita Mazur–Tate 1987 e Portillo-Bobadilla 2019 em seis lugares; o site, o README e os metadados do Zenodo foram corrigidos junto. A v0.6 fica preservada sem alteração (tags `v0.6` e `v0.6.1`).
