@@ -1,0 +1,3 @@
+417293fb52057c58a075c6f17affb98ab87c302ba0926b8a30aadde773d86c75 *PREREGISTRO_B.md
+4ce101f94302d90a64490c0baffe88200d51b5eab751c2f0316568d2f6980864 *bench.py
+piloto cego 15/11: 172 niveis, C1 0 desacordos, CN passa, 126 s, 38 MB (sem razoes de tempo vistas)
