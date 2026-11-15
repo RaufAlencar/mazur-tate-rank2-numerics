@@ -179,3 +179,14 @@ Não conferido: a seleção das curvas (isogenias e pareamento do controle) e os
 - Comparação reproduzida: `code/independent/portillo_check/run_portillo.py` (lê `portillo.gp`, as funções do §8 da nota) em 389a1, níveis m = 23 a 41, com P′ ∈ {[1,0], [3,5], [−2,0]} escolhidos pela sessão de registro. Razão entre a fórmula dele e a nossa = ±1 em **45/45** casos. Log: `results/independent/portillo_check.log`.
 - Rodar (WSL): `cd code/independent/portillo_check && ~/bsdvenv/bin/python run_portillo.py`.
 - A nota v0.7 (rev 161) credita Mazur–Tate 1987 e Portillo-Bobadilla 2019 em seis lugares; o site, o README e os metadados do Zenodo foram corrigidos junto. A v0.6 fica preservada sem alteração (tags `v0.6` e `v0.6.1`).
+
+## 12. 3-isogenia: modelo de componentes testado em curvas novas (adendo 7, 05/11/2026; não publicado na nota)
+- Hipótese registrada antes (adendo 7 da sessão `mt-estatistica`, sha256 48ef7020…): H mod 3 em curvas de posto 2 com 3-isogenia é a soma, sobre os primos maus de E′ com 3 | c_ℓ(E′), de [ℓ] = log_g ℓ mod 3 vezes um termo local dado pela classe de componente do ponto, sem parâmetro livre.
+- Rodada única em 761 curvas novas (N entre 100 mil e 300 mil): 176.832 comparações, 0 desacordos; controle embaralhado cai para cerca de 12%. Exclusões sem escolha: 102 curvas sem nível primário e 14 por tempo de CPU.
+- Reconferência da sessão de registro por método independente (parametrização de Tate, sem o método da sessão): 100% em cerca de 99 mil comparações. No caminho, o coeficiente local em I_n (n = 3n′) foi corrigido de −1 para −n′ mod 3, depois de ver os dados (declarado como pós-hoc; o veredito registrado não depende dele).
+- Enquadramento: verificação explícita da funtorialidade esperada de um emparelhamento de biextensão sob isogenia, que esperamos ser consequência de Mazur–Tate (1983). Não é reivindicação de novidade. Entra na nota como seção de uma v0.8 única, depois da leitura de Mazur–Tate 1983/1987.
+
+## 13. Atualização do site (15/11/2026)
+- Card da 3-isogenia atualizado com o resultado acima; item novo em "erros corrigidos" (previsões retiradas; murmurações).
+- Seção nova "Outras frentes": Navier–Stokes (conferência independente parcial da prova assistida de Hou, Wang e Yang 2025) e Hodge (reprodução de tabelas publicadas sobre Fermat), só com o que foi reproduzido; os achados sobre o trabalho de outros grupos ficam fora do site até um especialista ler e até os autores serem avisados (decisão do Rauf, 15/11).
+- Status atualizado: especialistas sem resposta até 15/11; próximos passos (ler Mazur–Tate, v0.8 única, conversa por indicação no Brasil).
