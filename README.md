@@ -24,6 +24,18 @@ Code, data and logs accompanying the note *Numerical verification of the refined
 
 The author is not a professional mathematician. The research computations and the drafting of the note were carried out with an AI system (Claude, Anthropic) in one session; a second, separate session re-implemented the main identity from the text of the note alone and ran the blind test and controls. All numerical claims were checked by running code. Errors found along the way are recorded in the note and in the logs rather than removed.
 
+## Using the pairing formula in your own computations
+
+`code/mazur_tate_pairing.gp` computes the Mazur-Tate pairing at a prime level m by the closed formula of the note (§2): ⟨R,R⟩ = [A(R)]⁻¹ and ⟨R,S⟩ = [γ/A(R+S)] in F_m^×/±1, for R, S in E_S(Q). It needs no auxiliary point.
+
+```gp
+read("code/mazur_tate_pairing.gp");
+E = ellinit([0,1,1,-2,0]);                     \ 389a1
+mtmatrix(E, [[-1,1],[0,0]], 23, Mod(5,23))[1]  \ [9, 7; 7, 9]  (Appendix of the note)
+```
+
+Tests (`code/test_mazur_tate_pairing.py`): the Appendix example, 219/219 levels against the independent half-pairing recipe and 219/219 against the auxiliary-point formula of Mazur-Tate (1987, p. 747) as used by Portillo-Bobadilla (2019, eq. (18)), on the ten curves of the note's table. A pre-registered timing (`code/independent/benchmark_formula/`) found the closed form 3.4 times faster for the pairing matrix (median over 172 levels, ranks 2 and 3, m ≤ 200) and 2.6 times faster end to end, with identical results. Status: the formula is derived from the biextension definition granting the Néron-model description of the canonical local splittings (note §7.1); it is not a theorem until that identification is checked against Mazur-Tate (1983).
+
 ## Reproducing
 
 Requirements: Python 3.12, `cypari2` 2.2.4 (bundles PARI/GP 2.17.2), `numpy`. On Windows, use WSL (cypari2 has no native Windows wheel). `setup/setup_wsl.sh` builds the environment used here.
